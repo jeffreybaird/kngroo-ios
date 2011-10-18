@@ -7,9 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "RKLoadable.h"
 
 
-@interface Hop : NSObject {
+@interface Hop : NSObject <RKLoadable> {
 
 	NSNumber* hopId;
 	NSString* title;

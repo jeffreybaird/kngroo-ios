@@ -1,4 +1,4 @@
-    //
+//
 //  HopListViewController.m
 //  Kngroo
 //
@@ -8,33 +8,29 @@
 
 #import "HopListViewController.h"
 #import "Hop.h"
+#import "User.h"
 
+
+static int ddLogLevel = LOG_LEVEL_VERBOSE;
 
 @implementation HopListViewController
 
-@synthesize hops;
+@synthesize tableView, hops;
 
 - (void)refreshHops
 {
-	// TODO: load hops from web service
+//	RKObjectMapping* tHopMapping = [RKObjectMapping mappingForClass:[Hop class]];
+//	[tHopMapping mapKeyPath:@"id" toAttribute:@"hopId"];
+//	[tHopMapping mapKeyPath:@"title" toAttribute:@"title"];
+//	[tHopMapping mapKeyPath:@"points" toAttribute:@"points"];
+
+	// grab server data for this app
+//	[[RKObjectManager sharedManager] loadObjectsAtResourcePath:@"/hops" objectMapping:tHopMapping delegate:self];
+	[[RKObjectManager sharedManager] loadObjectsAtResourcePath:@"/user/hops" delegate:self];
 }
 
-// The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
-/*
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization.
-    }
-    return self;
-}
-*/
-
-/*
-// Implement loadView to create a view hierarchy programmatically, without using a nib.
-- (void)loadView {
-}
-*/
+#pragma mark -
+#pragma mark View lifecycle
 
 - (void)viewDidLoad 
 {
@@ -42,32 +38,49 @@
 	
 	// refresh hops
 	[self refreshHops];
+
+    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refreshHops)] autorelease];    
 }
 
-/*
-// Override to allow orientations other than the default portrait orientation.
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    // Return YES for supported orientations.
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
 }
-*/
 
-- (void)didReceiveMemoryWarning {
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation 
+{
+    return UIInterfaceOrientationIsPortrait(interfaceOrientation);
+}
+
+- (void)didReceiveMemoryWarning 
+{
     // Releases the view if it doesn't have a superview.
     [super didReceiveMemoryWarning];
     
     // Release any cached data, images, etc. that aren't in use.
 }
 
-- (void)viewDidUnload {
+- (void)viewDidUnload 
+{
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
 }
 
 #pragma mark -
+#pragma mark UITableView Datasource and Delegate
 
-- (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)aTableView
+{
+	return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)aTableView numberOfRowsInSection:(NSInteger)section
+{
+	return hops.count;
+}
+
+- (UITableViewCell*)tableView:(UITableView *)aTableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	static NSString* sCellIdentifier = @"HopListCell";
 	UITableViewCell* tCell = [tableView dequeueReusableCellWithIdentifier:sCellIdentifier];
@@ -82,9 +95,34 @@
 	return tCell;
 }
 
+#pragma mark -
+#pragma mark RKObjectLoaderDelegate
+
+- (void)objectLoader:(RKObjectLoader *)objectLoader didLoadObjects:(NSArray *)objects
+{
+	DDLogVerbose(@"objects loaded: %@",objects);
+    self.hops = objects;
+    
+	dispatch_async(dispatch_get_main_queue(), ^{ 
+		[tableView reloadData];
+	});
+}
+
+- (void)objectLoader:(RKObjectLoader *)objectLoader didLoadObject:(id)object
+{
+	DDLogVerbose(@"object loaded: %@",object);
+}
+
+- (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error {
+	DDLogVerbose(@"Encountered an error: %@", error);
+}
+
+#pragma mark -
+
 - (void)dealloc 
 {
 	[hops release];
+    [tableView release];
     [super dealloc];
 }
 

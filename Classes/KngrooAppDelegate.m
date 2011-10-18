@@ -7,6 +7,10 @@
 //
 
 #import "KngrooAppDelegate.h"
+#import "DDTTYLogger.h"
+#import "User.h"
+#import "Hop.h"
+#import "Venue.h"
 
 
 @implementation KngrooAppDelegate
@@ -14,14 +18,28 @@
 @synthesize window;
 @synthesize tabBarController;
 
+- (void)initObjectLoader
+{
+    [User initObjectLoader];
+    [Hop initObjectLoader];
+    [Venue initObjectLoader];
+}
 
 #pragma mark -
 #pragma mark Application lifecycle
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
-    
-    // Override point for customization after application launch.
-
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions 
+{
+	// init logger
+	[DDLog addLogger:[DDTTYLogger sharedInstance]];
+		
+	RKObjectManager* tMgr = [RKObjectManager objectManagerWithBaseURL:@"http://local:3000"];
+	tMgr.client.username = @"109c63f22d";
+	tMgr.client.password = @"x";
+	tMgr.client.authenticationType = RKRequestAuthenticationTypeHTTPBasic;
+	
+	[self initObjectLoader];
+	
     // Add the tab bar controller's view to the window and display.
     [self.window addSubview:tabBarController.view];
     [self.window makeKeyAndVisible];

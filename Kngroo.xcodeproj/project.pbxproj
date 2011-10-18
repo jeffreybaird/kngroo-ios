@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 45;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -17,7 +17,110 @@
 		7ECDC969144DCD9900938D03 /* HopListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7ECDC968144DCD9900938D03 /* HopListView.xib */; };
 		7ECDC96E144DCDD700938D03 /* HopListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECDC96D144DCDD700938D03 /* HopListViewController.m */; };
 		7ECDC974144DCEF400938D03 /* Hop.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECDC973144DCEF400938D03 /* Hop.m */; };
+		7ECDC9BA144DD2B200938D03 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ECDC9B9144DD2B200938D03 /* CFNetwork.framework */; };
+		7ECDC9BC144DD2B200938D03 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ECDC9BB144DD2B200938D03 /* MobileCoreServices.framework */; };
+		7ECDC9BE144DD2B200938D03 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ECDC9BD144DD2B200938D03 /* SystemConfiguration.framework */; };
+		7ECDC9D1144DD33100938D03 /* libRestKitNetwork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ECDC99D144DD28C00938D03 /* libRestKitNetwork.a */; };
+		7ECDC9D2144DD33100938D03 /* libRestKitObjectMapping.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ECDC99F144DD28C00938D03 /* libRestKitObjectMapping.a */; };
+		7ECDC9D3144DD33100938D03 /* libRestKitSupport.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ECDC9A1144DD28C00938D03 /* libRestKitSupport.a */; };
+		7ECDC9D4144DD33100938D03 /* libRestKitJSONParserJSONKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ECDC9A9144DD28C00938D03 /* libRestKitJSONParserJSONKit.a */; };
+		7ECDCA04144DD53000938D03 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECDCA03144DD53000938D03 /* User.m */; };
+		7ECDCA07144DD60800938D03 /* Venue.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECDCA06144DD60800938D03 /* Venue.m */; };
+		7ECDCA27144DD7B500938D03 /* DDAbstractDatabaseLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECDCA18144DD7B500938D03 /* DDAbstractDatabaseLogger.m */; };
+		7ECDCA28144DD7B500938D03 /* DDASLLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECDCA1A144DD7B500938D03 /* DDASLLogger.m */; };
+		7ECDCA29144DD7B500938D03 /* DDFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECDCA1C144DD7B500938D03 /* DDFileLogger.m */; };
+		7ECDCA2A144DD7B500938D03 /* DDLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECDCA1E144DD7B500938D03 /* DDLog.m */; };
+		7ECDCA2B144DD7B500938D03 /* DDTTYLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECDCA20144DD7B500938D03 /* DDTTYLogger.m */; };
+		7EF45096144E2A0F00536B0E /* kngroo-logo-sq114.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EF45095144E2A0F00536B0E /* kngroo-logo-sq114.png */; };
+		7EF45098144E2A1700536B0E /* kngroo-logo-sq57.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EF45097144E2A1700536B0E /* kngroo-logo-sq57.png */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7ECDC99C144DD28C00938D03 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7ECDC98D144DD28C00938D03 /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 253A07FC1255161B00976E89;
+			remoteInfo = RestKitNetwork;
+		};
+		7ECDC99E144DD28C00938D03 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7ECDC98D144DD28C00938D03 /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 253A08031255162C00976E89;
+			remoteInfo = RestKitObjectMapping;
+		};
+		7ECDC9A0144DD28C00938D03 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7ECDC98D144DD28C00938D03 /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 253A080C12551D3000976E89;
+			remoteInfo = RestKitSupport;
+		};
+		7ECDC9A2144DD28C00938D03 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7ECDC98D144DD28C00938D03 /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 20808DBD13DE8CDC000A156A;
+			remoteInfo = "RestKitJSONParser+NXJSON";
+		};
+		7ECDC9A4144DD28C00938D03 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7ECDC98D144DD28C00938D03 /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2590E64F125231F600531FA8;
+			remoteInfo = "RestKitJSONParser+YAJL";
+		};
+		7ECDC9A6144DD28C00938D03 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7ECDC98D144DD28C00938D03 /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2590E66B1252353700531FA8;
+			remoteInfo = "RestKitJSONParser+SBJSON";
+		};
+		7ECDC9A8144DD28C00938D03 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7ECDC98D144DD28C00938D03 /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 73057FD11331AD2E001908EE;
+			remoteInfo = "RestKitJSONParser+JSONKit";
+		};
+		7ECDC9AA144DD28C00938D03 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7ECDC98D144DD28C00938D03 /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 25BD43BD1340315800DBACDD;
+			remoteInfo = "RestKitXMLParser+Libxml";
+		};
+		7ECDC9AC144DD28C00938D03 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7ECDC98D144DD28C00938D03 /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 253A081412551D5300976E89;
+			remoteInfo = RestKitCoreData;
+		};
+		7ECDC9AE144DD28C00938D03 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7ECDC98D144DD28C00938D03 /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2523360511E79F090048F9B4;
+			remoteInfo = RestKitThree20;
+		};
+		7ECDC9B0144DD28C00938D03 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7ECDC98D144DD28C00938D03 /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3F6C39A510FE5C95008F47C5;
+			remoteInfo = "RestKit Specs";
+		};
+		7ECDC9CF144DD30F00938D03 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7ECDC98D144DD28C00938D03 /* RestKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 255B7588133BABBF00ED76AD;
+			remoteInfo = RestKit;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -36,6 +139,27 @@
 		7ECDC96D144DCDD700938D03 /* HopListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HopListViewController.m; sourceTree = "<group>"; };
 		7ECDC972144DCEF400938D03 /* Hop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hop.h; sourceTree = "<group>"; };
 		7ECDC973144DCEF400938D03 /* Hop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Hop.m; sourceTree = "<group>"; };
+		7ECDC98D144DD28C00938D03 /* RestKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RestKit.xcodeproj; path = RestKit/RestKit.xcodeproj; sourceTree = "<group>"; };
+		7ECDC9B9144DD2B200938D03 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		7ECDC9BB144DD2B200938D03 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		7ECDC9BD144DD2B200938D03 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		7ECDCA02144DD53000938D03 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		7ECDCA03144DD53000938D03 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		7ECDCA05144DD60800938D03 /* Venue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Venue.h; sourceTree = "<group>"; };
+		7ECDCA06144DD60800938D03 /* Venue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Venue.m; sourceTree = "<group>"; };
+		7ECDCA17144DD7B500938D03 /* DDAbstractDatabaseLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDAbstractDatabaseLogger.h; sourceTree = "<group>"; };
+		7ECDCA18144DD7B500938D03 /* DDAbstractDatabaseLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDAbstractDatabaseLogger.m; sourceTree = "<group>"; };
+		7ECDCA19144DD7B500938D03 /* DDASLLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDASLLogger.h; sourceTree = "<group>"; };
+		7ECDCA1A144DD7B500938D03 /* DDASLLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDASLLogger.m; sourceTree = "<group>"; };
+		7ECDCA1B144DD7B500938D03 /* DDFileLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDFileLogger.h; sourceTree = "<group>"; };
+		7ECDCA1C144DD7B500938D03 /* DDFileLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDFileLogger.m; sourceTree = "<group>"; };
+		7ECDCA1D144DD7B500938D03 /* DDLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDLog.h; sourceTree = "<group>"; };
+		7ECDCA1E144DD7B500938D03 /* DDLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDLog.m; sourceTree = "<group>"; };
+		7ECDCA1F144DD7B500938D03 /* DDTTYLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDTTYLogger.h; sourceTree = "<group>"; };
+		7ECDCA20144DD7B500938D03 /* DDTTYLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDTTYLogger.m; sourceTree = "<group>"; };
+		7EF45092144E1DD700536B0E /* RKLoadable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RKLoadable.h; sourceTree = "<group>"; };
+		7EF45095144E2A0F00536B0E /* kngroo-logo-sq114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "kngroo-logo-sq114.png"; sourceTree = "<group>"; };
+		7EF45097144E2A1700536B0E /* kngroo-logo-sq57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "kngroo-logo-sq57.png"; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Kngroo-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Kngroo-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -44,9 +168,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7ECDC9D1144DD33100938D03 /* libRestKitNetwork.a in Frameworks */,
+				7ECDC9D2144DD33100938D03 /* libRestKitObjectMapping.a in Frameworks */,
+				7ECDC9D3144DD33100938D03 /* libRestKitSupport.a in Frameworks */,
+				7ECDC9D4144DD33100938D03 /* libRestKitJSONParserJSONKit.a in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				288765080DF74369002DB57D /* CoreGraphics.framework in Frameworks */,
+				7ECDC9BA144DD2B200938D03 /* CFNetwork.framework in Frameworks */,
+				7ECDC9BC144DD2B200938D03 /* MobileCoreServices.framework in Frameworks */,
+				7ECDC9BE144DD2B200938D03 /* SystemConfiguration.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +209,8 @@
 		29B97314FDCFA39411CA2CEA /* Kngroo */ = {
 			isa = PBXGroup;
 			children = (
+				7ECDCA16144DD7B500938D03 /* Lumberjack */,
+				7ECDC98D144DD28C00938D03 /* RestKit.xcodeproj */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
@@ -99,6 +232,8 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				7EF45097144E2A1700536B0E /* kngroo-logo-sq57.png */,
+				7EF45095144E2A0F00536B0E /* kngroo-logo-sq114.png */,
 				28AD73870D9D96C1002E5188 /* MainWindow.xib */,
 				8D1107310486CEB800E47090 /* Kngroo-Info.plist */,
 				7ECDC968144DCD9900938D03 /* HopListView.xib */,
@@ -112,6 +247,9 @@
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
 				288765070DF74369002DB57D /* CoreGraphics.framework */,
+				7ECDC9B9144DD2B200938D03 /* CFNetwork.framework */,
+				7ECDC9BB144DD2B200938D03 /* MobileCoreServices.framework */,
+				7ECDC9BD144DD2B200938D03 /* SystemConfiguration.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -121,8 +259,49 @@
 			children = (
 				7ECDC972144DCEF400938D03 /* Hop.h */,
 				7ECDC973144DCEF400938D03 /* Hop.m */,
+				7ECDCA02144DD53000938D03 /* User.h */,
+				7ECDCA03144DD53000938D03 /* User.m */,
+				7ECDCA05144DD60800938D03 /* Venue.h */,
+				7ECDCA06144DD60800938D03 /* Venue.m */,
+				7EF45092144E1DD700536B0E /* RKLoadable.h */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		7ECDC98E144DD28C00938D03 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7ECDC99D144DD28C00938D03 /* libRestKitNetwork.a */,
+				7ECDC99F144DD28C00938D03 /* libRestKitObjectMapping.a */,
+				7ECDC9A1144DD28C00938D03 /* libRestKitSupport.a */,
+				7ECDC9A3144DD28C00938D03 /* libRestKitJSONParserNXJSON.a */,
+				7ECDC9A5144DD28C00938D03 /* libRestKitJSONParserYAJL.a */,
+				7ECDC9A7144DD28C00938D03 /* libRestKitJSONParserSBJSON.a */,
+				7ECDC9A9144DD28C00938D03 /* libRestKitJSONParserJSONKit.a */,
+				7ECDC9AB144DD28C00938D03 /* libRestKitXMLParserLibxml.a */,
+				7ECDC9AD144DD28C00938D03 /* libRestKitCoreData.a */,
+				7ECDC9AF144DD28C00938D03 /* libRestKitThree20.a */,
+				7ECDC9B1144DD28C00938D03 /* RestKitSpecs.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7ECDCA16144DD7B500938D03 /* Lumberjack */ = {
+			isa = PBXGroup;
+			children = (
+				7ECDCA17144DD7B500938D03 /* DDAbstractDatabaseLogger.h */,
+				7ECDCA18144DD7B500938D03 /* DDAbstractDatabaseLogger.m */,
+				7ECDCA19144DD7B500938D03 /* DDASLLogger.h */,
+				7ECDCA1A144DD7B500938D03 /* DDASLLogger.m */,
+				7ECDCA1B144DD7B500938D03 /* DDFileLogger.h */,
+				7ECDCA1C144DD7B500938D03 /* DDFileLogger.m */,
+				7ECDCA1D144DD7B500938D03 /* DDLog.h */,
+				7ECDCA1E144DD7B500938D03 /* DDLog.m */,
+				7ECDCA1F144DD7B500938D03 /* DDTTYLogger.h */,
+				7ECDCA20144DD7B500938D03 /* DDTTYLogger.m */,
+			);
+			name = Lumberjack;
+			path = CocoaLumberjack/Lumberjack;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,6 +318,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				7ECDC9D0144DD30F00938D03 /* PBXTargetDependency */,
 			);
 			name = Kngroo;
 			productName = Kngroo;
@@ -150,8 +330,11 @@
 /* Begin PBXProject section */
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Kngroo" */;
-			compatibilityVersion = "Xcode 3.1";
+			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 1;
 			knownRegions = (
@@ -162,12 +345,98 @@
 			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* Kngroo */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 7ECDC98E144DD28C00938D03 /* Products */;
+					ProjectRef = 7ECDC98D144DD28C00938D03 /* RestKit.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				1D6058900D05DD3D006BFB54 /* Kngroo */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		7ECDC99D144DD28C00938D03 /* libRestKitNetwork.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRestKitNetwork.a;
+			remoteRef = 7ECDC99C144DD28C00938D03 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7ECDC99F144DD28C00938D03 /* libRestKitObjectMapping.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRestKitObjectMapping.a;
+			remoteRef = 7ECDC99E144DD28C00938D03 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7ECDC9A1144DD28C00938D03 /* libRestKitSupport.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRestKitSupport.a;
+			remoteRef = 7ECDC9A0144DD28C00938D03 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7ECDC9A3144DD28C00938D03 /* libRestKitJSONParserNXJSON.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRestKitJSONParserNXJSON.a;
+			remoteRef = 7ECDC9A2144DD28C00938D03 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7ECDC9A5144DD28C00938D03 /* libRestKitJSONParserYAJL.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRestKitJSONParserYAJL.a;
+			remoteRef = 7ECDC9A4144DD28C00938D03 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7ECDC9A7144DD28C00938D03 /* libRestKitJSONParserSBJSON.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRestKitJSONParserSBJSON.a;
+			remoteRef = 7ECDC9A6144DD28C00938D03 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7ECDC9A9144DD28C00938D03 /* libRestKitJSONParserJSONKit.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRestKitJSONParserJSONKit.a;
+			remoteRef = 7ECDC9A8144DD28C00938D03 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7ECDC9AB144DD28C00938D03 /* libRestKitXMLParserLibxml.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRestKitXMLParserLibxml.a;
+			remoteRef = 7ECDC9AA144DD28C00938D03 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7ECDC9AD144DD28C00938D03 /* libRestKitCoreData.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRestKitCoreData.a;
+			remoteRef = 7ECDC9AC144DD28C00938D03 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7ECDC9AF144DD28C00938D03 /* libRestKitThree20.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRestKitThree20.a;
+			remoteRef = 7ECDC9AE144DD28C00938D03 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7ECDC9B1144DD28C00938D03 /* RestKitSpecs.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = RestKitSpecs.app;
+			remoteRef = 7ECDC9B0144DD28C00938D03 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		1D60588D0D05DD3D006BFB54 /* Resources */ = {
@@ -176,6 +445,8 @@
 			files = (
 				28AD73880D9D96C1002E5188 /* MainWindow.xib in Resources */,
 				7ECDC969144DCD9900938D03 /* HopListView.xib in Resources */,
+				7EF45096144E2A0F00536B0E /* kngroo-logo-sq114.png in Resources */,
+				7EF45098144E2A1700536B0E /* kngroo-logo-sq57.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -191,10 +462,25 @@
 				28216C970DB411BC00E5133A /* FirstViewController.m in Sources */,
 				7ECDC96E144DCDD700938D03 /* HopListViewController.m in Sources */,
 				7ECDC974144DCEF400938D03 /* Hop.m in Sources */,
+				7ECDCA04144DD53000938D03 /* User.m in Sources */,
+				7ECDCA07144DD60800938D03 /* Venue.m in Sources */,
+				7ECDCA27144DD7B500938D03 /* DDAbstractDatabaseLogger.m in Sources */,
+				7ECDCA28144DD7B500938D03 /* DDASLLogger.m in Sources */,
+				7ECDCA29144DD7B500938D03 /* DDFileLogger.m in Sources */,
+				7ECDCA2A144DD7B500938D03 /* DDLog.m in Sources */,
+				7ECDCA2B144DD7B500938D03 /* DDTTYLogger.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7ECDC9D0144DD30F00938D03 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = RestKit;
+			targetProxy = 7ECDC9CF144DD30F00938D03 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		1D6058940D05DD3E006BFB54 /* Debug */ = {
@@ -206,7 +492,9 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Kngroo_Prefix.pch;
+				HEADER_SEARCH_PATHS = "$(SOURCE_ROOT)/RestKit/Build";
 				INFOPLIST_FILE = "Kngroo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				PRODUCT_NAME = Kngroo;
 			};
 			name = Debug;
@@ -219,6 +507,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Kngroo_Prefix.pch;
 				INFOPLIST_FILE = "Kngroo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				PRODUCT_NAME = Kngroo;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -232,7 +521,8 @@
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				PREBINDING = NO;
+				HEADER_SEARCH_PATHS = "$(SOURCE_ROOT)/RestKit/RestKit/Code";
+				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -246,7 +536,6 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PREBINDING = NO;
 				SDKROOT = iphoneos;
 			};
 			name = Release;

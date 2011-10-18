@@ -1,0 +1,6 @@
+[submodule "RestKit"]
+	path = RestKit
+	url = git://github.com/RestKit/RestKit.git
+[submodule "CocoaLumberjack"]
+	path = CocoaLumberjack
+	url = git://github.com/robbiehanson/CocoaLumberjack.git
