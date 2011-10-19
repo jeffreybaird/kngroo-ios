@@ -15,7 +15,7 @@ static int ddLogLevel = LOG_LEVEL_VERBOSE;
 
 @implementation HopListViewController
 
-@synthesize tableView, hops;
+@synthesize modeSelect, tableView, hops, allHops;
 
 - (void)refreshHops
 {
@@ -29,6 +29,24 @@ static int ddLogLevel = LOG_LEVEL_VERBOSE;
 	[[RKObjectManager sharedManager] loadObjectsAtResourcePath:@"/user/hops" delegate:self];
 }
 
+- (void)modeChanged
+{
+    BOOL tComplete = [modeSelect selectedSegmentIndex]==1;
+    [self showHops:tComplete];
+    [tableView reloadData];
+}
+
+- (void)showHops:(BOOL)aComplete
+{
+    NSMutableArray* tHops = [NSMutableArray array];
+    for (Hop* hop in self.allHops) {
+        if( [hop.completed boolValue]==aComplete ) {
+            [tHops addObject:hop];
+        }
+    }
+    self.hops = tHops;
+}
+
 #pragma mark -
 #pragma mark View lifecycle
 
@@ -40,6 +58,8 @@ static int ddLogLevel = LOG_LEVEL_VERBOSE;
 	[self refreshHops];
 
     self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refreshHops)] autorelease];    
+    
+    [modeSelect addTarget:self action:@selector(modeChanged) forControlEvents:UIControlEventValueChanged];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -101,7 +121,9 @@ static int ddLogLevel = LOG_LEVEL_VERBOSE;
 - (void)objectLoader:(RKObjectLoader *)objectLoader didLoadObjects:(NSArray *)objects
 {
 	DDLogVerbose(@"objects loaded: %@",objects);
-    self.hops = objects;
+    self.allHops = objects;
+    BOOL tComplete = [modeSelect selectedSegmentIndex]==1;
+    [self showHops:tComplete];
     
 	dispatch_async(dispatch_get_main_queue(), ^{ 
 		[tableView reloadData];

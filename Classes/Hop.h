@@ -16,6 +16,7 @@
 	NSString* title;
 	NSArray* venues;
 	NSNumber* points;
+    NSNumber* completed;
 	
 }
 
@@ -23,5 +24,6 @@
 @property (retain) NSString* title;
 @property (retain) NSArray* venues;
 @property (retain) NSNumber* points;
+@property (retain) NSNumber* completed;
 
 @end

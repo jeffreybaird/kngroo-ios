@@ -12,7 +12,7 @@
 
 @implementation Hop
 
-@synthesize hopId, title, venues, points;
+@synthesize hopId, title, venues, points, completed;
 
 + (void)initObjectLoader
 {
@@ -20,6 +20,7 @@
 	[tHopMapping mapKeyPath:@"id" toAttribute:@"hopId"];
 	[tHopMapping mapKeyPath:@"title" toAttribute:@"title"];
     [tHopMapping mapKeyPath:@"points" toAttribute:@"points"];
+    [tHopMapping mapKeyPath:@"completed" toAttribute:@"completed"];
 
     RKObjectMapping* tVenueMapping = [RKObjectMapping mappingForClass:[Venue class]];
 	[tVenueMapping mapKeyPath:@"id" toAttribute:@"venueId"];

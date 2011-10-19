@@ -11,13 +11,17 @@
 
 @interface HopListViewController : UIViewController <UITableViewDataSource,UITableViewDelegate,RKObjectLoaderDelegate> {
 
+    IBOutlet UISegmentedControl* modeSelect;
 	IBOutlet UITableView* tableView;
 	
 	NSArray* hops;
+    NSArray* allHops;
 	
 }
 
+@property (retain) UISegmentedControl* modeSelect;
 @property (retain) UITableView* tableView;
 @property (retain) NSArray* hops;
+@property (retain) NSArray* allHops;
 
 @end
