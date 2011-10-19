@@ -9,6 +9,7 @@
 #import "HopListViewController.h"
 #import "Hop.h"
 #import "User.h"
+#import "HopViewController.h"
 
 
 static int ddLogLevel = LOG_LEVEL_VERBOSE;
@@ -117,7 +118,11 @@ static int ddLogLevel = LOG_LEVEL_VERBOSE;
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    Alert(@"TODO",@"show hop detail");
+    Hop* tHop = [hops objectAtIndex:indexPath.row];
+    HopViewController* tHopView = [[[HopViewController alloc] initWithNibName:@"HopView" bundle:[NSBundle mainBundle]] autorelease];
+    tHopView.hop = tHop;
+    
+    [self.navigationController pushViewController:tHopView animated:YES];
 }
 
 #pragma mark -

@@ -17,6 +17,8 @@
 		7E50B1C7144F71AA00A4FB36 /* AllHopListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E50B1C5144F71AA00A4FB36 /* AllHopListView.xib */; };
 		7E50B1CA144F8D4900A4FB36 /* LeadersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E50B1C9144F8D4900A4FB36 /* LeadersViewController.m */; };
 		7E50B1CC144F8E7100A4FB36 /* LeadersView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E50B1CB144F8E7100A4FB36 /* LeadersView.xib */; };
+		7E50B1CF144F944300A4FB36 /* HopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E50B1CE144F944300A4FB36 /* HopViewController.m */; };
+		7E50B1D1144F946D00A4FB36 /* HopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E50B1D0144F946D00A4FB36 /* HopView.xib */; };
 		7ECDC969144DCD9900938D03 /* HopListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7ECDC968144DCD9900938D03 /* HopListView.xib */; };
 		7ECDC96E144DCDD700938D03 /* HopListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECDC96D144DCDD700938D03 /* HopListViewController.m */; };
 		7ECDC974144DCEF400938D03 /* Hop.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECDC973144DCEF400938D03 /* Hop.m */; };
@@ -141,6 +143,9 @@
 		7E50B1C8144F8D4900A4FB36 /* LeadersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeadersViewController.h; sourceTree = "<group>"; };
 		7E50B1C9144F8D4900A4FB36 /* LeadersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeadersViewController.m; sourceTree = "<group>"; };
 		7E50B1CB144F8E7100A4FB36 /* LeadersView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeadersView.xib; sourceTree = "<group>"; };
+		7E50B1CD144F944200A4FB36 /* HopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HopViewController.h; sourceTree = "<group>"; };
+		7E50B1CE144F944300A4FB36 /* HopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HopViewController.m; sourceTree = "<group>"; };
+		7E50B1D0144F946D00A4FB36 /* HopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HopView.xib; sourceTree = "<group>"; };
 		7ECDC968144DCD9900938D03 /* HopListView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HopListView.xib; sourceTree = "<group>"; };
 		7ECDC96C144DCDD700938D03 /* HopListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HopListViewController.h; sourceTree = "<group>"; };
 		7ECDC96D144DCDD700938D03 /* HopListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HopListViewController.m; sourceTree = "<group>"; };
@@ -203,6 +208,8 @@
 				7E50B1C4144F71AA00A4FB36 /* AllHopListViewController.m */,
 				7E50B1C8144F8D4900A4FB36 /* LeadersViewController.h */,
 				7E50B1C9144F8D4900A4FB36 /* LeadersViewController.m */,
+				7E50B1CD144F944200A4FB36 /* HopViewController.h */,
+				7E50B1CE144F944300A4FB36 /* HopViewController.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -248,6 +255,7 @@
 				8D1107310486CEB800E47090 /* Kngroo-Info.plist */,
 				7ECDC968144DCD9900938D03 /* HopListView.xib */,
 				7E50B1CB144F8E7100A4FB36 /* LeadersView.xib */,
+				7E50B1D0144F946D00A4FB36 /* HopView.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -460,6 +468,7 @@
 				7EF45098144E2A1700536B0E /* kngroo-logo-sq57.png in Resources */,
 				7E50B1C7144F71AA00A4FB36 /* AllHopListView.xib in Resources */,
 				7E50B1CC144F8E7100A4FB36 /* LeadersView.xib in Resources */,
+				7E50B1D1144F946D00A4FB36 /* HopView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -483,6 +492,7 @@
 				7ECDCA2B144DD7B500938D03 /* DDTTYLogger.m in Sources */,
 				7E50B1C6144F71AA00A4FB36 /* AllHopListViewController.m in Sources */,
 				7E50B1CA144F8D4900A4FB36 /* LeadersViewController.m in Sources */,
+				7E50B1CF144F944300A4FB36 /* HopViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
