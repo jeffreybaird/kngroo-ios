@@ -115,6 +115,11 @@ static int ddLogLevel = LOG_LEVEL_VERBOSE;
 	return tCell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    Alert(@"TODO",@"show venue");
+}
+
 #pragma mark -
 #pragma mark RKObjectLoaderDelegate
 
@@ -137,6 +142,7 @@ static int ddLogLevel = LOG_LEVEL_VERBOSE;
 
 - (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error {
 	DDLogVerbose(@"Encountered an error: %@", error);
+    Alert(@"Unable to load", [error localizedDescription]);
 }
 
 #pragma mark -

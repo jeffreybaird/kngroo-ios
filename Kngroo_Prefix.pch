@@ -9,3 +9,5 @@
 
 #import <RestKit/RestKit.h>
 #import "DDLog.h"
+
+#define Alert(tTitle,tMsg) [[[[UIAlertView alloc] initWithTitle:tTitle message:tMsg delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil] autorelease] show];
