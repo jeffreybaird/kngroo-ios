@@ -11,7 +11,7 @@
 
 @implementation User
 
-@synthesize userId, email, password, hops;
+@synthesize userId, email, password, points, hops;
 
 + (void)initObjectLoader
 {
@@ -19,6 +19,7 @@
 	[tUserMapping mapKeyPath:@"id" toAttribute:@"userId"];
 	[tUserMapping mapKeyPath:@"email" toAttribute:@"email"];
 	[tUserMapping mapKeyPath:@"password" toAttribute:@"password"];
+	[tUserMapping mapKeyPath:@"points" toAttribute:@"points"];
 
     [[RKObjectManager sharedManager].mappingProvider setObjectMapping:tUserMapping forKeyPath:@"user"];
 }

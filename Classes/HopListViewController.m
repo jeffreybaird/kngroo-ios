@@ -117,7 +117,7 @@ static int ddLogLevel = LOG_LEVEL_VERBOSE;
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    Alert(@"TODO",@"show venue");
+    Alert(@"TODO",@"show hop detail");
 }
 
 #pragma mark -
