@@ -16,8 +16,11 @@
     IBOutlet UILabel* titleLabel;
     IBOutlet UILabel* descriptionLabel;
     IBOutlet UITableView* tableView;
+    IBOutlet UIButton* startButton;
+    IBOutlet UIProgressView* progressView;
     
     Hop* hop;
+    BOOL active;
     
 }
 
@@ -25,7 +28,10 @@
 @property (retain) UILabel* titleLabel;
 @property (retain) UILabel* descriptionLabel;
 @property (retain) UITableView* tableView;
+@property (retain) UIButton* startButton;
+@property (retain) UIProgressView* progressView;
 @property (retain) Hop* hop;
+@property BOOL active;
 
 -(IBAction)startThisHop:(id)sender;
 -(IBAction)showMap:(id)sender;

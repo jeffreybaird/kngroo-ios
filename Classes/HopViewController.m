@@ -14,7 +14,7 @@ static int ddLogLevel = LOG_LEVEL_VERBOSE;
 
 @implementation HopViewController
 
-@synthesize imageView, titleLabel, descriptionLabel, tableView, hop;
+@synthesize imageView, titleLabel, descriptionLabel, tableView, startButton, progressView, hop, active;
 
 - (IBAction)startThisHop:(id)sender
 {
@@ -33,6 +33,9 @@ static int ddLogLevel = LOG_LEVEL_VERBOSE;
     [super viewDidLoad];
     
 //    [[RKObjectManager sharedManager] loadObjectsAtResourcePath:[NSString stringWithFormat:@"/hops/%@",hop.hopId] delegate:self];
+    
+    // configure state-dependent component visibility
+    startButton.hidden = active;
     
     // populate UI
     titleLabel.text = hop.title;

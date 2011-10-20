@@ -7,6 +7,9 @@
 //
 
 #import "AllHopListViewController.h"
+#import "Hop.h"
+#import "HopViewController.h"
+
 
 @implementation AllHopListViewController
 
@@ -43,5 +46,19 @@
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
+
+#pragma mark -
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    Hop* tHop = [hops objectAtIndex:indexPath.row];
+    HopViewController* tHopView = [[[HopViewController alloc] initWithNibName:@"HopView" bundle:[NSBundle mainBundle]] autorelease];
+    tHopView.hop = tHop;
+    tHopView.active = NO;
+    
+    [self.navigationController pushViewController:tHopView animated:YES];
+}
+
+
 
 @end
