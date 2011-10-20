@@ -27,4 +27,7 @@
 @property (retain) UITableView* tableView;
 @property (retain) Hop* hop;
 
+-(IBAction)startThisHop:(id)sender;
+-(IBAction)showMap:(id)sender;
+
 @end

@@ -16,6 +16,15 @@ static int ddLogLevel = LOG_LEVEL_VERBOSE;
 
 @synthesize imageView, titleLabel, descriptionLabel, tableView, hop;
 
+- (IBAction)startThisHop:(id)sender
+{
+    Alert(@"TODO", @"add hop to my hops");
+}
+
+- (IBAction)showMap:(id)sender
+{
+    Alert(@"TODO", @"show full screen map");
+}
 
 #pragma mark - View lifecycle
 
@@ -23,9 +32,12 @@ static int ddLogLevel = LOG_LEVEL_VERBOSE;
 {
     [super viewDidLoad];
     
-    [[RKObjectManager sharedManager] loadObjectsAtResourcePath:[NSString stringWithFormat:@"/hops/%@",hop.hopId] delegate:self];
+//    [[RKObjectManager sharedManager] loadObjectsAtResourcePath:[NSString stringWithFormat:@"/hops/%@",hop.hopId] delegate:self];
     
-    self.navigationItem.title = @"Hop Details";
+    // populate UI
+    titleLabel.text = hop.title;
+    
+    self.navigationItem.title = @"Details";
 }
 
 - (void)viewDidUnload
@@ -72,6 +84,7 @@ static int ddLogLevel = LOG_LEVEL_VERBOSE;
 {
     Venue* tVenue = [hop.venues objectAtIndex:indexPath.row];
     Alert(@"TODO", @"show venue");
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 //    HopViewController* tHopView = [[[HopViewController alloc] initWithNibName:@"HopView" bundle:[NSBundle mainBundle]] autorelease];
 //    tHopView.hop = tHop;
 //    
