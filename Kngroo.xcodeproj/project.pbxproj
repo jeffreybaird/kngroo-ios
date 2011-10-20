@@ -20,6 +20,7 @@
 		7E50B1CF144F944300A4FB36 /* HopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E50B1CE144F944300A4FB36 /* HopViewController.m */; };
 		7E50B1D1144F946D00A4FB36 /* HopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E50B1D0144F946D00A4FB36 /* HopView.xib */; };
 		7E50B1D3144F9EB800A4FB36 /* hop-image.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E50B1D2144F9EB700A4FB36 /* hop-image.png */; };
+		7E50B1D6144FE78400A4FB36 /* Checkin.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E50B1D5144FE78400A4FB36 /* Checkin.m */; };
 		7ECDC969144DCD9900938D03 /* HopListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7ECDC968144DCD9900938D03 /* HopListView.xib */; };
 		7ECDC96E144DCDD700938D03 /* HopListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECDC96D144DCDD700938D03 /* HopListViewController.m */; };
 		7ECDC974144DCEF400938D03 /* Hop.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECDC973144DCEF400938D03 /* Hop.m */; };
@@ -148,6 +149,8 @@
 		7E50B1CE144F944300A4FB36 /* HopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HopViewController.m; sourceTree = "<group>"; };
 		7E50B1D0144F946D00A4FB36 /* HopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HopView.xib; sourceTree = "<group>"; };
 		7E50B1D2144F9EB700A4FB36 /* hop-image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hop-image.png"; sourceTree = "<group>"; };
+		7E50B1D4144FE78400A4FB36 /* Checkin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Checkin.h; sourceTree = "<group>"; };
+		7E50B1D5144FE78400A4FB36 /* Checkin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Checkin.m; sourceTree = "<group>"; };
 		7ECDC968144DCD9900938D03 /* HopListView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HopListView.xib; sourceTree = "<group>"; };
 		7ECDC96C144DCDD700938D03 /* HopListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HopListViewController.h; sourceTree = "<group>"; };
 		7ECDC96D144DCDD700938D03 /* HopListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HopListViewController.m; sourceTree = "<group>"; };
@@ -286,6 +289,8 @@
 				7ECDCA05144DD60800938D03 /* Venue.h */,
 				7ECDCA06144DD60800938D03 /* Venue.m */,
 				7EF45092144E1DD700536B0E /* RKLoadable.h */,
+				7E50B1D4144FE78400A4FB36 /* Checkin.h */,
+				7E50B1D5144FE78400A4FB36 /* Checkin.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -497,6 +502,7 @@
 				7E50B1C6144F71AA00A4FB36 /* AllHopListViewController.m in Sources */,
 				7E50B1CA144F8D4900A4FB36 /* LeadersViewController.m in Sources */,
 				7E50B1CF144F944300A4FB36 /* HopViewController.m in Sources */,
+				7E50B1D6144FE78400A4FB36 /* Checkin.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
