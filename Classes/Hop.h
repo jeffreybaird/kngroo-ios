@@ -26,4 +26,6 @@
 @property (retain) NSNumber* points;
 @property (retain) NSArray* checkins;
 
+-(BOOL)isComplete;
+
 @end
