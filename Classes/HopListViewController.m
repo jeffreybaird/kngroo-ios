@@ -113,7 +113,7 @@ static int ddLogLevel = LOG_LEVEL_VERBOSE;
 	
 	Hop* tHop = [hops objectAtIndex:indexPath.row];
 	tCell.textLabel.text = tHop.title;
-	tCell.detailTextLabel.text = [NSString stringWithFormat:@"%d places, %d points, %d checkins",tHop.venues.count,[tHop.points intValue],tHop.checkins.count];
+	tCell.detailTextLabel.text = [NSString stringWithFormat:@"%d places, %d points",tHop.venues.count,[tHop.points intValue]];
 	
 	return tCell;
 }
