@@ -7,17 +7,23 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "RKLoadable.h"
 
-@interface Checkin : NSObject {
+
+@interface Checkin : NSObject <RKLoadable> {
     
     NSNumber* checkinId;
-    NSNumber* hopId;
+    NSNumber* assignmentId;
     NSNumber* venueId;
+    NSDate* createdAt;
+    NSNumber* trophyAwarded;
     
 }
 
 @property (retain) NSNumber* checkinId;
-@property (retain) NSNumber* hopId;
+@property (retain) NSNumber* assignmentId;
 @property (retain) NSNumber* venueId;
+@property (retain) NSDate* createdAt;
+@property (retain) NSNumber* trophyAwarded;
 
 @end

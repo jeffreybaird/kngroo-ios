@@ -14,7 +14,7 @@
 
 @implementation Assignment
 
-@synthesize assignmentId, complete, hop;
+@synthesize assignmentId, complete, hop, checkins;
 
 + (void)initObjectLoader
 {
@@ -35,7 +35,8 @@
     
     RKObjectMapping* tCheckinMapping = [RKObjectMapping mappingForClass:[Checkin class]];
 	[tCheckinMapping mapKeyPath:@"id" toAttribute:@"checkinId"];
-	[tCheckinMapping mapKeyPath:@"assignment_id" toAttribute:@"assignmentId"];
+	[tCheckinMapping mapKeyPath:@"venue_id" toAttribute:@"venueId"];
+	[tCheckinMapping mapKeyPath:@"created_at" toAttribute:@"createdAt"];
     
     [tAssignmentMapping mapKeyPath:@"hop" toRelationship:@"hop" withMapping:tHopMapping];
 	[tAssignmentMapping mapKeyPath:@"checkins" toRelationship:@"checkins" withMapping:tCheckinMapping];

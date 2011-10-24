@@ -9,7 +9,7 @@
 #import "AssignmentListViewController.h"
 #import "Hop.h"
 #import "User.h"
-#import "HopViewController.h"
+#import "AssignmentViewController.h"
 #import "Assignment.h"
 
 
@@ -49,6 +49,21 @@ static int ddLogLevel = LOG_LEVEL_VERBOSE;
     self.hops = tHops;
 }
 
+- (void)checkinSuccessful:(NSNotification*)notif
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.navigationController popToRootViewControllerAnimated:YES]; 
+        [self refreshHops];
+    });
+}
+
+- (void)trophyAwarded:(NSNotification*)notif
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        Alert(@"TODO", @"trophy awarded");
+    });
+}
+
 #pragma mark -
 #pragma mark View lifecycle
 
@@ -62,6 +77,16 @@ static int ddLogLevel = LOG_LEVEL_VERBOSE;
     self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refreshHops)] autorelease];    
     
     [modeSelect addTarget:self action:@selector(modeChanged) forControlEvents:UIControlEventValueChanged];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self 
+                                             selector:@selector(checkinSuccessful:)
+                                                 name:@"CheckinSuccessful"
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self 
+                                             selector:@selector(trophyAwarded:)
+                                                 name:@"TrophyAwarded"
+                                               object:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -123,10 +148,9 @@ static int ddLogLevel = LOG_LEVEL_VERBOSE;
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	Assignment* tAssignment = [hops objectAtIndex:indexPath.row];
-    Hop* tHop = tAssignment.hop;
-    HopViewController* tHopView = [[[HopViewController alloc] initWithNibName:@"HopView" bundle:[NSBundle mainBundle]] autorelease];
-    tHopView.hop = tHop;
-    tHopView.active = ![tAssignment.complete boolValue];
+    AssignmentViewController* tHopView = [[[AssignmentViewController alloc] initWithNibName:@"HopView" bundle:[NSBundle mainBundle]] autorelease];
+    tHopView.hop = tAssignment.hop;
+    tHopView.assignment = tAssignment;
     
     [self.navigationController pushViewController:tHopView animated:YES];
 }

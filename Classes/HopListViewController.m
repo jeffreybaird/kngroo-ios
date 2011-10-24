@@ -95,7 +95,7 @@ static int ddLogLevel = LOG_LEVEL_VERBOSE;
 	return tCell;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)tableView:(UITableView *)aTableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	Hop* tHop = [hops objectAtIndex:indexPath.row];
     HopViewController* tHopView = [[[HopViewController alloc] initWithNibName:@"HopView" bundle:[NSBundle mainBundle]] autorelease];
@@ -103,6 +103,8 @@ static int ddLogLevel = LOG_LEVEL_VERBOSE;
     tHopView.active = NO;
     
     [self.navigationController pushViewController:tHopView animated:YES];
+    
+    [aTableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 #pragma mark -

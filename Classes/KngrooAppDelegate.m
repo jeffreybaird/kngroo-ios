@@ -12,6 +12,7 @@
 #import "Hop.h"
 #import "Venue.h"
 #import "Assignment.h"
+#import "Checkin.h"
 
 
 @implementation KngrooAppDelegate
@@ -25,6 +26,7 @@
     [Hop initObjectLoader];
     [Venue initObjectLoader];
     [Assignment initObjectLoader];
+    [Checkin initObjectLoader];
 }
 
 #pragma mark -

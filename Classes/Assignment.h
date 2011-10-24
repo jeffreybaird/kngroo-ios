@@ -15,11 +15,13 @@
     NSNumber* assignmentId;
     NSNumber* complete;
     Hop* hop;
+    NSArray* checkins;
     
 }
 
 @property (retain) NSNumber* assignmentId;
 @property (retain) NSNumber* complete;
 @property (retain) Hop* hop;
+@property (retain) NSArray* checkins;
 
 @end

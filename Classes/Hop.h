@@ -16,7 +16,6 @@
 	NSString* title;
 	NSArray* venues;
 	NSNumber* points;
-    NSArray* checkins;
 	
 }
 
@@ -24,8 +23,5 @@
 @property (retain) NSString* title;
 @property (retain) NSArray* venues;
 @property (retain) NSNumber* points;
-@property (retain) NSArray* checkins;
-
--(BOOL)isComplete;
 
 @end

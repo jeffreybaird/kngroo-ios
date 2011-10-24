@@ -41,8 +41,6 @@ static int ddLogLevel = LOG_LEVEL_VERBOSE;
     
     // populate UI
     titleLabel.text = hop.title;
-    progressLabel.text = [NSString stringWithFormat:@"Progress (%d of %d):",hop.checkins.count,hop.venues.count];
-    progressView.progress = hop.checkins.count / hop.venues.count;
     
     self.navigationItem.title = @"Hop";
 }
@@ -84,19 +82,6 @@ static int ddLogLevel = LOG_LEVEL_VERBOSE;
 	Venue* tVenue = [hop.venues objectAtIndex:indexPath.row];
 	
     tCell.textLabel.text = tVenue.name;
-
-    BOOL tVenueCheckedIn = NO;
-    for (Checkin* checkin in hop.checkins) {
-        if( [checkin.venueId intValue]==[tVenue.venueId intValue] ) {
-            tVenueCheckedIn = YES;
-            break;
-        }
-    }
-    if( tVenueCheckedIn ) {
-        tCell.accessoryType = UITableViewCellAccessoryCheckmark;
-    }else{
-        tCell.accessoryType = UITableViewCellAccessoryNone;
-    }
 	
 	return tCell;
 }
