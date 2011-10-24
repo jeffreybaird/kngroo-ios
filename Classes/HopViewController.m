@@ -8,13 +8,15 @@
 
 #import "HopViewController.h"
 #import "Venue.h"
+#import "VenueViewController.h"
+#import "Checkin.h"
 
 
 static int ddLogLevel = LOG_LEVEL_VERBOSE;
 
 @implementation HopViewController
 
-@synthesize imageView, titleLabel, descriptionLabel, tableView, startButton, progressView, hop, active;
+@synthesize imageView, titleLabel, descriptionLabel, tableView, startButton, progressLabel, progressView, hop, active;
 
 - (IBAction)startThisHop:(id)sender
 {
@@ -39,8 +41,10 @@ static int ddLogLevel = LOG_LEVEL_VERBOSE;
     
     // populate UI
     titleLabel.text = hop.title;
+    progressLabel.text = [NSString stringWithFormat:@"Progress (%d of %d):",hop.checkins.count,hop.venues.count];
+    progressView.progress = hop.checkins.count / hop.venues.count;
     
-    self.navigationItem.title = @"Details";
+    self.navigationItem.title = @"Hop";
 }
 
 - (void)viewDidUnload
@@ -78,16 +82,33 @@ static int ddLogLevel = LOG_LEVEL_VERBOSE;
 	}
 	
 	Venue* tVenue = [hop.venues objectAtIndex:indexPath.row];
-	tCell.textLabel.text = tVenue.name;
+	
+    tCell.textLabel.text = tVenue.name;
+
+    BOOL tVenueCheckedIn = NO;
+    for (Checkin* checkin in hop.checkins) {
+        if( [checkin.venueId intValue]==[tVenue.venueId intValue] ) {
+            tVenueCheckedIn = YES;
+            break;
+        }
+    }
+    if( tVenueCheckedIn ) {
+        tCell.accessoryType = UITableViewCellAccessoryCheckmark;
+    }else{
+        tCell.accessoryType = UITableViewCellAccessoryNone;
+    }
 	
 	return tCell;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)tableView:(UITableView *)aTableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     Venue* tVenue = [hop.venues objectAtIndex:indexPath.row];
-    Alert(@"TODO", @"show venue");
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    VenueViewController* tVenueView = [[[VenueViewController alloc] initWithNibName:@"VenueView" bundle:[NSBundle mainBundle]] autorelease];
+    tVenueView.venue = tVenue;
+    [self.navigationController pushViewController:tVenueView animated:YES];
+
+    [aTableView deselectRowAtIndexPath:indexPath animated:YES];
 //    HopViewController* tHopView = [[[HopViewController alloc] initWithNibName:@"HopView" bundle:[NSBundle mainBundle]] autorelease];
 //    tHopView.hop = tHop;
 //    

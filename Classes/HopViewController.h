@@ -17,6 +17,7 @@
     IBOutlet UILabel* descriptionLabel;
     IBOutlet UITableView* tableView;
     IBOutlet UIButton* startButton;
+    IBOutlet UILabel* progressLabel;
     IBOutlet UIProgressView* progressView;
     
     Hop* hop;
@@ -29,6 +30,7 @@
 @property (retain) UILabel* descriptionLabel;
 @property (retain) UITableView* tableView;
 @property (retain) UIButton* startButton;
+@property (retain) UILabel* progressLabel;
 @property (retain) UIProgressView* progressView;
 @property (retain) Hop* hop;
 @property BOOL active;

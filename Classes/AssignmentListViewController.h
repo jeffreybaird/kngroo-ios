@@ -2,18 +2,21 @@
 //  HopListViewController.h
 //  Kngroo
 //
-//  Created by Aubrey Goodman on 10/19/11.
-//  Copyright (c) 2011 Migrant Studios. All rights reserved.
+//  Created by Aubrey Goodman on 10/18/11.
+//  Copyright 2011 Migrant Studios. All rights reserved.
 //
 
-@interface HopListViewController : UIViewController <RKObjectLoaderDelegate> {
-    
+#import <UIKit/UIKit.h>
+
+
+@interface AssignmentListViewController : UIViewController <UITableViewDataSource,UITableViewDelegate,RKObjectLoaderDelegate> {
+
     IBOutlet UISegmentedControl* modeSelect;
 	IBOutlet UITableView* tableView;
 	
-    NSArray* hops;
+	NSArray* hops;
     NSArray* allHops;
-    
+	
 }
 
 @property (retain) UISegmentedControl* modeSelect;

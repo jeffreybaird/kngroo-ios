@@ -11,6 +11,7 @@
 #import "User.h"
 #import "Hop.h"
 #import "Venue.h"
+#import "Assignment.h"
 
 
 @implementation KngrooAppDelegate
@@ -23,6 +24,7 @@
     [User initObjectLoader];
     [Hop initObjectLoader];
     [Venue initObjectLoader];
+    [Assignment initObjectLoader];
 }
 
 #pragma mark -
@@ -34,6 +36,7 @@
 	[DDLog addLogger:[DDTTYLogger sharedInstance]];
 		
 	RKObjectManager* tMgr = [RKObjectManager objectManagerWithBaseURL:@"http://local:3000"];
+//	RKObjectManager* tMgr = [RKObjectManager objectManagerWithBaseURL:@"http://kngroo-sandbox.heroku.com"];
 	tMgr.client.username = @"109c63f22d";
 	tMgr.client.password = @"x";
 	tMgr.client.authenticationType = RKRequestAuthenticationTypeHTTPBasic;

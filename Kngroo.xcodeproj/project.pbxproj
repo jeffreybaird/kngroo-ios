@@ -13,16 +13,20 @@
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765080DF74369002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765070DF74369002DB57D /* CoreGraphics.framework */; };
 		28AD73880D9D96C1002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD73870D9D96C1002E5188 /* MainWindow.xib */; };
-		7E50B1C6144F71AA00A4FB36 /* AllHopListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E50B1C4144F71AA00A4FB36 /* AllHopListViewController.m */; };
-		7E50B1C7144F71AA00A4FB36 /* AllHopListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E50B1C5144F71AA00A4FB36 /* AllHopListView.xib */; };
+		7E50B1C6144F71AA00A4FB36 /* HopListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E50B1C4144F71AA00A4FB36 /* HopListViewController.m */; };
+		7E50B1C7144F71AA00A4FB36 /* HopListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E50B1C5144F71AA00A4FB36 /* HopListView.xib */; };
 		7E50B1CA144F8D4900A4FB36 /* LeadersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E50B1C9144F8D4900A4FB36 /* LeadersViewController.m */; };
 		7E50B1CC144F8E7100A4FB36 /* LeadersView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E50B1CB144F8E7100A4FB36 /* LeadersView.xib */; };
 		7E50B1CF144F944300A4FB36 /* HopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E50B1CE144F944300A4FB36 /* HopViewController.m */; };
 		7E50B1D1144F946D00A4FB36 /* HopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E50B1D0144F946D00A4FB36 /* HopView.xib */; };
 		7E50B1D3144F9EB800A4FB36 /* hop-image.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E50B1D2144F9EB700A4FB36 /* hop-image.png */; };
 		7E50B1D6144FE78400A4FB36 /* Checkin.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E50B1D5144FE78400A4FB36 /* Checkin.m */; };
-		7ECDC969144DCD9900938D03 /* HopListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7ECDC968144DCD9900938D03 /* HopListView.xib */; };
-		7ECDC96E144DCDD700938D03 /* HopListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECDC96D144DCDD700938D03 /* HopListViewController.m */; };
+		7E5348D01454DA1E001A938B /* VenueView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E5348CF1454DA1E001A938B /* VenueView.xib */; };
+		7E5348D31454DADF001A938B /* VenueViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E5348D21454DADF001A938B /* VenueViewController.m */; };
+		7E5348D51454DCA3001A938B /* venue-image.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E5348D41454DCA3001A938B /* venue-image.png */; };
+		7E5348D81454EBAD001A938B /* Assignment.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E5348D71454EBAD001A938B /* Assignment.m */; };
+		7ECDC969144DCD9900938D03 /* AssignmentListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7ECDC968144DCD9900938D03 /* AssignmentListView.xib */; };
+		7ECDC96E144DCDD700938D03 /* AssignmentListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECDC96D144DCDD700938D03 /* AssignmentListViewController.m */; };
 		7ECDC974144DCEF400938D03 /* Hop.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECDC973144DCEF400938D03 /* Hop.m */; };
 		7ECDC9BA144DD2B200938D03 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ECDC9B9144DD2B200938D03 /* CFNetwork.framework */; };
 		7ECDC9BC144DD2B200938D03 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ECDC9BB144DD2B200938D03 /* MobileCoreServices.framework */; };
@@ -139,9 +143,9 @@
 		28A0AB4B0D9B1048005BE974 /* Kngroo_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Kngroo_Prefix.pch; sourceTree = "<group>"; };
 		28AD73870D9D96C1002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		7E50B1C3144F71AA00A4FB36 /* AllHopListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllHopListViewController.h; sourceTree = "<group>"; };
-		7E50B1C4144F71AA00A4FB36 /* AllHopListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllHopListViewController.m; sourceTree = "<group>"; };
-		7E50B1C5144F71AA00A4FB36 /* AllHopListView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AllHopListView.xib; sourceTree = "<group>"; };
+		7E50B1C3144F71AA00A4FB36 /* HopListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; path = HopListViewController.h; sourceTree = "<group>"; };
+		7E50B1C4144F71AA00A4FB36 /* HopListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HopListViewController.m; sourceTree = "<group>"; };
+		7E50B1C5144F71AA00A4FB36 /* HopListView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HopListView.xib; sourceTree = "<group>"; };
 		7E50B1C8144F8D4900A4FB36 /* LeadersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeadersViewController.h; sourceTree = "<group>"; };
 		7E50B1C9144F8D4900A4FB36 /* LeadersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeadersViewController.m; sourceTree = "<group>"; };
 		7E50B1CB144F8E7100A4FB36 /* LeadersView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeadersView.xib; sourceTree = "<group>"; };
@@ -151,9 +155,15 @@
 		7E50B1D2144F9EB700A4FB36 /* hop-image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hop-image.png"; sourceTree = "<group>"; };
 		7E50B1D4144FE78400A4FB36 /* Checkin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Checkin.h; sourceTree = "<group>"; };
 		7E50B1D5144FE78400A4FB36 /* Checkin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Checkin.m; sourceTree = "<group>"; };
-		7ECDC968144DCD9900938D03 /* HopListView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HopListView.xib; sourceTree = "<group>"; };
-		7ECDC96C144DCDD700938D03 /* HopListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HopListViewController.h; sourceTree = "<group>"; };
-		7ECDC96D144DCDD700938D03 /* HopListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HopListViewController.m; sourceTree = "<group>"; };
+		7E5348CF1454DA1E001A938B /* VenueView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VenueView.xib; sourceTree = "<group>"; };
+		7E5348D11454DADF001A938B /* VenueViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VenueViewController.h; sourceTree = "<group>"; };
+		7E5348D21454DADF001A938B /* VenueViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VenueViewController.m; sourceTree = "<group>"; };
+		7E5348D41454DCA3001A938B /* venue-image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "venue-image.png"; sourceTree = "<group>"; };
+		7E5348D61454EBAD001A938B /* Assignment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Assignment.h; sourceTree = "<group>"; };
+		7E5348D71454EBAD001A938B /* Assignment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Assignment.m; sourceTree = "<group>"; };
+		7ECDC968144DCD9900938D03 /* AssignmentListView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AssignmentListView.xib; sourceTree = "<group>"; };
+		7ECDC96C144DCDD700938D03 /* AssignmentListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; path = AssignmentListViewController.h; sourceTree = "<group>"; };
+		7ECDC96D144DCDD700938D03 /* AssignmentListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssignmentListViewController.m; sourceTree = "<group>"; };
 		7ECDC972144DCEF400938D03 /* Hop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hop.h; sourceTree = "<group>"; };
 		7ECDC973144DCEF400938D03 /* Hop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Hop.m; sourceTree = "<group>"; };
 		7ECDC98D144DD28C00938D03 /* RestKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RestKit.xcodeproj; path = RestKit/RestKit.xcodeproj; sourceTree = "<group>"; };
@@ -207,14 +217,16 @@
 				7ECDC971144DCEE900938D03 /* Models */,
 				1D3623240D0F684500981E51 /* KngrooAppDelegate.h */,
 				1D3623250D0F684500981E51 /* KngrooAppDelegate.m */,
-				7ECDC96C144DCDD700938D03 /* HopListViewController.h */,
-				7ECDC96D144DCDD700938D03 /* HopListViewController.m */,
-				7E50B1C3144F71AA00A4FB36 /* AllHopListViewController.h */,
-				7E50B1C4144F71AA00A4FB36 /* AllHopListViewController.m */,
+				7ECDC96C144DCDD700938D03 /* AssignmentListViewController.h */,
+				7ECDC96D144DCDD700938D03 /* AssignmentListViewController.m */,
+				7E50B1C3144F71AA00A4FB36 /* HopListViewController.h */,
+				7E50B1C4144F71AA00A4FB36 /* HopListViewController.m */,
 				7E50B1C8144F8D4900A4FB36 /* LeadersViewController.h */,
 				7E50B1C9144F8D4900A4FB36 /* LeadersViewController.m */,
 				7E50B1CD144F944200A4FB36 /* HopViewController.h */,
 				7E50B1CE144F944300A4FB36 /* HopViewController.m */,
+				7E5348D11454DADF001A938B /* VenueViewController.h */,
+				7E5348D21454DADF001A938B /* VenueViewController.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -253,15 +265,17 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				7E5348D41454DCA3001A938B /* venue-image.png */,
 				7E50B1D2144F9EB700A4FB36 /* hop-image.png */,
-				7E50B1C5144F71AA00A4FB36 /* AllHopListView.xib */,
+				7E50B1C5144F71AA00A4FB36 /* HopListView.xib */,
 				7EF45097144E2A1700536B0E /* kngroo-logo-sq57.png */,
 				7EF45095144E2A0F00536B0E /* kngroo-logo-sq114.png */,
 				28AD73870D9D96C1002E5188 /* MainWindow.xib */,
 				8D1107310486CEB800E47090 /* Kngroo-Info.plist */,
-				7ECDC968144DCD9900938D03 /* HopListView.xib */,
+				7ECDC968144DCD9900938D03 /* AssignmentListView.xib */,
 				7E50B1CB144F8E7100A4FB36 /* LeadersView.xib */,
 				7E50B1D0144F946D00A4FB36 /* HopView.xib */,
+				7E5348CF1454DA1E001A938B /* VenueView.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -291,6 +305,8 @@
 				7EF45092144E1DD700536B0E /* RKLoadable.h */,
 				7E50B1D4144FE78400A4FB36 /* Checkin.h */,
 				7E50B1D5144FE78400A4FB36 /* Checkin.m */,
+				7E5348D61454EBAD001A938B /* Assignment.h */,
+				7E5348D71454EBAD001A938B /* Assignment.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -471,13 +487,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				28AD73880D9D96C1002E5188 /* MainWindow.xib in Resources */,
-				7ECDC969144DCD9900938D03 /* HopListView.xib in Resources */,
+				7ECDC969144DCD9900938D03 /* AssignmentListView.xib in Resources */,
 				7EF45096144E2A0F00536B0E /* kngroo-logo-sq114.png in Resources */,
 				7EF45098144E2A1700536B0E /* kngroo-logo-sq57.png in Resources */,
-				7E50B1C7144F71AA00A4FB36 /* AllHopListView.xib in Resources */,
+				7E50B1C7144F71AA00A4FB36 /* HopListView.xib in Resources */,
 				7E50B1CC144F8E7100A4FB36 /* LeadersView.xib in Resources */,
 				7E50B1D1144F946D00A4FB36 /* HopView.xib in Resources */,
 				7E50B1D3144F9EB800A4FB36 /* hop-image.png in Resources */,
+				7E5348D01454DA1E001A938B /* VenueView.xib in Resources */,
+				7E5348D51454DCA3001A938B /* venue-image.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -490,7 +508,7 @@
 			files = (
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				1D3623260D0F684500981E51 /* KngrooAppDelegate.m in Sources */,
-				7ECDC96E144DCDD700938D03 /* HopListViewController.m in Sources */,
+				7ECDC96E144DCDD700938D03 /* AssignmentListViewController.m in Sources */,
 				7ECDC974144DCEF400938D03 /* Hop.m in Sources */,
 				7ECDCA04144DD53000938D03 /* User.m in Sources */,
 				7ECDCA07144DD60800938D03 /* Venue.m in Sources */,
@@ -499,10 +517,12 @@
 				7ECDCA29144DD7B500938D03 /* DDFileLogger.m in Sources */,
 				7ECDCA2A144DD7B500938D03 /* DDLog.m in Sources */,
 				7ECDCA2B144DD7B500938D03 /* DDTTYLogger.m in Sources */,
-				7E50B1C6144F71AA00A4FB36 /* AllHopListViewController.m in Sources */,
+				7E50B1C6144F71AA00A4FB36 /* HopListViewController.m in Sources */,
 				7E50B1CA144F8D4900A4FB36 /* LeadersViewController.m in Sources */,
 				7E50B1CF144F944300A4FB36 /* HopViewController.m in Sources */,
 				7E50B1D6144FE78400A4FB36 /* Checkin.m in Sources */,
+				7E5348D31454DADF001A938B /* VenueViewController.m in Sources */,
+				7E5348D81454EBAD001A938B /* Assignment.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
