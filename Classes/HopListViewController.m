@@ -40,6 +40,14 @@ static int ddLogLevel = LOG_LEVEL_VERBOSE;
     self.hops = tHops;
 }
 
+- (void)assignmentCreated:(NSNotification*)notif
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.navigationController popToRootViewControllerAnimated:YES];
+        [self refreshHops];
+    });
+}
+
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad
@@ -52,6 +60,15 @@ static int ddLogLevel = LOG_LEVEL_VERBOSE;
     self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refreshHops)] autorelease];    
     
     [modeSelect addTarget:self action:@selector(modeChanged) forControlEvents:UIControlEventValueChanged];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self 
+                                             selector:@selector(assignmentCreated:)
+                                                 name:@"AssignmentCreated" 
+                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(assignmentCreated:) 
+                                                 name:@"AssignmentDeleted"
+                                               object:nil];
 }
 
 - (void)viewDidUnload
@@ -112,7 +129,7 @@ static int ddLogLevel = LOG_LEVEL_VERBOSE;
 
 - (void)objectLoader:(RKObjectLoader *)objectLoader didLoadObjects:(NSArray *)objects
 {
-	DDLogVerbose(@"objects loaded: %@",objects);
+	DDLogVerbose(@"HopListView - objects loaded: %@",objects);
     self.allHops = objects;
     BOOL tComplete = [modeSelect selectedSegmentIndex]==1;
     [self showHops:tComplete];
@@ -124,7 +141,7 @@ static int ddLogLevel = LOG_LEVEL_VERBOSE;
 
 - (void)objectLoader:(RKObjectLoader *)objectLoader didLoadObject:(id)object
 {
-	DDLogVerbose(@"object loaded: %@",object);
+	DDLogVerbose(@"HopListView - object loaded: %@",object);
 }
 
 - (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error {

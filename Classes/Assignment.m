@@ -14,13 +14,14 @@
 
 @implementation Assignment
 
-@synthesize assignmentId, complete, hop, checkins;
+@synthesize assignmentId, complete, hopId, hop, checkins;
 
 + (void)initObjectLoader
 {
     RKObjectMapping* tAssignmentMapping = [RKObjectMapping mappingForClass:[Assignment class]];
     [tAssignmentMapping mapKeyPath:@"id" toAttribute:@"assignmentId"];
     [tAssignmentMapping mapKeyPath:@"complete" toAttribute:@"complete"];
+    [tAssignmentMapping mapKeyPath:@"hop_id" toAttribute:@"hopId"];
     
     RKObjectMapping* tHopMapping = [RKObjectMapping mappingForClass:[Hop class]];
 	[tHopMapping mapKeyPath:@"id" toAttribute:@"hopId"];
@@ -42,6 +43,15 @@
 	[tAssignmentMapping mapKeyPath:@"checkins" toRelationship:@"checkins" withMapping:tCheckinMapping];
     
     [[RKObjectManager sharedManager].mappingProvider setObjectMapping:tAssignmentMapping forKeyPath:@"assignment"];
+    
+    RKObjectMapping* tAssignmentSerialization = [RKObjectMapping mappingForClass:[Assignment class]];
+    [tAssignmentSerialization mapKeyPath:@"hopId" toAttribute:@"hop_id"];
+    tAssignmentSerialization.rootKeyPath = @"assignment";
+    
+    [[RKObjectManager sharedManager].mappingProvider setSerializationMapping:tAssignmentSerialization forClass:[Assignment class]];
+    
+    [[RKObjectManager sharedManager].router routeClass:[Assignment class] toResourcePath:@"/user/assignments" forMethod:RKRequestMethodPOST];
+    [[RKObjectManager sharedManager].router routeClass:[Assignment class] toResourcePath:@"/user/assignments/:assignmentId" forMethod:RKRequestMethodDELETE];
 }
 
 @end

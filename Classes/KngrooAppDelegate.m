@@ -29,6 +29,12 @@
     [Checkin initObjectLoader];
 }
 
+- (void)assignmentCreated:(NSNotification*)notif
+{
+    UITabBarItem* tAssignmentsItem = [tabBarController.tabBar.items objectAtIndex:0];
+    [tAssignmentsItem setBadgeValue:@"1"];
+}
+
 #pragma mark -
 #pragma mark Application lifecycle
 
@@ -37,17 +43,21 @@
 	// init logger
 	[DDLog addLogger:[DDTTYLogger sharedInstance]];
 		
-	RKObjectManager* tMgr = [RKObjectManager objectManagerWithBaseURL:@"http://local:3000"];
-//	RKObjectManager* tMgr = [RKObjectManager objectManagerWithBaseURL:@"http://kngroo-sandbox.heroku.com"];
+//	RKObjectManager* tMgr = [RKObjectManager objectManagerWithBaseURL:@"http://local:3000"];
+	RKObjectManager* tMgr = [RKObjectManager objectManagerWithBaseURL:@"http://kngroo-sandbox.heroku.com"];
 	tMgr.client.username = @"109c63f22d";
 	tMgr.client.password = @"x";
 	tMgr.client.authenticationType = RKRequestAuthenticationTypeHTTPBasic;
+    tMgr.serializationMIMEType = RKMIMETypeJSON;
 	
 	[self initObjectLoader];
-	
+    
     // Add the tab bar controller's view to the window and display.
     [self.window addSubview:tabBarController.view];
     [self.window makeKeyAndVisible];
+    
+    // app-level event triggers
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(assignmentCreated:) name:@"AssignmentCreated" object:nil];
 
     return YES;
 }
@@ -94,11 +104,12 @@
 #pragma mark -
 #pragma mark UITabBarControllerDelegate methods
 
-/*
-// Optional UITabBarControllerDelegate method.
-- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController {
+- (void)tabBarController:(UITabBarController *)aTabBarController didSelectViewController:(UIViewController *)viewController 
+{
+    if( [aTabBarController selectedIndex]==0 && [[aTabBarController.tabBar.items objectAtIndex:0] badgeValue]!=nil ) {
+        [[aTabBarController.tabBar.items objectAtIndex:0] setBadgeValue:nil];
+    }
 }
-*/
 
 /*
 // Optional UITabBarControllerDelegate method.

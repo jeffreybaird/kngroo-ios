@@ -53,6 +53,8 @@ static int ddLogLevel = LOG_LEVEL_VERBOSE;
 {
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.navigationController popToRootViewControllerAnimated:YES]; 
+    });
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         [self refreshHops];
     });
 }
@@ -61,6 +63,13 @@ static int ddLogLevel = LOG_LEVEL_VERBOSE;
 {
     dispatch_async(dispatch_get_main_queue(), ^{
         Alert(@"TODO", @"trophy awarded");
+    });
+}
+
+- (void)assignmentDeleted:(NSNotification*)notif
+{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [self refreshHops];
     });
 }
 
@@ -86,6 +95,16 @@ static int ddLogLevel = LOG_LEVEL_VERBOSE;
     [[NSNotificationCenter defaultCenter] addObserver:self 
                                              selector:@selector(trophyAwarded:)
                                                  name:@"TrophyAwarded"
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(refreshHops) 
+                                                 name:@"AssignmentCreated"
+                                               object:nil];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(assignmentDeleted:) 
+                                                 name:@"AssignmentDeleted"
                                                object:nil];
 }
 
@@ -145,6 +164,19 @@ static int ddLogLevel = LOG_LEVEL_VERBOSE;
 	return tCell;
 }
 
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return UITableViewCellEditingStyleDelete;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if( editingStyle==UITableViewCellEditingStyleDelete ) {
+        Assignment* tAssignment = [hops objectAtIndex:indexPath.row];
+        [[RKObjectManager sharedManager] deleteObject:tAssignment delegate:self];
+    }
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	Assignment* tAssignment = [hops objectAtIndex:indexPath.row];
@@ -160,19 +192,23 @@ static int ddLogLevel = LOG_LEVEL_VERBOSE;
 
 - (void)objectLoader:(RKObjectLoader *)objectLoader didLoadObjects:(NSArray *)objects
 {
-	DDLogVerbose(@"objects loaded: %@",objects);
-    self.allHops = objects;
-    BOOL tComplete = [modeSelect selectedSegmentIndex]==1;
-    [self showHops:tComplete];
-    
-	dispatch_async(dispatch_get_main_queue(), ^{ 
-		[tableView reloadData];
-	});
+	DDLogVerbose(@"AssignmentListView - objects loaded: %@",objects);
+    if( [objectLoader isDELETE] ) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"AssignmentDeleted" object:nil];
+    }else if( [objectLoader isGET] ) {
+        self.allHops = objects;
+        BOOL tComplete = [modeSelect selectedSegmentIndex]==1;
+        [self showHops:tComplete];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{ 
+            [tableView reloadData];
+        });
+    }
 }
 
 - (void)objectLoader:(RKObjectLoader *)objectLoader didLoadObject:(id)object
 {
-	DDLogVerbose(@"object loaded: %@",object);
+	DDLogVerbose(@"AssignmentListView - object loaded: %@",object);
 }
 
 - (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error {

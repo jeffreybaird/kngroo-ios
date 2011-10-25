@@ -14,6 +14,7 @@
     
     NSNumber* assignmentId;
     NSNumber* complete;
+    NSNumber* hopId;
     Hop* hop;
     NSArray* checkins;
     
@@ -21,6 +22,7 @@
 
 @property (retain) NSNumber* assignmentId;
 @property (retain) NSNumber* complete;
+@property (retain) NSNumber* hopId;
 @property (retain) Hop* hop;
 @property (retain) NSArray* checkins;
 

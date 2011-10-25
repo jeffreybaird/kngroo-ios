@@ -10,6 +10,7 @@
 #import "Venue.h"
 #import "VenueViewController.h"
 #import "Checkin.h"
+#import "Assignment.h"
 
 
 static int ddLogLevel = LOG_LEVEL_VERBOSE;
@@ -20,7 +21,9 @@ static int ddLogLevel = LOG_LEVEL_VERBOSE;
 
 - (IBAction)startThisHop:(id)sender
 {
-    Alert(@"TODO", @"add hop to my hops");
+    Assignment* tAssignment = [[[Assignment alloc] init] autorelease];
+    tAssignment.hopId = hop.hopId;
+    [[RKObjectManager sharedManager] postObject:tAssignment delegate:self];
 }
 
 - (IBAction)showMap:(id)sender
@@ -33,8 +36,6 @@ static int ddLogLevel = LOG_LEVEL_VERBOSE;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-//    [[RKObjectManager sharedManager] loadObjectsAtResourcePath:[NSString stringWithFormat:@"/hops/%@",hop.hopId] delegate:self];
     
     // configure state-dependent component visibility
     startButton.hidden = active;
@@ -107,18 +108,13 @@ static int ddLogLevel = LOG_LEVEL_VERBOSE;
 {
     DDLogVerbose(@"HopView - object loaded: %@",object);
     
-    Hop* tHop = (Hop*)object;
-    self.hop = tHop;
-    
-    dispatch_async(dispatch_get_main_queue(), ^{
-        titleLabel.text = hop.title;
-//        descriptionLabel.text = hop.description;
-        [tableView reloadData];
-    });
+    Assignment* tAssignment = (Assignment*)object;
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"AssignmentCreated" object:tAssignment];
 }
 
 - (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error
 {
+    Alert(@"Unable to add hop", [error localizedDescription]);
     DDLogError([error localizedDescription]);
 }
 
