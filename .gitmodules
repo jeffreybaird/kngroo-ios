@@ -4,3 +4,6 @@
 [submodule "CocoaLumberjack"]
 	path = CocoaLumberjack
 	url = git://github.com/robbiehanson/CocoaLumberjack.git
+[submodule "V8HorizontalPickerView"]
+	path = V8HorizontalPickerView
+	url = git://github.com/veader/V8HorizontalPickerView.git

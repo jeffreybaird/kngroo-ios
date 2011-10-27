@@ -13,6 +13,7 @@
 #import "Venue.h"
 #import "Assignment.h"
 #import "Checkin.h"
+#import "Category.h"
 
 
 @implementation KngrooAppDelegate
@@ -27,6 +28,7 @@
     [Venue initObjectLoader];
     [Assignment initObjectLoader];
     [Checkin initObjectLoader];
+    [Category initObjectLoader];
 }
 
 - (void)assignmentCreated:(NSNotification*)notif
