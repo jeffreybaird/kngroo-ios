@@ -17,6 +17,7 @@
 	NSString* password;
     NSNumber* points;
 	NSArray* hops;
+    NSArray* trophies;
 	
 }
 
@@ -25,5 +26,6 @@
 @property (retain) NSString* password;
 @property (retain) NSNumber* points;
 @property (retain) NSArray* hops;
+@property (retain) NSArray* trophies;
 
 @end

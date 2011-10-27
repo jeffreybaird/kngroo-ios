@@ -11,14 +11,14 @@
 
 @implementation Venue
 
-@synthesize venueId, name, lat, lng;
+@synthesize venueId, name, address, lat, lng;
 
 + (void)initObjectLoader
 {
     RKObjectMapping* tVenueMapping = [RKObjectMapping mappingForClass:[Venue class]];
 	[tVenueMapping mapKeyPath:@"id" toAttribute:@"venueId"];
 	[tVenueMapping mapKeyPath:@"name" toAttribute:@"name"];
-//	[tVenueMapping mapKeyPath:@"address" toAttribute:@"address"];
+	[tVenueMapping mapKeyPath:@"address" toAttribute:@"address"];
 	[tVenueMapping mapKeyPath:@"lat" toAttribute:@"lat"];
 	[tVenueMapping mapKeyPath:@"lng" toAttribute:@"lng"];
     

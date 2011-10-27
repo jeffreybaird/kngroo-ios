@@ -43,6 +43,9 @@
 		7ECDCA29144DD7B500938D03 /* DDFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECDCA1C144DD7B500938D03 /* DDFileLogger.m */; };
 		7ECDCA2A144DD7B500938D03 /* DDLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECDCA1E144DD7B500938D03 /* DDLog.m */; };
 		7ECDCA2B144DD7B500938D03 /* DDTTYLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECDCA20144DD7B500938D03 /* DDTTYLogger.m */; };
+		7EDF7C1F1458E9AA00726C1B /* AccountView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EDF7C1E1458E9AA00726C1B /* AccountView.xib */; };
+		7EDF7C221458E9CD00726C1B /* AccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EDF7C211458E9CD00726C1B /* AccountViewController.m */; };
+		7EDF7C251458ECB700726C1B /* Trophy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EDF7C241458ECB700726C1B /* Trophy.m */; };
 		7EF45096144E2A0F00536B0E /* kngroo-logo-sq114.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EF45095144E2A0F00536B0E /* kngroo-logo-sq114.png */; };
 		7EF45098144E2A1700536B0E /* kngroo-logo-sq57.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EF45097144E2A1700536B0E /* kngroo-logo-sq57.png */; };
 /* End PBXBuildFile section */
@@ -187,6 +190,11 @@
 		7ECDCA1E144DD7B500938D03 /* DDLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDLog.m; sourceTree = "<group>"; };
 		7ECDCA1F144DD7B500938D03 /* DDTTYLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDTTYLogger.h; sourceTree = "<group>"; };
 		7ECDCA20144DD7B500938D03 /* DDTTYLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDTTYLogger.m; sourceTree = "<group>"; };
+		7EDF7C1E1458E9AA00726C1B /* AccountView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountView.xib; sourceTree = "<group>"; };
+		7EDF7C201458E9CD00726C1B /* AccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountViewController.h; sourceTree = "<group>"; };
+		7EDF7C211458E9CD00726C1B /* AccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountViewController.m; sourceTree = "<group>"; };
+		7EDF7C231458ECB700726C1B /* Trophy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Trophy.h; sourceTree = "<group>"; };
+		7EDF7C241458ECB700726C1B /* Trophy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Trophy.m; sourceTree = "<group>"; };
 		7EF45092144E1DD700536B0E /* RKLoadable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RKLoadable.h; sourceTree = "<group>"; };
 		7EF45095144E2A0F00536B0E /* kngroo-logo-sq114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "kngroo-logo-sq114.png"; sourceTree = "<group>"; };
 		7EF45097144E2A1700536B0E /* kngroo-logo-sq57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "kngroo-logo-sq57.png"; sourceTree = "<group>"; };
@@ -232,6 +240,8 @@
 				7E5348D21454DADF001A938B /* VenueViewController.m */,
 				7E5348D91455CA52001A938B /* AssignmentViewController.h */,
 				7E5348DA1455CA52001A938B /* AssignmentViewController.m */,
+				7EDF7C201458E9CD00726C1B /* AccountViewController.h */,
+				7EDF7C211458E9CD00726C1B /* AccountViewController.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -281,6 +291,7 @@
 				7E50B1CB144F8E7100A4FB36 /* LeadersView.xib */,
 				7E50B1D0144F946D00A4FB36 /* HopView.xib */,
 				7E5348CF1454DA1E001A938B /* VenueView.xib */,
+				7EDF7C1E1458E9AA00726C1B /* AccountView.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -312,6 +323,8 @@
 				7E50B1D5144FE78400A4FB36 /* Checkin.m */,
 				7E5348D61454EBAD001A938B /* Assignment.h */,
 				7E5348D71454EBAD001A938B /* Assignment.m */,
+				7EDF7C231458ECB700726C1B /* Trophy.h */,
+				7EDF7C241458ECB700726C1B /* Trophy.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -501,6 +514,7 @@
 				7E50B1D3144F9EB800A4FB36 /* hop-image.png in Resources */,
 				7E5348D01454DA1E001A938B /* VenueView.xib in Resources */,
 				7E5348D51454DCA3001A938B /* venue-image.png in Resources */,
+				7EDF7C1F1458E9AA00726C1B /* AccountView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -529,6 +543,8 @@
 				7E5348D31454DADF001A938B /* VenueViewController.m in Sources */,
 				7E5348D81454EBAD001A938B /* Assignment.m in Sources */,
 				7E5348DB1455CA52001A938B /* AssignmentViewController.m in Sources */,
+				7EDF7C221458E9CD00726C1B /* AccountViewController.m in Sources */,
+				7EDF7C251458ECB700726C1B /* Trophy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

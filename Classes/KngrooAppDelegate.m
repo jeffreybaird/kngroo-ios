@@ -35,6 +35,12 @@
     [tAssignmentsItem setBadgeValue:@"1"];
 }
 
+- (void)trophyCreated:(NSNotification*)notif
+{
+    UITabBarItem* tAccountsItem = [tabBarController.tabBar.items objectAtIndex:2];
+    [tAccountsItem setBadgeValue:@"1"];
+}
+
 #pragma mark -
 #pragma mark Application lifecycle
 
@@ -43,8 +49,8 @@
 	// init logger
 	[DDLog addLogger:[DDTTYLogger sharedInstance]];
 		
-//	RKObjectManager* tMgr = [RKObjectManager objectManagerWithBaseURL:@"http://local:3000"];
-	RKObjectManager* tMgr = [RKObjectManager objectManagerWithBaseURL:@"http://kngroo-sandbox.heroku.com"];
+	RKObjectManager* tMgr = [RKObjectManager objectManagerWithBaseURL:@"http://local:3000"];
+//	RKObjectManager* tMgr = [RKObjectManager objectManagerWithBaseURL:@"http://kngroo-sandbox.heroku.com"];
 	tMgr.client.username = @"109c63f22d";
 	tMgr.client.password = @"x";
 	tMgr.client.authenticationType = RKRequestAuthenticationTypeHTTPBasic;
@@ -58,6 +64,7 @@
     
     // app-level event triggers
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(assignmentCreated:) name:@"AssignmentCreated" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(trophyCreated:) name:@"TrophyCreated" object:nil];
 
     return YES;
 }

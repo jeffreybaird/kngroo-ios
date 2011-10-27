@@ -14,6 +14,7 @@
 
 	NSNumber* venueId;
 	NSString* name;
+    NSString* address;
 	NSNumber* lat;
 	NSNumber* lng;
 	
@@ -21,6 +22,7 @@
 
 @property (retain) NSNumber* venueId;
 @property (retain) NSString* name;
+@property (retain) NSString* address;
 @property (retain) NSNumber* lat;
 @property (retain) NSNumber* lng;
 
