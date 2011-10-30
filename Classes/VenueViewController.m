@@ -8,17 +8,20 @@
 
 #import "VenueViewController.h"
 #import "Checkin.h"
+#import "TriviaViewController.h"
 
 
 @implementation VenueViewController
 
 @synthesize imageView, titleLabel, descriptionLabel, checkInButton, checkedInLabel, hop, venue, assignment;
 
+- (IBAction)showTrivia:(id)sender
+{
+    [[RKObjectManager sharedManager] loadObjectsAtResourcePath:[NSString stringWithFormat:@"/user/assignments/%@/venues/%@/trivias",assignment.assignmentId,venue.venueId] delegate:self];
+}
+
 - (IBAction)checkIn:(id)sender
 {
-//    NSString* tMsg = [NSString stringWithFormat:@"check in to assignment %d, venue %d",[assignment.assignmentId intValue],[venue.venueId intValue]];
-//    Alert(@"TODO", tMsg);
-    
     Checkin* tCheckin = [[[Checkin alloc] init] autorelease];
     tCheckin.assignmentId = assignment.assignmentId;
     tCheckin.venueId = venue.venueId;
@@ -32,7 +35,7 @@
     [super viewDidLoad];
     
     titleLabel.text = venue.name;
-    descriptionLabel.text = @"stuff goes here that is long enough to span at least four lines";
+    descriptionLabel.text = venue.summary;
 
     if( assignment==nil ) {
         checkedInLabel.hidden = YES;
@@ -67,22 +70,55 @@
 #pragma mark -
 #pragma mark RKObjectLoaderDelegate
 
+- (void)objectLoader:(RKObjectLoader *)objectLoader didLoadObjects:(NSArray *)objects
+{
+    if( objects && objects.count>0 && [[objects lastObject] isKindOfClass:[Trivia class]] ) {
+        Trivia* tTrivia = [objects objectAtIndex:0];
+        NSMutableArray* tAnswers = [NSMutableArray array];
+        [tAnswers addObjectsFromArray:objects];
+        for (int k=0,K=tAnswers.count;k<K;k++) {
+            [tAnswers exchangeObjectAtIndex:k withObjectAtIndex:random() % (k + 1)];
+        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            TriviaViewController* tTriviaView = [[[TriviaViewController alloc] initWithNibName:@"TriviaView" bundle:[NSBundle mainBundle]] autorelease];
+            tTriviaView.trivia = tTrivia;
+            tTriviaView.possibleAnswers = tAnswers;
+            
+            tTriviaView.cancelBlock = ^{ 
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self.navigationController dismissModalViewControllerAnimated:YES];
+                });
+            };
+            tTriviaView.successBlock = ^(BOOL aCorrectAnswer) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self.navigationController dismissModalViewControllerAnimated:YES];
+                });
+            };
+            UINavigationController* tNav = [[[UINavigationController alloc] initWithRootViewController:tTriviaView] autorelease];
+            [self.navigationController presentModalViewController:tNav animated:YES];
+        });
+    }
+}
+
 - (void)objectLoader:(RKObjectLoader *)objectLoader didLoadObject:(id)object
 {
-    Checkin* tCheckin = (Checkin*)object;
-    NSMutableArray* tCheckins = [NSMutableArray arrayWithArray:assignment.checkins];
-    [tCheckins addObject:tCheckin];
-    assignment.checkins = [NSArray arrayWithArray:tCheckins];
+    if( [object isKindOfClass:[Checkin class]] ) {
+        Checkin* tCheckin = (Checkin*)object;
+        NSMutableArray* tCheckins = [NSMutableArray arrayWithArray:assignment.checkins];
+        [tCheckins addObject:tCheckin];
+        assignment.checkins = [NSArray arrayWithArray:tCheckins];
 
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"CheckinSuccessful" object:nil];
-    if( [tCheckin.trophyAwarded boolValue] ) {
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"TrophyAwarded" object:nil];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"CheckinSuccessful" object:nil];
+        if( [tCheckin.trophyAwarded boolValue] ) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"TrophyAwarded" object:nil];
+        }
     }
 }
 
 - (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error
 {
-    Alert(@"Unable to checkin", [error localizedDescription]);
+    NSString* tMsg = [NSString stringWithFormat:@"%@",[error userInfo]];
+    Alert(@"Unable to checkin", [[error userInfo] objectForKey:@"NSLocalizedDescription"]);
 }
 
 @end

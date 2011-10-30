@@ -18,6 +18,7 @@
 	NSArray* venues;
 	NSNumber* points;
     NSNumber* featured;
+    NSString* summary;
 	
 }
 
@@ -27,5 +28,6 @@
 @property (retain) NSArray* venues;
 @property (retain) NSNumber* points;
 @property (retain) NSNumber* featured;
+@property (retain) NSString* summary;
 
 @end

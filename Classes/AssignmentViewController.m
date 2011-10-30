@@ -23,6 +23,7 @@
     [super viewDidLoad];
 
     startButton.hidden = self.assignment!=nil;
+    descriptionLabel.text = assignment.hop.summary;
     
     progressLabel.text = [NSString stringWithFormat:@"Progress (%d of %d):",assignment.checkins.count,hop.venues.count];
     progressView.progress = (float)assignment.checkins.count / (float)hop.venues.count;

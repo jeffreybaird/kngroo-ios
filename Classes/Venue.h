@@ -17,6 +17,7 @@
     NSString* address;
 	NSNumber* lat;
 	NSNumber* lng;
+    NSString* summary;
 	
 }
 
@@ -25,5 +26,6 @@
 @property (retain) NSString* address;
 @property (retain) NSNumber* lat;
 @property (retain) NSNumber* lng;
+@property (retain) NSString* summary;
 
 @end

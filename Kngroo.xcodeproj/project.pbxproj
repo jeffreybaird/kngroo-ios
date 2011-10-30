@@ -31,6 +31,9 @@
 		7E5348D51454DCA3001A938B /* venue-image.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E5348D41454DCA3001A938B /* venue-image.png */; };
 		7E5348D81454EBAD001A938B /* Assignment.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E5348D71454EBAD001A938B /* Assignment.m */; };
 		7E5348DB1455CA52001A938B /* AssignmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E5348DA1455CA52001A938B /* AssignmentViewController.m */; };
+		7EB66A3E145DDDC6008B90E3 /* Trivia.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB66A3D145DDDC6008B90E3 /* Trivia.m */; };
+		7EB66A41145DDF4E008B90E3 /* TriviaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB66A40145DDF4E008B90E3 /* TriviaViewController.m */; };
+		7EB66A43145DE105008B90E3 /* TriviaView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EB66A42145DE105008B90E3 /* TriviaView.xib */; };
 		7ECDC969144DCD9900938D03 /* AssignmentListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7ECDC968144DCD9900938D03 /* AssignmentListView.xib */; };
 		7ECDC96E144DCDD700938D03 /* AssignmentListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECDC96D144DCDD700938D03 /* AssignmentListViewController.m */; };
 		7ECDC974144DCEF400938D03 /* Hop.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECDC973144DCEF400938D03 /* Hop.m */; };
@@ -181,6 +184,11 @@
 		7E5348D71454EBAD001A938B /* Assignment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Assignment.m; sourceTree = "<group>"; };
 		7E5348D91455CA52001A938B /* AssignmentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssignmentViewController.h; sourceTree = "<group>"; };
 		7E5348DA1455CA52001A938B /* AssignmentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssignmentViewController.m; sourceTree = "<group>"; };
+		7EB66A3C145DDDC6008B90E3 /* Trivia.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Trivia.h; sourceTree = "<group>"; };
+		7EB66A3D145DDDC6008B90E3 /* Trivia.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Trivia.m; sourceTree = "<group>"; };
+		7EB66A3F145DDF4E008B90E3 /* TriviaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TriviaViewController.h; sourceTree = "<group>"; };
+		7EB66A40145DDF4E008B90E3 /* TriviaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TriviaViewController.m; sourceTree = "<group>"; };
+		7EB66A42145DE105008B90E3 /* TriviaView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TriviaView.xib; sourceTree = "<group>"; };
 		7ECDC968144DCD9900938D03 /* AssignmentListView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AssignmentListView.xib; sourceTree = "<group>"; };
 		7ECDC96C144DCDD700938D03 /* AssignmentListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssignmentListViewController.h; sourceTree = "<group>"; };
 		7ECDC96D144DCDD700938D03 /* AssignmentListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssignmentListViewController.m; sourceTree = "<group>"; };
@@ -263,6 +271,8 @@
 				7EDF7C211458E9CD00726C1B /* AccountViewController.m */,
 				7E35B33D1459B8E5002073DB /* ImageManager.h */,
 				7E35B33E1459B8E5002073DB /* ImageManager.m */,
+				7EB66A3F145DDF4E008B90E3 /* TriviaViewController.h */,
+				7EB66A40145DDF4E008B90E3 /* TriviaViewController.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -316,6 +326,7 @@
 				7E50B1D0144F946D00A4FB36 /* HopView.xib */,
 				7E5348CF1454DA1E001A938B /* VenueView.xib */,
 				7EDF7C1E1458E9AA00726C1B /* AccountView.xib */,
+				7EB66A42145DE105008B90E3 /* TriviaView.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -351,6 +362,8 @@
 				7EDF7C241458ECB700726C1B /* Trophy.m */,
 				7E35B33A1459B692002073DB /* Category.h */,
 				7E35B33B1459B692002073DB /* Category.m */,
+				7EB66A3C145DDDC6008B90E3 /* Trivia.h */,
+				7EB66A3D145DDDC6008B90E3 /* Trivia.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -553,6 +566,7 @@
 				7EDF7C1F1458E9AA00726C1B /* AccountView.xib in Resources */,
 				7E35B338145927DB002073DB /* indicator.png in Resources */,
 				7E35B339145927DB002073DB /* indicator@2x.png in Resources */,
+				7EB66A43145DE105008B90E3 /* TriviaView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -587,6 +601,8 @@
 				7E35B33C1459B692002073DB /* Category.m in Sources */,
 				7E35B33F1459B8E5002073DB /* ImageManager.m in Sources */,
 				7E35B3421459CF41002073DB /* NSString+SHA1.m in Sources */,
+				7EB66A3E145DDDC6008B90E3 /* Trivia.m in Sources */,
+				7EB66A41145DDF4E008B90E3 /* TriviaViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
