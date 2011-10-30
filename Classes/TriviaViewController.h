@@ -10,7 +10,7 @@
 #import "Trivia.h"
 
 
-typedef void(^TriviaBlock)(BOOL);
+typedef void(^TriviaBlock)(Trivia*,BOOL);
 
 @interface TriviaViewController : UIViewController <UITableViewDataSource,UITableViewDelegate> {
     

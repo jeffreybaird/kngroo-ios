@@ -36,6 +36,7 @@
 @property (retain) Venue* venue;
 @property (retain) Assignment* assignment;
 
--(IBAction)checkIn:(id)sender;
+-(IBAction)showTrivia:(id)sender;
+-(void)checkIn;
 
 @end

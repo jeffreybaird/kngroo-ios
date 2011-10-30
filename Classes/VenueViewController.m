@@ -9,6 +9,7 @@
 #import "VenueViewController.h"
 #import "Checkin.h"
 #import "TriviaViewController.h"
+#import "Attempt.h"
 
 
 @implementation VenueViewController
@@ -20,7 +21,7 @@
     [[RKObjectManager sharedManager] loadObjectsAtResourcePath:[NSString stringWithFormat:@"/user/assignments/%@/venues/%@/trivias",assignment.assignmentId,venue.venueId] delegate:self];
 }
 
-- (IBAction)checkIn:(id)sender
+- (void)checkIn
 {
     Checkin* tCheckin = [[[Checkin alloc] init] autorelease];
     tCheckin.assignmentId = assignment.assignmentId;
@@ -89,7 +90,11 @@
                     [self.navigationController dismissModalViewControllerAnimated:YES];
                 });
             };
-            tTriviaView.successBlock = ^(BOOL aCorrectAnswer) {
+            tTriviaView.successBlock = ^(Trivia* aTrivia, BOOL aCorrectAnswer) {
+                Attempt* tAttempt = [[[Attempt alloc] init] autorelease];
+                tAttempt.triviaId = aTrivia.triviaId;
+                tAttempt.correctAnswer = [NSNumber numberWithBool:aCorrectAnswer];
+                [[RKObjectManager sharedManager] postObject:tAttempt delegate:self];
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [self.navigationController dismissModalViewControllerAnimated:YES];
                 });
@@ -112,13 +117,20 @@
         if( [tCheckin.trophyAwarded boolValue] ) {
             [[NSNotificationCenter defaultCenter] postNotificationName:@"TrophyAwarded" object:nil];
         }
+    }else if( [object isKindOfClass:[Attempt class]] ) {
+        Attempt* tAttempt = (Attempt*)object;
+        if( [tAttempt.correctAnswer boolValue] ) {
+            [self checkIn];
+        }else{
+            Alert(@"Incorrect Answer", @"Sorry, but that's not correct");
+        }
     }
 }
 
 - (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error
 {
-    NSString* tMsg = [NSString stringWithFormat:@"%@",[error userInfo]];
-    Alert(@"Unable to checkin", [[error userInfo] objectForKey:@"NSLocalizedDescription"]);
+//    Alert(@"Unable to checkin", [[error userInfo] objectForKey:@"NSLocalizedDescription"]);
+    Alert(@"Unable to checkin", [error localizedDescription]);
 }
 
 @end

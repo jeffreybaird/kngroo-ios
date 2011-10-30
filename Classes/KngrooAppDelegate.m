@@ -15,6 +15,7 @@
 #import "Checkin.h"
 #import "Category.h"
 #import "Trivia.h"
+#import "Attempt.h"
 
 
 @implementation KngrooAppDelegate
@@ -31,6 +32,7 @@
     [Checkin initObjectLoader];
     [Category initObjectLoader];
     [Trivia initObjectLoader];
+    [Attempt initObjectLoader];
 }
 
 - (void)assignmentCreated:(NSNotification*)notif
@@ -53,8 +55,8 @@
 	// init logger
 	[DDLog addLogger:[DDTTYLogger sharedInstance]];
 		
-//	RKObjectManager* tMgr = [RKObjectManager objectManagerWithBaseURL:@"http://local:3000"];
-	RKObjectManager* tMgr = [RKObjectManager objectManagerWithBaseURL:@"http://kngroo-sandbox.heroku.com"];
+	RKObjectManager* tMgr = [RKObjectManager objectManagerWithBaseURL:@"http://local:3000"];
+//	RKObjectManager* tMgr = [RKObjectManager objectManagerWithBaseURL:@"http://kngroo-sandbox.heroku.com"];
 	tMgr.client.username = @"109c63f22d";
 	tMgr.client.password = @"x";
 	tMgr.client.authenticationType = RKRequestAuthenticationTypeHTTPBasic;

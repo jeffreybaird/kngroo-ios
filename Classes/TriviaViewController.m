@@ -25,7 +25,12 @@ static int ddLogLevel = LOG_LEVEL_VERBOSE;
 - (void)donePressed
 {
     // TODO: perform validation logic
-    successBlock(YES);
+    Trivia* tTrivia = [possibleAnswers objectAtIndex:selectedIndex];
+    if( tTrivia==trivia ) {
+        successBlock(trivia, YES);
+    }else{
+        successBlock(trivia, NO);
+    }
 }
 
 #pragma mark - View lifecycle

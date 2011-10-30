@@ -34,6 +34,8 @@
 		7EB66A3E145DDDC6008B90E3 /* Trivia.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB66A3D145DDDC6008B90E3 /* Trivia.m */; };
 		7EB66A41145DDF4E008B90E3 /* TriviaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB66A40145DDF4E008B90E3 /* TriviaViewController.m */; };
 		7EB66A43145DE105008B90E3 /* TriviaView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EB66A42145DE105008B90E3 /* TriviaView.xib */; };
+		7EB66A48145E0BE1008B90E3 /* Attempt.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB66A47145E0BE1008B90E3 /* Attempt.m */; };
+		7EB66A4A145E1196008B90E3 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EB66A49145E1196008B90E3 /* CoreLocation.framework */; };
 		7ECDC969144DCD9900938D03 /* AssignmentListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7ECDC968144DCD9900938D03 /* AssignmentListView.xib */; };
 		7ECDC96E144DCDD700938D03 /* AssignmentListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECDC96D144DCDD700938D03 /* AssignmentListViewController.m */; };
 		7ECDC974144DCEF400938D03 /* Hop.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECDC973144DCEF400938D03 /* Hop.m */; };
@@ -189,6 +191,9 @@
 		7EB66A3F145DDF4E008B90E3 /* TriviaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TriviaViewController.h; sourceTree = "<group>"; };
 		7EB66A40145DDF4E008B90E3 /* TriviaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TriviaViewController.m; sourceTree = "<group>"; };
 		7EB66A42145DE105008B90E3 /* TriviaView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TriviaView.xib; sourceTree = "<group>"; };
+		7EB66A46145E0BE1008B90E3 /* Attempt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Attempt.h; sourceTree = "<group>"; };
+		7EB66A47145E0BE1008B90E3 /* Attempt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Attempt.m; sourceTree = "<group>"; };
+		7EB66A49145E1196008B90E3 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		7ECDC968144DCD9900938D03 /* AssignmentListView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AssignmentListView.xib; sourceTree = "<group>"; };
 		7ECDC96C144DCDD700938D03 /* AssignmentListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssignmentListViewController.h; sourceTree = "<group>"; };
 		7ECDC96D144DCDD700938D03 /* AssignmentListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssignmentListViewController.m; sourceTree = "<group>"; };
@@ -241,6 +246,7 @@
 				7ECDC9BA144DD2B200938D03 /* CFNetwork.framework in Frameworks */,
 				7ECDC9BC144DD2B200938D03 /* MobileCoreServices.framework in Frameworks */,
 				7ECDC9BE144DD2B200938D03 /* SystemConfiguration.framework in Frameworks */,
+				7EB66A4A145E1196008B90E3 /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,6 +340,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7EB66A49145E1196008B90E3 /* CoreLocation.framework */,
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
 				288765070DF74369002DB57D /* CoreGraphics.framework */,
@@ -364,6 +371,8 @@
 				7E35B33B1459B692002073DB /* Category.m */,
 				7EB66A3C145DDDC6008B90E3 /* Trivia.h */,
 				7EB66A3D145DDDC6008B90E3 /* Trivia.m */,
+				7EB66A46145E0BE1008B90E3 /* Attempt.h */,
+				7EB66A47145E0BE1008B90E3 /* Attempt.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -603,6 +612,7 @@
 				7E35B3421459CF41002073DB /* NSString+SHA1.m in Sources */,
 				7EB66A3E145DDDC6008B90E3 /* Trivia.m in Sources */,
 				7EB66A41145DDF4E008B90E3 /* TriviaViewController.m in Sources */,
+				7EB66A48145E0BE1008B90E3 /* Attempt.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -622,6 +632,10 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -638,6 +652,10 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Kngroo_Prefix.pch;
 				INFOPLIST_FILE = "Kngroo-Info.plist";
