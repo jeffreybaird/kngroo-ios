@@ -10,6 +10,7 @@
 #import "Checkin.h"
 #import "TriviaViewController.h"
 #import "Attempt.h"
+#import "LocationManager.h"
 
 
 @implementation VenueViewController
@@ -29,6 +30,20 @@
     [[RKObjectManager sharedManager] postObject:tCheckin delegate:self];
 }
 
+- (void)updateLocation:(CLLocation*)aLocation
+{
+    CLLocation* tVenueLocation = [[[CLLocation alloc] initWithLatitude:[venue.lat doubleValue] longitude:[venue.lng doubleValue]] autorelease];
+    float tDist = [tVenueLocation distanceFromLocation:aLocation];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if( tDist<100 ) {
+            checkInButton.hidden = NO;
+        }else{
+            checkInButton.hidden = YES;
+            checkedInLabel.text = [NSString stringWithFormat:@"%3.1f km away",tDist/1000.0];
+        }
+    });
+}
+
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad
@@ -42,17 +57,40 @@
         checkedInLabel.hidden = YES;
         checkInButton.hidden = YES;
     }else{
-        checkInButton.hidden = NO;
+        BOOL tCheckedIn = NO;
         for (Checkin* checkin in assignment.checkins) {
             if( [checkin.venueId intValue]==[venue.venueId intValue] ) {
-                checkedInLabel.text = [NSString stringWithFormat:@"Checked In: %@",checkin.createdAt];
                 checkInButton.hidden = YES;
+                checkedInLabel.text = [NSString stringWithFormat:@"Checked In: %@",checkin.createdAt];
+                tCheckedIn = YES;
                 break;
             }
+        }
+        if( !tCheckedIn ) {
+            [self updateLocation:[[LocationManager sharedManager] location]];
         }
     }
 
     self.navigationItem.title = @"Venue";
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    CLLocationManager* tMgr = [LocationManager sharedManager];
+    tMgr.delegate = self;
+//    tMgr.distanceFilter = 1;
+//    [tMgr startUpdatingLocation];
+    [tMgr startMonitoringSignificantLocationChanges];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    CLLocationManager* tMgr = [LocationManager sharedManager];
+//    [tMgr stopUpdatingLocation];
+    [tMgr stopMonitoringSignificantLocationChanges];
+    tMgr.delegate = nil;
 }
 
 - (void)viewDidUnload
@@ -131,6 +169,14 @@
 {
 //    Alert(@"Unable to checkin", [[error userInfo] objectForKey:@"NSLocalizedDescription"]);
     Alert(@"Unable to checkin", [error localizedDescription]);
+}
+
+#pragma mark -
+#pragma mark CLLocationManagerDelegate
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
+{
+    [self updateLocation:newLocation];
 }
 
 @end

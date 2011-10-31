@@ -12,7 +12,7 @@
 #import "Assignment.h"
 
 
-@interface VenueViewController : UIViewController <RKObjectLoaderDelegate> {
+@interface VenueViewController : UIViewController <RKObjectLoaderDelegate,CLLocationManagerDelegate> {
     
     IBOutlet UIImageView* imageView;
     IBOutlet UILabel* titleLabel;

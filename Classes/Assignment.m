@@ -31,6 +31,8 @@
     RKObjectMapping* tVenueMapping = [RKObjectMapping mappingForClass:[Venue class]];
 	[tVenueMapping mapKeyPath:@"id" toAttribute:@"venueId"];
 	[tVenueMapping mapKeyPath:@"name" toAttribute:@"name"];
+	[tVenueMapping mapKeyPath:@"lat" toAttribute:@"lat"];
+	[tVenueMapping mapKeyPath:@"lng" toAttribute:@"lng"];
     
 	[tHopMapping mapKeyPath:@"venues" toRelationship:@"venues" withMapping:tVenueMapping];
     
@@ -52,6 +54,11 @@
     
     [[RKObjectManager sharedManager].router routeClass:[Assignment class] toResourcePath:@"/user/assignments" forMethod:RKRequestMethodPOST];
     [[RKObjectManager sharedManager].router routeClass:[Assignment class] toResourcePath:@"/user/assignments/:assignmentId" forMethod:RKRequestMethodDELETE];
+}
+
+- (NSString*)description
+{
+    return [NSString stringWithFormat:@"hop:%@ complete:%@",hop,complete];
 }
 
 @end
