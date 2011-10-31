@@ -18,6 +18,7 @@ static int ddLogLevel = LOG_LEVEL_VERBOSE;
 
 - (void)refreshLeaders
 {
+    [self showHud:@"Loading"];
 	[[RKObjectManager sharedManager] loadObjectsAtResourcePath:@"/leaders" delegate:self];
 }
 
@@ -72,6 +73,7 @@ static int ddLogLevel = LOG_LEVEL_VERBOSE;
 
 - (void)objectLoader:(RKObjectLoader *)objectLoader didLoadObjects:(NSArray *)objects
 {
+    [self hideHud];
 	DDLogVerbose(@"objects loaded: %@",objects);
     self.users = objects;
 //    BOOL tComplete = [modeSelect selectedSegmentIndex]==1;
@@ -88,7 +90,8 @@ static int ddLogLevel = LOG_LEVEL_VERBOSE;
 }
 
 - (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error {
-	DDLogVerbose(@"Encountered an error: %@", error);
+    [self hideHud];
+	DDLogWarn(@"Encountered an error: %@", error);
     Alert(@"Unable to load", [error localizedDescription]);
 }
 

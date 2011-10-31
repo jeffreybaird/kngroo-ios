@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "User.h"
+#import "HudViewController.h"
 
 
-@interface AccountViewController : UIViewController <UITableViewDataSource,UITableViewDelegate,RKObjectLoaderDelegate> {
+@interface AccountViewController : HudViewController <UITableViewDataSource,UITableViewDelegate,RKObjectLoaderDelegate> {
     
     IBOutlet UITableView* tableView;
     User* user;

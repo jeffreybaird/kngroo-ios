@@ -7,9 +7,13 @@
 //
 
 #import "V8HorizontalPickerView.h"
+#import "HudViewController.h"
+#import "Hop.h"
 
 
-@interface HopListViewController : UIViewController <RKObjectLoaderDelegate,V8HorizontalPickerViewDataSource,V8HorizontalPickerViewDelegate> {
+typedef BOOL(^HopSelectorBlock)(Hop*);
+
+@interface HopListViewController : HudViewController <RKObjectLoaderDelegate,V8HorizontalPickerViewDataSource,V8HorizontalPickerViewDelegate> {
     
     IBOutlet UISegmentedControl* modeSelect;
 	IBOutlet UITableView* tableView;
@@ -29,5 +33,9 @@
 @property (retain) NSArray* hops;
 @property (retain) NSArray* allHops;
 @property (retain) NSArray* categories;
+
+-(void)showHops:(HopSelectorBlock)selectBlock;
+-(void)showCategoryPicker;
+-(void)hideCategoryPicker;
 
 @end

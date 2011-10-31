@@ -16,6 +16,7 @@
 
 - (void)refreshUser
 {
+    [self showHud:@"Loading"];
     [[RKObjectManager sharedManager] loadObjectsAtResourcePath:@"/user" delegate:self];
 }
 
@@ -95,6 +96,7 @@
 
 - (void)objectLoader:(RKObjectLoader *)objectLoader didLoadObject:(id)object
 {
+    [self hideHud];
     User* tUser = (User*)object;
     self.user = tUser;
     

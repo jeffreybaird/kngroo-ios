@@ -21,13 +21,7 @@ static int ddLogLevel = LOG_LEVEL_VERBOSE;
 
 - (void)refreshHops
 {
-//	RKObjectMapping* tHopMapping = [RKObjectMapping mappingForClass:[Hop class]];
-//	[tHopMapping mapKeyPath:@"id" toAttribute:@"hopId"];
-//	[tHopMapping mapKeyPath:@"title" toAttribute:@"title"];
-//	[tHopMapping mapKeyPath:@"points" toAttribute:@"points"];
-
-	// grab server data for this app
-//	[[RKObjectManager sharedManager] loadObjectsAtResourcePath:@"/hops" objectMapping:tHopMapping delegate:self];
+    [self showHud:@"Loading"];
 	[[RKObjectManager sharedManager] loadObjectsAtResourcePath:@"/user/assignments" delegate:self];
 }
 
@@ -172,6 +166,7 @@ static int ddLogLevel = LOG_LEVEL_VERBOSE;
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if( editingStyle==UITableViewCellEditingStyleDelete ) {
+        [self showHud:@"Deleting"];
         Assignment* tAssignment = [hops objectAtIndex:indexPath.row];
         [[RKObjectManager sharedManager] deleteObject:tAssignment delegate:self];
     }
@@ -192,6 +187,7 @@ static int ddLogLevel = LOG_LEVEL_VERBOSE;
 
 - (void)objectLoader:(RKObjectLoader *)objectLoader didLoadObjects:(NSArray *)objects
 {
+    [self hideHud];
 	DDLogVerbose(@"AssignmentListView - objects loaded: %@",objects);
     if( [objectLoader isDELETE] ) {
         [[NSNotificationCenter defaultCenter] postNotificationName:@"AssignmentDeleted" object:nil];
@@ -208,11 +204,13 @@ static int ddLogLevel = LOG_LEVEL_VERBOSE;
 
 - (void)objectLoader:(RKObjectLoader *)objectLoader didLoadObject:(id)object
 {
+    [self hideHud];
 	DDLogVerbose(@"AssignmentListView - object loaded: %@",object);
 }
 
 - (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error {
-	DDLogVerbose(@"Encountered an error: %@", error);
+    [self hideHud];
+	DDLogWarn(@"Encountered an error: %@", error);
     Alert(@"Unable to load", [error localizedDescription]);
 }
 

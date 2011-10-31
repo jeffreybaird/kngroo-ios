@@ -7,3 +7,6 @@
 [submodule "V8HorizontalPickerView"]
 	path = V8HorizontalPickerView
 	url = git://github.com/veader/V8HorizontalPickerView.git
+[submodule "MBProgressHUD"]
+	path = MBProgressHUD
+	url = git://github.com/jdg/MBProgressHUD.git

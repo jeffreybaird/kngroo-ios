@@ -19,11 +19,13 @@
 
 - (IBAction)showTrivia:(id)sender
 {
+    [self showHud:@"Loading"];
     [[RKObjectManager sharedManager] loadObjectsAtResourcePath:[NSString stringWithFormat:@"/user/assignments/%@/venues/%@/trivias",assignment.assignmentId,venue.venueId] delegate:self];
 }
 
 - (void)checkIn
 {
+    [self showHud:@"Checking In"];
     Checkin* tCheckin = [[[Checkin alloc] init] autorelease];
     tCheckin.assignmentId = assignment.assignmentId;
     tCheckin.venueId = venue.venueId;
@@ -111,6 +113,7 @@
 
 - (void)objectLoader:(RKObjectLoader *)objectLoader didLoadObjects:(NSArray *)objects
 {
+    [self hideHud];
     if( objects && objects.count>0 && [[objects lastObject] isKindOfClass:[Trivia class]] ) {
         Trivia* tTrivia = [objects objectAtIndex:0];
         NSMutableArray* tAnswers = [NSMutableArray array];
@@ -129,6 +132,7 @@
                 });
             };
             tTriviaView.successBlock = ^(Trivia* aTrivia, BOOL aCorrectAnswer) {
+                [self showHud:@"Saving"];
                 Attempt* tAttempt = [[[Attempt alloc] init] autorelease];
                 tAttempt.triviaId = aTrivia.triviaId;
                 tAttempt.correctAnswer = [NSNumber numberWithBool:aCorrectAnswer];
@@ -145,6 +149,7 @@
 
 - (void)objectLoader:(RKObjectLoader *)objectLoader didLoadObject:(id)object
 {
+    [self hideHud];
     if( [object isKindOfClass:[Checkin class]] ) {
         Checkin* tCheckin = (Checkin*)object;
         NSMutableArray* tCheckins = [NSMutableArray arrayWithArray:assignment.checkins];
@@ -167,6 +172,7 @@
 
 - (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error
 {
+    [self hideHud];
 //    Alert(@"Unable to checkin", [[error userInfo] objectForKey:@"NSLocalizedDescription"]);
     Alert(@"Unable to checkin", [error localizedDescription]);
 }

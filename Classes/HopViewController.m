@@ -21,6 +21,7 @@ static int ddLogLevel = LOG_LEVEL_VERBOSE;
 
 - (IBAction)startThisHop:(id)sender
 {
+    [self showHud:@"Starting"];
     Assignment* tAssignment = [[[Assignment alloc] init] autorelease];
     tAssignment.hopId = hop.hopId;
     [[RKObjectManager sharedManager] postObject:tAssignment delegate:self];
@@ -106,6 +107,7 @@ static int ddLogLevel = LOG_LEVEL_VERBOSE;
 
 - (void)objectLoader:(RKObjectLoader *)objectLoader didLoadObject:(id)object
 {
+    [self hideHud];
     DDLogVerbose(@"HopView - object loaded: %@",object);
     
     Assignment* tAssignment = (Assignment*)object;
@@ -114,8 +116,9 @@ static int ddLogLevel = LOG_LEVEL_VERBOSE;
 
 - (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error
 {
+    [self hideHud];
     Alert(@"Unable to add hop", [error localizedDescription]);
-    DDLogError([error localizedDescription]);
+    DDLogWarn([error localizedDescription]);
 }
 
 @end

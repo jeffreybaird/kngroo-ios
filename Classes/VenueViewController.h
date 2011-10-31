@@ -10,9 +10,10 @@
 #import "Hop.h"
 #import "Venue.h"
 #import "Assignment.h"
+#import "HudViewController.h"
 
 
-@interface VenueViewController : UIViewController <RKObjectLoaderDelegate,CLLocationManagerDelegate> {
+@interface VenueViewController : HudViewController <RKObjectLoaderDelegate,CLLocationManagerDelegate> {
     
     IBOutlet UIImageView* imageView;
     IBOutlet UILabel* titleLabel;

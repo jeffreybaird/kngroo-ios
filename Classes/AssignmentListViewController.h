@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HudViewController.h"
 
 
-@interface AssignmentListViewController : UIViewController <UITableViewDataSource,UITableViewDelegate,RKObjectLoaderDelegate> {
+@interface AssignmentListViewController : HudViewController <UITableViewDataSource,UITableViewDelegate,RKObjectLoaderDelegate> {
 
     IBOutlet UISegmentedControl* modeSelect;
 	IBOutlet UITableView* tableView;

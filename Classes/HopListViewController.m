@@ -7,7 +7,6 @@
 //
 
 #import "HopListViewController.h"
-#import "Hop.h"
 #import "HopViewController.h"
 #import "ImageManager.h"
 #import "Venue.h"
@@ -15,7 +14,6 @@
 
 
 static int ddLogLevel = LOG_LEVEL_VERBOSE;
-typedef BOOL(^HopSelectorBlock)(Hop*);
 
 @implementation HopListViewController
 
@@ -23,6 +21,7 @@ typedef BOOL(^HopSelectorBlock)(Hop*);
 
 - (void)refreshHops
 {
+    [self showHud:@"Loading"];
 	[[RKObjectManager sharedManager] loadObjectsAtResourcePath:@"/hops" delegate:self];
 }
 
@@ -36,7 +35,7 @@ typedef BOOL(^HopSelectorBlock)(Hop*);
     BOOL tByCategory = [modeSelect selectedSegmentIndex]==1;
     if( tByCategory ) {
         [self showHops:^(Hop* aHop) {
-            return [aHop.categoryId intValue]==selectedCategoryId;
+            return (BOOL)([aHop.categoryId intValue]==selectedCategoryId);
         }];
         if( !categoryPickerVisible ) {
             [self showCategoryPicker];
@@ -251,6 +250,7 @@ typedef BOOL(^HopSelectorBlock)(Hop*);
 
 - (void)objectLoader:(RKObjectLoader *)objectLoader didLoadObjects:(NSArray *)objects
 {
+    [self hideHud];
 	DDLogVerbose(@"HopListView - objects loaded: %@",objects);
     if( objects && objects.count>0 ) {
         if( [[objects lastObject] isKindOfClass:[Hop class]] ) {
@@ -277,6 +277,7 @@ typedef BOOL(^HopSelectorBlock)(Hop*);
 }
 
 - (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error {
+    [self hideHud];
 	DDLogVerbose(@"Encountered an error: %@", error);
     Alert(@"Unable to load", [error localizedDescription]);
 }

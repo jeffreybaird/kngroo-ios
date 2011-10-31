@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "Hop.h"
+#import "HudViewController.h"
 
 
-@interface HopViewController : UIViewController <UITableViewDataSource,UITabBarDelegate,RKObjectLoaderDelegate> {
+@interface HopViewController : HudViewController <UITableViewDataSource,UITabBarDelegate,RKObjectLoaderDelegate> {
 
     IBOutlet UIImageView* imageView;
     IBOutlet UILabel* titleLabel;

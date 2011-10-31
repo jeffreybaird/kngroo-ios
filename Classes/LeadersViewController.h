@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HudViewController.h"
 
-@interface LeadersViewController : UIViewController <UITableViewDataSource,UITableViewDelegate,RKObjectLoaderDelegate> {
+
+@interface LeadersViewController : HudViewController <UITableViewDataSource,UITableViewDelegate,RKObjectLoaderDelegate> {
     
     IBOutlet UISegmentedControl* modeSelect;
     IBOutlet UITableView* tableView;
