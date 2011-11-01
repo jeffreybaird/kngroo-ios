@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HudViewController.h"
 
-@interface SignInViewController : UIViewController <RKObjectLoaderDelegate> {
+
+@interface SignInViewController : HudViewController <RKObjectLoaderDelegate> {
     
     IBOutlet UITextField* email;
     IBOutlet UITextField* password;

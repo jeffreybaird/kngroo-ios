@@ -19,6 +19,10 @@
 
 - (void)donePressed
 {
+    [email resignFirstResponder];
+    [password resignFirstResponder];
+    
+    [self showHud:@"Signing In"];
     Session* tSession = [Session sessionWithEmail:email.text password:password.text];
     [[RKObjectManager sharedManager] postObject:tSession delegate:self];
 }
@@ -67,6 +71,7 @@
 
 - (void)objectLoader:(RKObjectLoader *)objectLoader didLoadObject:(id)object
 {
+    [self hideHud];
     if( [object isKindOfClass:[Session class]] ) {
         Session* tSession = (Session*)object;
         [[NSUserDefaults standardUserDefaults] setInteger:[tSession.userId intValue] forKey:@"UserId"];
@@ -80,6 +85,7 @@
 
 - (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error
 {
+    [self hideHud];
     Alert(@"Unable to sign in", [error localizedDescription]);
 }
 

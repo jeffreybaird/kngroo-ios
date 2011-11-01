@@ -27,6 +27,7 @@
 
 - (void)donePressed
 {
+    [self showHud:@"Creating Account"];
     User* tUser = [[[User alloc] init] autorelease];
     tUser.email = email.text;
     tUser.password = password.text;
@@ -68,6 +69,7 @@
 
 - (void)objectLoader:(RKObjectLoader *)objectLoader didLoadObject:(id)object
 {
+    [self hideHud];
     if( [object isKindOfClass:[User class]] ) {
         [email resignFirstResponder];
         [password resignFirstResponder];
@@ -86,6 +88,7 @@
 
 - (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error
 {
+    [self hideHud];
     Alert(@"Unable to create account", [error localizedDescription]);
 }
 

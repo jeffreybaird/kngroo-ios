@@ -14,11 +14,19 @@
 
 - (void)showHud:(NSString *)aMessage
 {
-    self.hud = [[[MBProgressHUD alloc] initWithView:self.navigationController.tabBarController.view] autorelease];
-    hud.delegate = self;
-    hud.labelText = aMessage;
-    [self.navigationController.view addSubview:hud];
-    [hud show:YES];
+    if( self.navigationController.tabBarController ) {
+        self.hud = [[[MBProgressHUD alloc] initWithView:self.navigationController.tabBarController.view] autorelease];
+        hud.delegate = self;
+        hud.labelText = aMessage;
+        [self.navigationController.tabBarController.view addSubview:hud];
+        [hud show:YES];
+    }else{
+        self.hud = [[[MBProgressHUD alloc] initWithView:self.navigationController.view] autorelease];
+        hud.delegate = self;
+        hud.labelText = aMessage;
+        [self.navigationController.view addSubview:hud];
+        [hud show:YES];
+    }
 }
 
 - (void)hideHud
