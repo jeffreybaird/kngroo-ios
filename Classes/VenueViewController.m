@@ -175,6 +175,9 @@
     [self hideHud];
 //    Alert(@"Unable to checkin", [[error userInfo] objectForKey:@"NSLocalizedDescription"]);
     Alert(@"Unable to checkin", [error localizedDescription]);
+    if( error.code==1004 ) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"SessionDestroyed" object:nil];
+    }
 }
 
 #pragma mark -

@@ -119,6 +119,9 @@ static int ddLogLevel = LOG_LEVEL_VERBOSE;
     [self hideHud];
     Alert(@"Unable to add hop", [error localizedDescription]);
     DDLogWarn([error localizedDescription]);
+    if( error.code==1004 ) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"SessionDestroyed" object:nil];
+    }
 }
 
 @end

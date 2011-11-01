@@ -17,12 +17,15 @@
 #import "Trivia.h"
 #import "Attempt.h"
 #import "LocationManager.h"
+#import "PublicViewController.h"
+#import "Session.h"
 
 
 @implementation KngrooAppDelegate
 
 @synthesize window;
 @synthesize tabBarController;
+@synthesize navController;
 
 - (void)initObjectLoader
 {
@@ -34,6 +37,21 @@
     [Category initObjectLoader];
     [Trivia initObjectLoader];
     [Attempt initObjectLoader];
+    [Session initObjectLoader];
+
+}
+
+- (void)sessionCreated:(NSNotification*)notif
+{
+    [window addSubview:tabBarController.view];
+    [navController.view removeFromSuperview];
+}
+
+- (void)sessionDestroyed:(NSNotification*)notif
+{
+    [navController popToRootViewControllerAnimated:NO];
+    [window addSubview:navController.view];
+    [tabBarController.view removeFromSuperview];
 }
 
 - (void)assignmentCreated:(NSNotification*)notif
@@ -56,20 +74,33 @@
 	// init logger
 	[DDLog addLogger:[DDTTYLogger sharedInstance]];
 		
-	RKObjectManager* tMgr = [RKObjectManager objectManagerWithBaseURL:@"http://local:3000"];
-//	RKObjectManager* tMgr = [RKObjectManager objectManagerWithBaseURL:@"http://kngroo-sandbox.heroku.com"];
-	tMgr.client.username = @"109c63f22d";
-	tMgr.client.password = @"x";
-	tMgr.client.authenticationType = RKRequestAuthenticationTypeHTTPBasic;
+//	RKObjectManager* tMgr = [RKObjectManager objectManagerWithBaseURL:@"http://local:3000"];
+	RKObjectManager* tMgr = [RKObjectManager objectManagerWithBaseURL:@"http://kngroo-sandbox.heroku.com"];
+
+//	tMgr.client.username = @"109c63f22d";
+//	tMgr.client.password = @"x";
+//	tMgr.client.authenticationType = RKRequestAuthenticationTypeHTTPBasic;
     tMgr.serializationMIMEType = RKMIMETypeJSON;
 	
 	[self initObjectLoader];
     
-    // Add the tab bar controller's view to the window and display.
-    [self.window addSubview:tabBarController.view];
+    PublicViewController* tPublicView = [[[PublicViewController alloc] init] autorelease];
+    UINavigationController* tNav = [[[UINavigationController alloc] initWithRootViewController:tPublicView] autorelease];
+    self.navController = tNav;
+
+    int tUserId = [[NSUserDefaults standardUserDefaults] integerForKey:@"UserId"];
+    if( tUserId!=0 ) {
+        // Add the tab bar controller's view to the window and display.
+        [self.window addSubview:tabBarController.view];
+    }else{
+        // show sign up/sign in view
+        [self.window addSubview:tNav.view];
+    }
     [self.window makeKeyAndVisible];
     
     // app-level event triggers
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(sessionCreated:) name:@"SessionCreated" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(sessionDestroyed:) name:@"SessionDestroyed" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(assignmentCreated:) name:@"AssignmentCreated" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(trophyCreated:) name:@"TrophyCreated" object:nil];
 
