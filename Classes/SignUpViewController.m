@@ -1,16 +1,24 @@
 //
-//  SignInViewController.m
+//  SignUpViewController.m
 //  Kngroo
 //
 //  Created by Aubrey Goodman on 11/1/11.
 //  Copyright (c) 2011 Migrant Studios. All rights reserved.
 //
 
-#import "SignInViewController.h"
-#import "Session.h"
+#import "SignUpViewController.h"
+#import "User.h"
 
 
-@implementation SignInViewController
+@implementation SignUpViewController
+
+@synthesize email, password;
+
+- (id)init
+{
+    self = [super initWithNibName:@"SignUpView" bundle:[NSBundle mainBundle]];
+    return self;
+}
 
 - (void)cancelPressed
 {
@@ -19,16 +27,10 @@
 
 - (void)donePressed
 {
-    Session* tSession = [Session sessionWithEmail:email.text password:password.text];
-    [[RKObjectManager sharedManager] postObject:tSession delegate:self];
-}
-
-#pragma mark -
-
-- (id)init
-{
-    self = [super initWithNibName:@"SignInView" bundle:[NSBundle mainBundle]];
-    return self;
+    User* tUser = [[[User alloc] init] autorelease];
+    tUser.email = email.text;
+    tUser.password = password.text;
+    [[RKObjectManager sharedManager] postObject:tUser delegate:self];
 }
 
 #pragma mark - View lifecycle
@@ -37,7 +39,7 @@
 {
     [super viewDidLoad];
     
-    self.navigationItem.title = @"Sign In";
+    self.navigationItem.title = @"Create Account";
     self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelPressed)] autorelease];
     self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(donePressed)] autorelease];
 }
@@ -49,12 +51,12 @@
     [email becomeFirstResponder];
 }
 
-//- (void)viewDidUnload
-//{
-//    [super viewDidUnload];
-//    // Release any retained subviews of the main view.
-//    // e.g. self.myOutlet = nil;
-//}
+- (void)viewDidUnload
+{
+    [super viewDidUnload];
+    // Release any retained subviews of the main view.
+    // e.g. self.myOutlet = nil;
+}
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
@@ -62,25 +64,26 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-#pragma mark -
-#pragma mark RKObjectLoaderDelegate
+#pragma mark - RKObjectLoaderDelegate
 
 - (void)objectLoader:(RKObjectLoader *)objectLoader didLoadObject:(id)object
 {
-    if( [object isKindOfClass:[Session class]] ) {
-        Session* tSession = (Session*)object;
-        [[NSUserDefaults standardUserDefaults] setInteger:[tSession.userId intValue] forKey:@"UserId"];
+    if( [object isKindOfClass:[User class]] ) {
+        [email resignFirstResponder];
+        [password resignFirstResponder];
+        
+        User* tUser = (User*)object;
+        [[NSUserDefaults standardUserDefaults] setInteger:[tUser.userId intValue] forKey:@"UserId"];
         [[NSUserDefaults standardUserDefaults] synchronize];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"SessionCreated" object:nil];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.navigationController dismissModalViewControllerAnimated:YES];
-        });
+        Alert(@"Account Created", @"You're ready to go.");
+        [self.navigationController popToRootViewControllerAnimated:YES];
     }
 }
 
 - (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error
 {
-    Alert(@"Unable to sign in", [error localizedDescription]);
+    Alert(@"Unable to create account", [error localizedDescription]);
 }
 
 @end

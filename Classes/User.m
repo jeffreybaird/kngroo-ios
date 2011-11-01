@@ -36,6 +36,17 @@
     [tUserMapping mapKeyPath:@"trophies" toRelationship:@"trophies" withMapping:tTrophyMapping];
 
     [[RKObjectManager sharedManager].mappingProvider setObjectMapping:tUserMapping forKeyPath:@"user"];
+
+    RKObjectMapping* tUserSerialization = [RKObjectMapping mappingForClass:[User class]];
+    [tUserSerialization mapKeyPath:@"email" toAttribute:@"email"];
+    [tUserSerialization mapKeyPath:@"password" toAttribute:@"password"];
+    tUserSerialization.rootKeyPath = @"user";
+    
+    [[RKObjectManager sharedManager].mappingProvider setSerializationMapping:tUserSerialization forClass:[User class]];
+    
+    [[RKObjectManager sharedManager].router routeClass:[User class] toResourcePath:@"/users" forMethod:RKRequestMethodPOST];
+    [[RKObjectManager sharedManager].router routeClass:[User class] toResourcePath:@"/user" forMethod:RKRequestMethodGET];
+    [[RKObjectManager sharedManager].router routeClass:[User class] toResourcePath:@"/user" forMethod:RKRequestMethodPUT];
 }
 
 @end

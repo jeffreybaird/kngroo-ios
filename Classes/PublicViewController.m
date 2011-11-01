@@ -8,6 +8,7 @@
 
 #import "PublicViewController.h"
 #import "SignInViewController.h"
+#import "SignUpViewController.h"
 
 
 @implementation PublicViewController
@@ -20,10 +21,9 @@
 
 - (void)signUpPressed
 {
-    Alert(@"TODO", @"show sign up view");
-//    SignUpViewController* tSignUpView = [[[SignUpViewController alloc] init] autorelease];
-//    UINavigationController* tNav = [[[UINavigationController alloc] initWithRootViewController:tSignUpView] autorelease];
-//    [self.navigationController presentModalViewController:tNav animated:YES];
+    SignUpViewController* tSignUpView = [[[SignUpViewController alloc] init] autorelease];
+    UINavigationController* tNav = [[[UINavigationController alloc] initWithRootViewController:tSignUpView] autorelease];
+    [self.navigationController presentModalViewController:tNav animated:YES];
 }
 
 - (void)signInPressed
