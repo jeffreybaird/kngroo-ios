@@ -9,7 +9,10 @@
 #import "AccountViewController.h"
 #import "Trophy.h"
 #import "Session.h"
+#import "NSString+MD5.h"
 
+
+static int ddLogLevel = LOG_LEVEL_VERBOSE;
 
 @implementation AccountViewController
 
@@ -71,7 +74,6 @@
                                              selector:@selector(trophyAwarded:)
                                                  name:@"TrophyAwarded"
                                                object:nil];
-    
 }
 
 - (void)viewDidUnload
@@ -125,6 +127,18 @@
         User* tUser = (User*)object;
         self.user = tUser;
         
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+            NSString* tPath = [NSString stringWithFormat:@"http://www.gravatar.com/avatar/%@",[tUser.email md5]];
+            DDLogVerbose(@"fetching %@",tPath);
+            NSData* tRawImage = [NSData dataWithContentsOfURL:[NSURL URLWithString:tPath]];
+            if( tRawImage ) {
+                UIImage* tImage = [[[UIImage alloc] initWithData:tRawImage] autorelease];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    avatarView.image = tImage;
+                });
+            }
+        });
+        
         dispatch_async(dispatch_get_main_queue(), ^{
             [self modeChanged];
         });
@@ -133,6 +147,12 @@
         [[NSUserDefaults standardUserDefaults] synchronize];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"SessionDestroyed" object:nil];
     }
+}
+
+- (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error
+{
+    [self hideHud];
+    Alert(@"Unable to load user", [error localizedDescription]);
 }
 
 #pragma mark - UIActionSheetDelegate

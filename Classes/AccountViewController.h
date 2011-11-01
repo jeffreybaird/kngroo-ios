@@ -15,6 +15,7 @@
     
     IBOutlet UISegmentedControl* modeSelect;
     IBOutlet UIView* personalView;
+    IBOutlet UIImageView* avatarView;
     IBOutlet UILabel* emailLabel;
     IBOutlet UILabel* pointsLabel;
     IBOutlet UILabel* trophiesLabel;

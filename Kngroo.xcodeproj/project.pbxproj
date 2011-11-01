@@ -41,6 +41,7 @@
 		7E8A371114608A130066251F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E8A371014608A130066251F /* MapKit.framework */; };
 		7E8A371414608A780066251F /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E8A371314608A780066251F /* MapViewController.m */; };
 		7E8A371614608B060066251F /* MapView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E8A371514608B060066251F /* MapView.xib */; };
+		7E8A3719146093B50066251F /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E8A3718146093B50066251F /* NSString+MD5.m */; };
 		7EB66A3E145DDDC6008B90E3 /* Trivia.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB66A3D145DDDC6008B90E3 /* Trivia.m */; };
 		7EB66A41145DDF4E008B90E3 /* TriviaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB66A40145DDF4E008B90E3 /* TriviaViewController.m */; };
 		7EB66A43145DE105008B90E3 /* TriviaView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EB66A42145DE105008B90E3 /* TriviaView.xib */; };
@@ -214,6 +215,8 @@
 		7E8A371214608A780066251F /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		7E8A371314608A780066251F /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		7E8A371514608B060066251F /* MapView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapView.xib; sourceTree = "<group>"; };
+		7E8A3717146093B50066251F /* NSString+MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MD5.h"; sourceTree = "<group>"; };
+		7E8A3718146093B50066251F /* NSString+MD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MD5.m"; sourceTree = "<group>"; };
 		7EB66A3C145DDDC6008B90E3 /* Trivia.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Trivia.h; sourceTree = "<group>"; };
 		7EB66A3D145DDDC6008B90E3 /* Trivia.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Trivia.m; sourceTree = "<group>"; };
 		7EB66A3F145DDF4E008B90E3 /* TriviaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TriviaViewController.h; sourceTree = "<group>"; };
@@ -326,6 +329,8 @@
 				7E5348D21454DADF001A938B /* VenueViewController.m */,
 				7E8A371214608A780066251F /* MapViewController.h */,
 				7E8A371314608A780066251F /* MapViewController.m */,
+				7E8A3717146093B50066251F /* NSString+MD5.h */,
+				7E8A3718146093B50066251F /* NSString+MD5.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -689,6 +694,7 @@
 				7E2167151460552B00D39D60 /* PublicViewController.m in Sources */,
 				7E8A370D146069750066251F /* SignUpViewController.m in Sources */,
 				7E8A371414608A780066251F /* MapViewController.m in Sources */,
+				7E8A3719146093B50066251F /* NSString+MD5.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
