@@ -93,9 +93,9 @@ static int ddLogLevel = LOG_LEVEL_VERBOSE;
     [self hideHud];
 	DDLogWarn(@"Encountered an error: %@", error);
     Alert(@"Unable to load", [error localizedDescription]);
-    if( error.code==1004 ) {
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"SessionDestroyed" object:nil];
-    }
+//    if( error.code==1004 ) {
+//        [[NSNotificationCenter defaultCenter] postNotificationName:@"SessionDestroyed" object:nil];
+//    }
 }
 
 #pragma mark - Table view data source

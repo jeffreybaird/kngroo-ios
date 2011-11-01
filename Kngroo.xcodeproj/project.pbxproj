@@ -38,6 +38,9 @@
 		7E5348DB1455CA52001A938B /* AssignmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E5348DA1455CA52001A938B /* AssignmentViewController.m */; };
 		7E8A370D146069750066251F /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E8A370C146069750066251F /* SignUpViewController.m */; };
 		7E8A370F14606A2E0066251F /* SignUpView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E8A370E14606A2E0066251F /* SignUpView.xib */; };
+		7E8A371114608A130066251F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E8A371014608A130066251F /* MapKit.framework */; };
+		7E8A371414608A780066251F /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E8A371314608A780066251F /* MapViewController.m */; };
+		7E8A371614608B060066251F /* MapView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E8A371514608B060066251F /* MapView.xib */; };
 		7EB66A3E145DDDC6008B90E3 /* Trivia.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB66A3D145DDDC6008B90E3 /* Trivia.m */; };
 		7EB66A41145DDF4E008B90E3 /* TriviaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB66A40145DDF4E008B90E3 /* TriviaViewController.m */; };
 		7EB66A43145DE105008B90E3 /* TriviaView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EB66A42145DE105008B90E3 /* TriviaView.xib */; };
@@ -207,6 +210,10 @@
 		7E8A370B146069750066251F /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
 		7E8A370C146069750066251F /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
 		7E8A370E14606A2E0066251F /* SignUpView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignUpView.xib; sourceTree = "<group>"; };
+		7E8A371014608A130066251F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		7E8A371214608A780066251F /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		7E8A371314608A780066251F /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		7E8A371514608B060066251F /* MapView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapView.xib; sourceTree = "<group>"; };
 		7EB66A3C145DDDC6008B90E3 /* Trivia.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Trivia.h; sourceTree = "<group>"; };
 		7EB66A3D145DDDC6008B90E3 /* Trivia.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Trivia.m; sourceTree = "<group>"; };
 		7EB66A3F145DDF4E008B90E3 /* TriviaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TriviaViewController.h; sourceTree = "<group>"; };
@@ -274,6 +281,7 @@
 				7ECDC9BC144DD2B200938D03 /* MobileCoreServices.framework in Frameworks */,
 				7ECDC9BE144DD2B200938D03 /* SystemConfiguration.framework in Frameworks */,
 				7EB66A4A145E1196008B90E3 /* CoreLocation.framework in Frameworks */,
+				7E8A371114608A130066251F /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,6 +324,8 @@
 				7EB66A40145DDF4E008B90E3 /* TriviaViewController.m */,
 				7E5348D11454DADF001A938B /* VenueViewController.h */,
 				7E5348D21454DADF001A938B /* VenueViewController.m */,
+				7E8A371214608A780066251F /* MapViewController.h */,
+				7E8A371314608A780066251F /* MapViewController.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -374,6 +384,7 @@
 				7E2167111460534B00D39D60 /* SignInView.xib */,
 				7E216716146055F500D39D60 /* PublicView.xib */,
 				7E8A370E14606A2E0066251F /* SignUpView.xib */,
+				7E8A371514608B060066251F /* MapView.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -381,6 +392,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7E8A371014608A130066251F /* MapKit.framework */,
 				7EB66A49145E1196008B90E3 /* CoreLocation.framework */,
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
@@ -631,6 +643,7 @@
 				7E2167121460534B00D39D60 /* SignInView.xib in Resources */,
 				7E216717146055F500D39D60 /* PublicView.xib in Resources */,
 				7E8A370F14606A2E0066251F /* SignUpView.xib in Resources */,
+				7E8A371614608B060066251F /* MapView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -675,6 +688,7 @@
 				7E2167101460514500D39D60 /* SignInViewController.m in Sources */,
 				7E2167151460552B00D39D60 /* PublicViewController.m in Sources */,
 				7E8A370D146069750066251F /* SignUpViewController.m in Sources */,
+				7E8A371414608A780066251F /* MapViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

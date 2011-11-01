@@ -11,6 +11,7 @@
 #import "VenueViewController.h"
 #import "Checkin.h"
 #import "Assignment.h"
+#import "MapViewController.h"
 
 
 static int ddLogLevel = LOG_LEVEL_VERBOSE;
@@ -29,7 +30,10 @@ static int ddLogLevel = LOG_LEVEL_VERBOSE;
 
 - (IBAction)showMap:(id)sender
 {
-    Alert(@"TODO", @"show full screen map");
+    MapViewController* tMapView = [[[MapViewController alloc] init] autorelease];
+    tMapView.hop = hop;
+    UINavigationController* tNav = [[[UINavigationController alloc] initWithRootViewController:tMapView] autorelease];
+    [self.navigationController presentModalViewController:tNav animated:YES];
 }
 
 #pragma mark - View lifecycle
@@ -119,9 +123,9 @@ static int ddLogLevel = LOG_LEVEL_VERBOSE;
     [self hideHud];
     Alert(@"Unable to add hop", [error localizedDescription]);
     DDLogWarn([error localizedDescription]);
-    if( error.code==1004 ) {
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"SessionDestroyed" object:nil];
-    }
+//    if( error.code==1004 ) {
+//        [[NSNotificationCenter defaultCenter] postNotificationName:@"SessionDestroyed" object:nil];
+//    }
 }
 
 @end
