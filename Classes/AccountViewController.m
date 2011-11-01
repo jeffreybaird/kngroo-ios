@@ -42,6 +42,7 @@
         emailLabel.text = user.email;
         pointsLabel.text = [NSString stringWithFormat:@"%@",user.points];
         trophiesLabel.text = [NSString stringWithFormat:@"%d",user.trophies.count];
+        [tableView reloadData];
     }
 }
 

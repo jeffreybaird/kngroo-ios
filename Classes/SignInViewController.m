@@ -75,7 +75,14 @@
     if( [object isKindOfClass:[Session class]] ) {
         Session* tSession = (Session*)object;
         [[NSUserDefaults standardUserDefaults] setInteger:[tSession.userId intValue] forKey:@"UserId"];
+        [[NSUserDefaults standardUserDefaults] setValue:tSession.apiToken forKey:@"ApiToken"];
         [[NSUserDefaults standardUserDefaults] synchronize];
+        
+        RKObjectManager* tMgr = [RKObjectManager sharedManager];
+        tMgr.client.username = tSession.apiToken;
+        tMgr.client.password = @"x";
+        tMgr.client.authenticationType = RKRequestAuthenticationTypeHTTPBasic;
+
         [[NSNotificationCenter defaultCenter] postNotificationName:@"SessionCreated" object:nil];
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.navigationController dismissModalViewControllerAnimated:YES];

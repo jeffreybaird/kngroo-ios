@@ -75,8 +75,16 @@
         [password resignFirstResponder];
         
         User* tUser = (User*)object;
+
         [[NSUserDefaults standardUserDefaults] setInteger:[tUser.userId intValue] forKey:@"UserId"];
+        [[NSUserDefaults standardUserDefaults] setValue:tUser.apiToken forKey:@"ApiToken"];
         [[NSUserDefaults standardUserDefaults] synchronize];
+        
+        RKObjectManager* tMgr = [RKObjectManager sharedManager];
+        tMgr.client.username = tUser.apiToken;
+        tMgr.client.password = @"x";
+        tMgr.client.authenticationType = RKRequestAuthenticationTypeHTTPBasic;
+
         [[NSNotificationCenter defaultCenter] postNotificationName:@"SessionCreated" object:nil];
 
         dispatch_async(dispatch_get_main_queue(), ^{

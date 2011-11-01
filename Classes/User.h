@@ -18,6 +18,7 @@
     NSNumber* points;
 	NSArray* hops;
     NSArray* trophies;
+    NSString* apiToken;
 	
 }
 
@@ -27,5 +28,6 @@
 @property (retain) NSNumber* points;
 @property (retain) NSArray* hops;
 @property (retain) NSArray* trophies;
+@property (retain) NSString* apiToken;
 
 @end

@@ -15,12 +15,14 @@
     NSString* email;
     NSString* password;
     NSNumber* userId;
+    NSString* apiToken;
     
 }
 
 @property (retain) NSString* email;
 @property (retain) NSString* password;
 @property (retain) NSNumber* userId;
+@property (retain) NSString* apiToken;
 
 +(Session*)sessionWithEmail:(NSString*)aEmail password:(NSString*)aPassword;
 

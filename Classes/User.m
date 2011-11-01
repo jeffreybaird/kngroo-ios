@@ -12,7 +12,7 @@
 
 @implementation User
 
-@synthesize userId, email, password, points, hops, trophies;
+@synthesize userId, email, password, points, hops, trophies, apiToken;
 
 + (void)initObjectLoader
 {
@@ -21,6 +21,7 @@
 	[tUserMapping mapKeyPath:@"email" toAttribute:@"email"];
 	[tUserMapping mapKeyPath:@"password" toAttribute:@"password"];
 	[tUserMapping mapKeyPath:@"points" toAttribute:@"points"];
+	[tUserMapping mapKeyPath:@"api_token" toAttribute:@"apiToken"];
     
     RKObjectMapping* tTrophyMapping = [RKObjectMapping mappingForClass:[Trophy class]];
     [tTrophyMapping mapKeyPath:@"id" toAttribute:@"trophyId"];

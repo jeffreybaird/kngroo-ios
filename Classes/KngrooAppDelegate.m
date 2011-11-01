@@ -49,6 +49,16 @@
 
 - (void)sessionDestroyed:(NSNotification*)notif
 {
+    // housekeeping
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"UserId"];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"ApiToken"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    RKObjectManager* tMgr = [RKObjectManager sharedManager];
+	tMgr.client.username = nil;
+	tMgr.client.password = nil;
+	tMgr.client.authenticationType = RKRequestAuthenticationTypeNone;
+    
     [navController popToRootViewControllerAnimated:NO];
     [window addSubview:navController.view];
     [tabBarController.view removeFromSuperview];
@@ -77,9 +87,6 @@
 //	RKObjectManager* tMgr = [RKObjectManager objectManagerWithBaseURL:@"http://local:3000"];
 	RKObjectManager* tMgr = [RKObjectManager objectManagerWithBaseURL:@"http://kngroo-sandbox.heroku.com"];
 
-//	tMgr.client.username = @"109c63f22d";
-//	tMgr.client.password = @"x";
-//	tMgr.client.authenticationType = RKRequestAuthenticationTypeHTTPBasic;
     tMgr.serializationMIMEType = RKMIMETypeJSON;
 	
 	[self initObjectLoader];

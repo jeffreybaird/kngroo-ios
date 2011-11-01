@@ -10,7 +10,7 @@
 
 @implementation Session
 
-@synthesize email, password, userId;
+@synthesize email, password, userId, apiToken;
 
 + (Session*)sessionWithEmail:(NSString*)aEmail password:(NSString*)aPassword
 {
@@ -24,6 +24,7 @@
 {
     RKObjectMapping* tSessionMapping = [RKObjectMapping mappingForClass:[Session class]];
     [tSessionMapping mapKeyPath:@"user_id" toAttribute:@"userId"];
+    [tSessionMapping mapKeyPath:@"api_token" toAttribute:@"apiToken"];
     [[RKObjectManager sharedManager].mappingProvider setObjectMapping:tSessionMapping forKeyPath:@"session"];
     
     RKObjectMapping* tSessionSerialization = [RKObjectMapping mappingForClass:[Session class]];
