@@ -19,6 +19,17 @@ static int ddLogLevel = LOG_LEVEL_VERBOSE;
 
 @synthesize modeSelect, tableView, hops, allHops;
 
+- (void)toggleEditMode
+{
+    if( tableView.editing ) {
+        tableView.editing = NO;
+        self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(toggleEditMode)] autorelease];
+    }else{
+        tableView.editing = YES;
+        self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(toggleEditMode)] autorelease];
+    }
+}
+
 - (void)refreshHops
 {
     [self showHud:@"Loading"];
@@ -77,6 +88,7 @@ static int ddLogLevel = LOG_LEVEL_VERBOSE;
 	// refresh hops
 	[self refreshHops];
 
+    self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(toggleEditMode)] autorelease];
     self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refreshHops)] autorelease];    
     
     [modeSelect addTarget:self action:@selector(modeChanged) forControlEvents:UIControlEventValueChanged];
