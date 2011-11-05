@@ -50,7 +50,7 @@
             checkInButton.hidden = NO;
         }else{
             checkInButton.hidden = YES;
-            checkedInLabel.text = [NSString stringWithFormat:@"%3.1f km away",tDist/1000.0];
+            checkedInLabel.text = [NSString stringWithFormat:@"%3.1f mi away",tDist*3.2808/5280.0];
         }
     });
 }
@@ -68,7 +68,7 @@
         checkedInLabel.hidden = YES;
         checkInButton.hidden = YES;
     }else{
-        BOOL tCheckedIn = NO;
+        checkedIn = NO;
         for (Checkin* checkin in assignment.checkins) {
             if( [checkin.venueId intValue]==[venue.venueId intValue] ) {
                 checkInButton.hidden = YES;
@@ -76,11 +76,11 @@
                 tFormat.dateStyle = NSDateFormatterShortStyle;
                 tFormat.timeStyle = NSDateFormatterShortStyle;
                 checkedInLabel.text = [NSString stringWithFormat:@"Checked In: %@",[tFormat stringFromDate:checkin.createdAt]];
-                tCheckedIn = YES;
+                checkedIn = YES;
                 break;
             }
         }
-        if( !tCheckedIn ) {
+        if( !checkedIn ) {
             [self updateLocation:[[LocationManager sharedManager] location]];
         }
     }
@@ -92,19 +92,23 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    CLLocationManager* tMgr = [LocationManager sharedManager];
-    tMgr.delegate = self;
-    [tMgr startUpdatingLocation];
-//    [tMgr startMonitoringSignificantLocationChanges];
+    if( !checkedIn ) {
+        CLLocationManager* tMgr = [LocationManager sharedManager];
+        tMgr.delegate = self;
+        [tMgr startUpdatingLocation];
+//        [tMgr startMonitoringSignificantLocationChanges];
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
-    CLLocationManager* tMgr = [LocationManager sharedManager];
-    [tMgr stopUpdatingLocation];
-//    [tMgr stopMonitoringSignificantLocationChanges];
-    tMgr.delegate = nil;
+    if( !checkedIn ) {
+        CLLocationManager* tMgr = [LocationManager sharedManager];
+        [tMgr stopUpdatingLocation];
+//        [tMgr stopMonitoringSignificantLocationChanges];
+        tMgr.delegate = nil;
+    }
 }
 
 - (void)viewDidUnload
@@ -187,9 +191,9 @@
     [self hideHud];
 //    Alert(@"Unable to checkin", [[error userInfo] objectForKey:@"NSLocalizedDescription"]);
     Alert(@"Unable to checkin", [error localizedDescription]);
-    if( error.code==1004 ) {
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"SessionDestroyed" object:nil];
-    }
+//    if( error.code==1004 ) {
+//        [[NSNotificationCenter defaultCenter] postNotificationName:@"SessionDestroyed" object:nil];
+//    }
 }
 
 #pragma mark -

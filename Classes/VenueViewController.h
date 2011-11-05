@@ -27,6 +27,8 @@
     Venue* venue;
     Assignment* assignment;
     
+    BOOL checkedIn;
+    
 }
 
 @property (retain) UIImageView* imageView;
