@@ -60,6 +60,7 @@
     
     [self refreshPins];
     
+    mapView.showsUserLocation = YES;
     self.navigationItem.title = @"Hop Map";
     self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(donePressed)] autorelease];
 }
