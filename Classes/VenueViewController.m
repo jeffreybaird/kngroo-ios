@@ -11,11 +11,20 @@
 #import "TriviaViewController.h"
 #import "Attempt.h"
 #import "LocationManager.h"
+#import "MapViewController.h"
 
 
 @implementation VenueViewController
 
 @synthesize imageView, titleLabel, descriptionLabel, checkInButton, checkedInLabel, hop, venue, assignment;
+
+- (void)showMap
+{
+    MapViewController* tMapView = [[[MapViewController alloc] init] autorelease];
+    tMapView.hop = hop;
+    UINavigationController* tNav = [[[UINavigationController alloc] initWithRootViewController:tMapView] autorelease];
+    [self.navigationController presentModalViewController:tNav animated:YES];
+}
 
 - (IBAction)showTrivia:(id)sender
 {
@@ -77,6 +86,7 @@
     }
 
     self.navigationItem.title = @"Venue";
+    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Map" style:UIBarButtonItemStylePlain target:self action:@selector(showMap)] autorelease];
 }
 
 - (void)viewWillAppear:(BOOL)animated
