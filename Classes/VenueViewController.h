@@ -12,6 +12,8 @@
 #import "Assignment.h"
 #import "HudViewController.h"
 
+// Check-in radius 500m
+#define kCheckinRadius 500
 
 @interface VenueViewController : HudViewController <RKObjectLoaderDelegate,CLLocationManagerDelegate> {
     

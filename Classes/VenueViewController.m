@@ -37,7 +37,7 @@
     CLLocation* tVenueLocation = [[[CLLocation alloc] initWithLatitude:[venue.lat doubleValue] longitude:[venue.lng doubleValue]] autorelease];
     float tDist = [tVenueLocation distanceFromLocation:aLocation];
     dispatch_async(dispatch_get_main_queue(), ^{
-        if( tDist<100 ) {
+        if( tDist<kCheckinRadius ) {
             checkInButton.hidden = NO;
         }else{
             checkInButton.hidden = YES;
@@ -63,7 +63,10 @@
         for (Checkin* checkin in assignment.checkins) {
             if( [checkin.venueId intValue]==[venue.venueId intValue] ) {
                 checkInButton.hidden = YES;
-                checkedInLabel.text = [NSString stringWithFormat:@"Checked In: %@",checkin.createdAt];
+                NSDateFormatter* tFormat = [[[NSDateFormatter alloc] init] autorelease];
+                tFormat.dateStyle = NSDateFormatterShortStyle;
+                tFormat.timeStyle = NSDateFormatterShortStyle;
+                checkedInLabel.text = [NSString stringWithFormat:@"Checked In: %@",[tFormat stringFromDate:checkin.createdAt]];
                 tCheckedIn = YES;
                 break;
             }
@@ -81,17 +84,16 @@
     [super viewWillAppear:animated];
     CLLocationManager* tMgr = [LocationManager sharedManager];
     tMgr.delegate = self;
-//    tMgr.distanceFilter = 1;
-//    [tMgr startUpdatingLocation];
-    [tMgr startMonitoringSignificantLocationChanges];
+    [tMgr startUpdatingLocation];
+//    [tMgr startMonitoringSignificantLocationChanges];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
     CLLocationManager* tMgr = [LocationManager sharedManager];
-//    [tMgr stopUpdatingLocation];
-    [tMgr stopMonitoringSignificantLocationChanges];
+    [tMgr stopUpdatingLocation];
+//    [tMgr stopMonitoringSignificantLocationChanges];
     tMgr.delegate = nil;
 }
 
