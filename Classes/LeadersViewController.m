@@ -124,7 +124,7 @@ static int ddLogLevel = LOG_LEVEL_VERBOSE;
     }
     
     User* tUser = [users objectAtIndex:indexPath.row];
-    cell.textLabel.text = tUser.email;
+    cell.textLabel.text = [NSString stringWithFormat:@"%@ %@",tUser.firstName,tUser.lastName];
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%d pts",[tUser.points intValue]];
     
     return cell;

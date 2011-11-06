@@ -12,13 +12,15 @@
 
 @implementation User
 
-@synthesize userId, email, password, points, hops, trophies, apiToken;
+@synthesize userId, email, password, firstName, lastName, points, hops, trophies, apiToken;
 
 + (void)initObjectLoader
 {
     RKObjectMapping* tUserMapping = [RKObjectMapping mappingForClass:[User class]];
 	[tUserMapping mapKeyPath:@"id" toAttribute:@"userId"];
 	[tUserMapping mapKeyPath:@"email" toAttribute:@"email"];
+    [tUserMapping mapKeyPath:@"first_name" toAttribute:@"firstName"];
+	[tUserMapping mapKeyPath:@"last_name" toAttribute:@"lastName"];
 	[tUserMapping mapKeyPath:@"password" toAttribute:@"password"];
 	[tUserMapping mapKeyPath:@"points" toAttribute:@"points"];
 	[tUserMapping mapKeyPath:@"api_token" toAttribute:@"apiToken"];
@@ -41,6 +43,8 @@
     RKObjectMapping* tUserSerialization = [RKObjectMapping mappingForClass:[User class]];
     [tUserSerialization mapKeyPath:@"email" toAttribute:@"email"];
     [tUserSerialization mapKeyPath:@"password" toAttribute:@"password"];
+    [tUserSerialization mapKeyPath:@"firstName" toAttribute:@"first_name"];
+    [tUserSerialization mapKeyPath:@"lastName" toAttribute:@"last_name"];
     tUserSerialization.rootKeyPath = @"user";
     
     [[RKObjectManager sharedManager].mappingProvider setSerializationMapping:tUserSerialization forClass:[User class]];

@@ -15,6 +15,8 @@
 	NSNumber* userId;
 	NSString* email;
 	NSString* password;
+	NSString* firstName;
+	NSString* lastName;
     NSNumber* points;
 	NSArray* hops;
     NSArray* trophies;
@@ -25,6 +27,8 @@
 @property (retain) NSNumber* userId;
 @property (retain) NSString* email;
 @property (retain) NSString* password;
+@property (retain) NSString* firstName;
+@property (retain) NSString* lastName;
 @property (retain) NSNumber* points;
 @property (retain) NSArray* hops;
 @property (retain) NSArray* trophies;
