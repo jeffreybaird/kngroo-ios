@@ -86,8 +86,14 @@
 		
 //	RKObjectManager* tMgr = [RKObjectManager objectManagerWithBaseURL:@"http://local:3000"];
 	RKObjectManager* tMgr = [RKObjectManager objectManagerWithBaseURL:@"http://kngroo-sandbox.heroku.com"];
-
     tMgr.serializationMIMEType = RKMIMETypeJSON;
+    
+    NSString* tApiToken = [[NSUserDefaults standardUserDefaults] stringForKey:@"ApiToken"];
+    if( tApiToken ) {
+        tMgr.client.username = tApiToken;
+        tMgr.client.password = @"x";
+        tMgr.client.authenticationType = RKRequestAuthenticationTypeHTTPBasic;
+    }
 	
 	[self initObjectLoader];
     
@@ -95,8 +101,7 @@
     UINavigationController* tNav = [[[UINavigationController alloc] initWithRootViewController:tPublicView] autorelease];
     self.navController = tNav;
 
-    int tUserId = [[NSUserDefaults standardUserDefaults] integerForKey:@"UserId"];
-    if( tUserId!=0 ) {
+    if( tApiToken ) {
         // Add the tab bar controller's view to the window and display.
         [self.window addSubview:tabBarController.view];
     }else{
