@@ -78,6 +78,7 @@
     Venue* tVenue = [hop.venues objectAtIndex:indexPath.row];
     VenueViewController* tVenueView = [[[VenueViewController alloc] initWithNibName:@"VenueView" bundle:[NSBundle mainBundle]] autorelease];
     tVenueView.venue = tVenue;
+    tVenueView.hop = hop;
     tVenueView.assignment = assignment;
     
     [self.navigationController pushViewController:tVenueView animated:YES];

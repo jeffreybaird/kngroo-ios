@@ -11,11 +11,20 @@
 #import "TriviaViewController.h"
 #import "Attempt.h"
 #import "LocationManager.h"
+#import "MapViewController.h"
 
 
 @implementation VenueViewController
 
 @synthesize imageView, titleLabel, descriptionLabel, checkInButton, checkedInLabel, hop, venue, assignment;
+
+- (void)showMap
+{
+    MapViewController* tMapView = [[[MapViewController alloc] init] autorelease];
+    tMapView.hop = hop;
+    UINavigationController* tNav = [[[UINavigationController alloc] initWithRootViewController:tMapView] autorelease];
+    [self.navigationController presentModalViewController:tNav animated:YES];
+}
 
 - (IBAction)showTrivia:(id)sender
 {
@@ -37,11 +46,11 @@
     CLLocation* tVenueLocation = [[[CLLocation alloc] initWithLatitude:[venue.lat doubleValue] longitude:[venue.lng doubleValue]] autorelease];
     float tDist = [tVenueLocation distanceFromLocation:aLocation];
     dispatch_async(dispatch_get_main_queue(), ^{
-        if( tDist<100 ) {
+        if( tDist<kCheckinRadius ) {
             checkInButton.hidden = NO;
         }else{
             checkInButton.hidden = YES;
-            checkedInLabel.text = [NSString stringWithFormat:@"%3.1f km away",tDist/1000.0];
+            checkedInLabel.text = [NSString stringWithFormat:@"%3.1f mi away",tDist*3.2808/5280.0];
         }
     });
 }
@@ -59,40 +68,47 @@
         checkedInLabel.hidden = YES;
         checkInButton.hidden = YES;
     }else{
-        BOOL tCheckedIn = NO;
+        checkedIn = NO;
         for (Checkin* checkin in assignment.checkins) {
             if( [checkin.venueId intValue]==[venue.venueId intValue] ) {
                 checkInButton.hidden = YES;
-                checkedInLabel.text = [NSString stringWithFormat:@"Checked In: %@",checkin.createdAt];
-                tCheckedIn = YES;
+                NSDateFormatter* tFormat = [[[NSDateFormatter alloc] init] autorelease];
+                tFormat.dateStyle = NSDateFormatterShortStyle;
+                tFormat.timeStyle = NSDateFormatterShortStyle;
+                checkedInLabel.text = [NSString stringWithFormat:@"Checked In: %@",[tFormat stringFromDate:checkin.createdAt]];
+                checkedIn = YES;
                 break;
             }
         }
-        if( !tCheckedIn ) {
+        if( !checkedIn ) {
             [self updateLocation:[[LocationManager sharedManager] location]];
         }
     }
 
     self.navigationItem.title = @"Venue";
+    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Map" style:UIBarButtonItemStylePlain target:self action:@selector(showMap)] autorelease];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    CLLocationManager* tMgr = [LocationManager sharedManager];
-    tMgr.delegate = self;
-//    tMgr.distanceFilter = 1;
-//    [tMgr startUpdatingLocation];
-    [tMgr startMonitoringSignificantLocationChanges];
+    if( !checkedIn ) {
+        CLLocationManager* tMgr = [LocationManager sharedManager];
+        tMgr.delegate = self;
+        [tMgr startUpdatingLocation];
+//        [tMgr startMonitoringSignificantLocationChanges];
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
-    CLLocationManager* tMgr = [LocationManager sharedManager];
-//    [tMgr stopUpdatingLocation];
-    [tMgr stopMonitoringSignificantLocationChanges];
-    tMgr.delegate = nil;
+    if( !checkedIn ) {
+        CLLocationManager* tMgr = [LocationManager sharedManager];
+        [tMgr stopUpdatingLocation];
+//        [tMgr stopMonitoringSignificantLocationChanges];
+        tMgr.delegate = nil;
+    }
 }
 
 - (void)viewDidUnload
