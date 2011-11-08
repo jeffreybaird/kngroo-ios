@@ -35,6 +35,15 @@
 }
 
 #pragma mark -
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:0.289 green:0.6875 blue:0.7852 alpha:1.0];
+}
+
+#pragma mark -
 #pragma mark MBProgressHudDelegate
 
 - (void)hudWasHidden:(MBProgressHUD *)aHud

@@ -11,6 +11,7 @@
 #import "User.h"
 #import "AssignmentViewController.h"
 #import "Assignment.h"
+#import "AssignmentCell.h"
 
 
 static int ddLogLevel = LOG_LEVEL_VERBOSE;
@@ -156,16 +157,18 @@ static int ddLogLevel = LOG_LEVEL_VERBOSE;
 
 - (UITableViewCell*)tableView:(UITableView *)aTableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	static NSString* sCellIdentifier = @"HopListCell";
-	UITableViewCell* tCell = [tableView dequeueReusableCellWithIdentifier:sCellIdentifier];
+	static NSString* sCellIdentifier = @"AssignmentCell";
+	AssignmentCell* tCell = (AssignmentCell*)[tableView dequeueReusableCellWithIdentifier:sCellIdentifier];
 	if( tCell==nil ) {
-		tCell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:sCellIdentifier] autorelease];
+        NSArray* tCells = [[NSBundle mainBundle] loadNibNamed:@"AssignmentCell" owner:self options:nil];
+		tCell = [tCells objectAtIndex:0];
 	}
 	
 	Assignment* tAssignment = [hops objectAtIndex:indexPath.row];
     Hop* tHop = tAssignment.hop;
-	tCell.textLabel.text = tHop.title;
-	tCell.detailTextLabel.text = [NSString stringWithFormat:@"%d places, %d points",tHop.venues.count,[tHop.points intValue]];
+	tCell.titleLabel.text = tHop.title;
+    tCell.progressView.progress = (float)tAssignment.checkins.count / (float)tAssignment.hop.venues.count;
+    tCell.progressLabel.text = [NSString stringWithFormat:@"%d / %d",tAssignment.checkins.count,tAssignment.hop.venues.count];
 	
 	return tCell;
 }

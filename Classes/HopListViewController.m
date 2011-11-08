@@ -11,6 +11,7 @@
 #import "ImageManager.h"
 #import "Venue.h"
 #import "Category.h"
+#import "HopCell.h"
 
 
 static int ddLogLevel = LOG_LEVEL_VERBOSE;
@@ -110,9 +111,9 @@ static int ddLogLevel = LOG_LEVEL_VERBOSE;
     self.categoryPicker = [[[V8HorizontalPickerView alloc] initWithFrame:CGRectMake(0, 0, 320, 44)] autorelease];
     categoryPicker.dataSource = self;
     categoryPicker.delegate = self;
-    categoryPicker.backgroundColor = [UIColor whiteColor];
-    categoryPicker.textColor = [UIColor blackColor];
-    categoryPicker.selectedTextColor = [UIColor blueColor];
+    categoryPicker.backgroundColor = [UIColor colorWithRed:0.0586 green:0.1523 blue:0.1758 alpha:1.0];
+    categoryPicker.textColor = [UIColor whiteColor];
+    categoryPicker.selectedTextColor = [UIColor colorWithRed:0.6562 green:0.93 blue:1.0 alpha:1.0];
     categoryPicker.selectionPoint = CGPointMake(160, 0);
     categoryPicker.elementFont = [UIFont boldSystemFontOfSize:14];
 
@@ -175,15 +176,16 @@ static int ddLogLevel = LOG_LEVEL_VERBOSE;
 
 - (UITableViewCell*)tableView:(UITableView *)aTableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	static NSString* sCellIdentifier = @"HopListCell";
-	UITableViewCell* tCell = [aTableView dequeueReusableCellWithIdentifier:sCellIdentifier];
+	static NSString* sCellIdentifier = @"HopCell";
+	HopCell* tCell = (HopCell*)[aTableView dequeueReusableCellWithIdentifier:sCellIdentifier];
 	if( tCell==nil ) {
-		tCell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:sCellIdentifier] autorelease];
+        NSArray* tCells = [[NSBundle mainBundle] loadNibNamed:@"HopCell" owner:self options:nil];
+		tCell = [tCells objectAtIndex:0];
 	}
 	
 	Hop* tHop = [hops objectAtIndex:indexPath.row];
-	tCell.textLabel.text = tHop.title;
-	tCell.detailTextLabel.text = [NSString stringWithFormat:@"%d places, %d points",tHop.venues.count,[tHop.points intValue]];
+	tCell.titleLabel.text = tHop.title;
+	tCell.countLabel.text = [NSString stringWithFormat:@"%d Locations",tHop.venues.count];
 	
 	return tCell;
 }

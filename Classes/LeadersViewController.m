@@ -8,6 +8,8 @@
 
 #import "LeadersViewController.h"
 #import "User.h"
+#import "HopCell.h"
+#import "NSString+MD5.h"
 
 
 static int ddLogLevel = LOG_LEVEL_VERBOSE;
@@ -116,16 +118,29 @@ static int ddLogLevel = LOG_LEVEL_VERBOSE;
 
 - (UITableViewCell *)tableView:(UITableView *)aTableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"HopCell";
     
-    UITableViewCell *cell = [aTableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    HopCell *cell = (HopCell*)[aTableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier] autorelease];
+        NSArray* tCells = [[NSBundle mainBundle] loadNibNamed:@"HopCell" owner:self options:nil];
+		cell = [tCells objectAtIndex:0];
     }
     
     User* tUser = [users objectAtIndex:indexPath.row];
-    cell.textLabel.text = [NSString stringWithFormat:@"%@ %@",tUser.firstName,tUser.lastName];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%d pts",[tUser.points intValue]];
+    cell.imageView.image = nil;
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+        NSString* tPath = [NSString stringWithFormat:@"http://www.gravatar.com/avatar/%@",[tUser.email md5]];
+        DDLogVerbose(@"fetching %@",tPath);
+        NSData* tRawImage = [NSData dataWithContentsOfURL:[NSURL URLWithString:tPath]];
+        if( tRawImage ) {
+            UIImage* tImage = [[[UIImage alloc] initWithData:tRawImage] autorelease];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                cell.imageView.image = tImage;
+            });
+        }
+    });
+    cell.titleLabel.text = [NSString stringWithFormat:@"%@ %@",tUser.firstName,tUser.lastName];
+    cell.countLabel.text = [NSString stringWithFormat:@"%d pts",[tUser.points intValue]];
     
     return cell;
 }

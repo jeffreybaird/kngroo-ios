@@ -11,20 +11,19 @@
 #import "TriviaViewController.h"
 #import "Attempt.h"
 #import "LocationManager.h"
-#import "MapViewController.h"
 
 
 @implementation VenueViewController
 
-@synthesize imageView, titleLabel, descriptionLabel, checkInButton, checkedInLabel, hop, venue, assignment;
+@synthesize imageView, titleLabel, addressLabel, phoneLabel, distanceLabel, descriptionLabel, checkInButton, checkedInLabel, mapView, hop, venue, assignment;
 
-- (void)showMap
-{
-    MapViewController* tMapView = [[[MapViewController alloc] init] autorelease];
-    tMapView.hop = hop;
-    UINavigationController* tNav = [[[UINavigationController alloc] initWithRootViewController:tMapView] autorelease];
-    [self.navigationController presentModalViewController:tNav animated:YES];
-}
+//- (void)showMap
+//{
+//    MapViewController* tMapView = [[[MapViewController alloc] init] autorelease];
+//    tMapView.hop = hop;
+//    UINavigationController* tNav = [[[UINavigationController alloc] initWithRootViewController:tMapView] autorelease];
+//    [self.navigationController presentModalViewController:tNav animated:YES];
+//}
 
 - (IBAction)showTrivia:(id)sender
 {
@@ -50,7 +49,7 @@
             checkInButton.hidden = NO;
         }else{
             checkInButton.hidden = YES;
-            checkedInLabel.text = [NSString stringWithFormat:@"%3.1f mi away",tDist*3.2808/5280.0];
+            distanceLabel.text = [NSString stringWithFormat:@"%3.1f miles",tDist*3.2808/5280.0];
         }
     });
 }
@@ -62,7 +61,13 @@
     [super viewDidLoad];
     
     titleLabel.text = venue.name;
+    addressLabel.text = venue.address;
+    phoneLabel.text = venue.phone;
+    distanceLabel.text = @"-";
     descriptionLabel.text = venue.summary;
+    
+    [mapView setRegion:MKCoordinateRegionMake(CLLocationCoordinate2DMake([venue.lat doubleValue], [venue.lng doubleValue]), MKCoordinateSpanMake(0.1, 0.1))];
+    mapView.userInteractionEnabled = NO;
 
     if( assignment==nil ) {
         checkedInLabel.hidden = YES;
@@ -85,8 +90,7 @@
         }
     }
 
-    self.navigationItem.title = @"Venue";
-    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Map" style:UIBarButtonItemStylePlain target:self action:@selector(showMap)] autorelease];
+//    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Map" style:UIBarButtonItemStylePlain target:self action:@selector(showMap)] autorelease];
 }
 
 - (void)viewWillAppear:(BOOL)animated

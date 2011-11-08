@@ -12,6 +12,7 @@
 #import "Checkin.h"
 #import "Assignment.h"
 #import "MapViewController.h"
+#import "VenueCell.h"
 
 
 static int ddLogLevel = LOG_LEVEL_VERBOSE;
@@ -47,8 +48,8 @@ static int ddLogLevel = LOG_LEVEL_VERBOSE;
     
     // populate UI
     titleLabel.text = hop.title;
-    
-    self.navigationItem.title = @"Hop";
+    progressView.hidden = YES;
+    progressLabel.hidden = YES;
 }
 
 - (void)viewDidUnload
@@ -79,15 +80,16 @@ static int ddLogLevel = LOG_LEVEL_VERBOSE;
 
 - (UITableViewCell*)tableView:(UITableView *)aTableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	static NSString* sCellIdentifier = @"HopListCell";
-	UITableViewCell* tCell = [aTableView dequeueReusableCellWithIdentifier:sCellIdentifier];
+	static NSString* sCellIdentifier = @"VenueCell";
+	VenueCell* tCell = (VenueCell*)[aTableView dequeueReusableCellWithIdentifier:sCellIdentifier];
 	if( tCell==nil ) {
-		tCell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:sCellIdentifier] autorelease];
+        NSArray* tCells = [[NSBundle mainBundle] loadNibNamed:@"VenueCell" owner:self options:nil];
+		tCell = [tCells objectAtIndex:0];
 	}
 	
 	Venue* tVenue = [hop.venues objectAtIndex:indexPath.row];
 	
-    tCell.textLabel.text = tVenue.name;
+    tCell.titleLabel.text = tVenue.name;
 	
 	return tCell;
 }

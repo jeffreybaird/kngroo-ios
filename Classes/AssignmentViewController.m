@@ -10,6 +10,7 @@
 #import "Venue.h"
 #import "Checkin.h"
 #import "VenueViewController.h"
+#import "VenueCell.h"
 
 
 @implementation AssignmentViewController
@@ -25,8 +26,11 @@
     startButton.hidden = self.assignment!=nil;
     descriptionLabel.text = assignment.hop.summary;
     
-    progressLabel.text = [NSString stringWithFormat:@"Progress (%d of %d):",assignment.checkins.count,hop.venues.count];
+    progressLabel.text = [NSString stringWithFormat:@"%d / %d",assignment.checkins.count,hop.venues.count];
     progressView.progress = (float)assignment.checkins.count / (float)hop.venues.count;
+    
+    progressView.hidden = NO;
+    progressLabel.hidden = NO;
 }
 
 - (void)viewDidUnload
@@ -47,15 +51,17 @@
 
 - (UITableViewCell*)tableView:(UITableView *)aTableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString* sCellIdentifier = @"HopListCell";
-	UITableViewCell* tCell = [aTableView dequeueReusableCellWithIdentifier:sCellIdentifier];
+    static NSString* sCellIdentifier = @"VenueCell";
+	VenueCell* tCell = (VenueCell*)[aTableView dequeueReusableCellWithIdentifier:sCellIdentifier];
 	if( tCell==nil ) {
-		tCell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:sCellIdentifier] autorelease];
+        NSArray* tCells = [[NSBundle mainBundle] loadNibNamed:@"VenueCell" owner:self options:nil];
+		tCell = [tCells objectAtIndex:0];
 	}
 	
 	Venue* tVenue = [hop.venues objectAtIndex:indexPath.row];
 	
-    tCell.textLabel.text = tVenue.name;
+    tCell.titleLabel.text = tVenue.name;
+    tCell.distanceLabel.text = @"-";
 	
     BOOL tVenueCheckedIn = NO;
     for (Checkin* checkin in assignment.checkins) {

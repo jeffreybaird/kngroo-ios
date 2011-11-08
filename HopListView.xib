@@ -74,6 +74,10 @@
 									<object class="NSNull" id="4"/>
 									<reference ref="4"/>
 								</array>
+								<object class="NSColor" key="IBTintColor">
+									<int key="NSColorSpace">1</int>
+									<bytes key="NSRGB">MC4yOTAxOTYwNzg0IDAuNjkwMTk2MDc4NCAwLjc4ODIzNTI5NDEAA</bytes>
+								</object>
 							</object>
 						</array>
 						<string key="NSFrameSize">{320, 44}</string>
@@ -88,8 +92,16 @@
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<reference key="IBUICustomView" ref="891949646"/>
 								<reference key="IBUIToolbar" ref="632902089"/>
+								<object class="NSColor" key="IBUITintColor">
+									<int key="NSColorSpace">1</int>
+									<bytes key="NSRGB">MC4yOTAxOTYwNzg0IDAuNjkwMTk2MDc4NCAwLjc4ODIzNTI5NDEAA</bytes>
+								</object>
 							</object>
 						</array>
+						<object class="NSColor" key="IBUITintColor">
+							<int key="NSColorSpace">1</int>
+							<bytes key="NSRGB">MC4yOTAxOTYwNzg0IDAuNjkwMTk2MDc4NCAwLjc4ODIzNTI5NDEAA</bytes>
+						</object>
 					</object>
 					<object class="IBUITableView" id="265206732">
 						<reference key="NSNextResponder" ref="191373211"/>
@@ -99,16 +111,19 @@
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView"/>
 						<object class="NSColor" key="IBUIBackgroundColor">
-							<int key="NSColorSpace">3</int>
-							<bytes key="NSWhite">MQA</bytes>
+							<int key="NSColorSpace">1</int>
+							<bytes key="NSRGB">MC4xNDUwOTgwMzkyIDAuMzY4NjI3NDUxIDAuNDE5NjA3ODQzMQA</bytes>
 						</object>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+						<double key="IBUIContentInset.top">10</double>
+						<double key="IBUIContentInset.bottom">0.0</double>
+						<double key="IBUIContentInset.left">0.0</double>
+						<double key="IBUIContentInset.right">0.0</double>
 						<bool key="IBUIAlwaysBounceVertical">YES</bool>
-						<int key="IBUISeparatorStyle">1</int>
 						<int key="IBUISectionIndexMinimumDisplayRowCount">0</int>
 						<bool key="IBUIShowsSelectionImmediatelyOnTouchBegin">YES</bool>
-						<float key="IBUIRowHeight">44</float>
+						<float key="IBUIRowHeight">60</float>
 						<float key="IBUISectionHeaderHeight">22</float>
 						<float key="IBUISectionFooterHeight">22</float>
 					</object>
@@ -250,7 +265,7 @@
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
 				<object class="IBPartialClassDescription">
 					<string key="className">HopListViewController</string>
-					<string key="superclassName">UIViewController</string>
+					<string key="superclassName">HudViewController</string>
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="categoryPicker">V8HorizontalPickerView</string>
 						<string key="modeSelect">UISegmentedControl</string>
@@ -273,6 +288,14 @@
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">./Classes/HopListViewController.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">HudViewController</string>
+					<string key="superclassName">UIViewController</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/HudViewController.h</string>
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">

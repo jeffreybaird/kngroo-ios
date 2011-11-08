@@ -11,7 +11,7 @@
 
 @implementation Venue
 
-@synthesize venueId, name, address, lat, lng, summary;
+@synthesize venueId, name, address, lat, lng, phone, summary;
 
 + (void)initObjectLoader
 {
@@ -21,6 +21,7 @@
 	[tVenueMapping mapKeyPath:@"address" toAttribute:@"address"];
 	[tVenueMapping mapKeyPath:@"lat" toAttribute:@"lat"];
 	[tVenueMapping mapKeyPath:@"lng" toAttribute:@"lng"];
+	[tVenueMapping mapKeyPath:@"phone" toAttribute:@"phone"];
     [tVenueMapping mapKeyPath:@"description" toAttribute:@"summary"];
     
     [[RKObjectManager sharedManager].mappingProvider setObjectMapping:tVenueMapping forKeyPath:@"venue"];

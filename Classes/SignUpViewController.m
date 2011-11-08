@@ -85,12 +85,12 @@
         tMgr.client.password = @"x";
         tMgr.client.authenticationType = RKRequestAuthenticationTypeHTTPBasic;
 
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"SessionCreated" object:nil];
-
         dispatch_async(dispatch_get_main_queue(), ^{
             Alert(@"Account Created", @"You're ready to go.");
-            [self.navigationController popToRootViewControllerAnimated:YES];
+            [self.navigationController dismissModalViewControllerAnimated:YES];
         });
+    
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"SessionCreated" object:nil];
     }
 }
 

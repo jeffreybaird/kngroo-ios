@@ -21,6 +21,8 @@
 #import "Session.h"
 
 
+static int ddLogLevel = LOG_LEVEL_VERBOSE;
+
 @implementation KngrooAppDelegate
 
 @synthesize window;
@@ -43,6 +45,8 @@
 
 - (void)sessionCreated:(NSNotification*)notif
 {
+    NSDictionary* tUserInfo = notif.userInfo;
+    DDLogVerbose(@"%@",tUserInfo);
     [window addSubview:tabBarController.view];
     [navController.view removeFromSuperview];
 }

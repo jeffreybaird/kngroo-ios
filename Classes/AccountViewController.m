@@ -42,9 +42,9 @@ static int ddLogLevel = LOG_LEVEL_VERBOSE;
     tableView.hidden = !tTrophyVisible;
     
     if( user ) {
-        emailLabel.text = user.email;
+        emailLabel.text = [NSString stringWithFormat:@"%@ %@",user.firstName,user.lastName];
         pointsLabel.text = [NSString stringWithFormat:@"%@",user.points];
-        trophiesLabel.text = [NSString stringWithFormat:@"%d",user.trophies.count];
+        trophiesLabel.text = [NSString stringWithFormat:@"%d hops",user.trophies.count];
         [tableView reloadData];
     }
 }
