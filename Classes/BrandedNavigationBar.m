@@ -10,6 +10,13 @@
 
 @implementation BrandedNavigationBar
 
+- (id)initWithCoder:(NSCoder *)aDecoder
+{    
+    self = [super initWithCoder:aDecoder];
+    self.tintColor = [UIColor colorWithRed:0.289 green:0.6875 blue:0.7852 alpha:1.0];
+    return self;
+}
+
 - (void)drawRect:(CGRect)rect
 {
     UIImage* tImage = [UIImage imageNamed:@"nav-bg.png"];
