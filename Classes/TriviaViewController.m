@@ -9,20 +9,21 @@
 
 #import "TriviaViewController.h"
 #import "Trivia.h"
+#import "TriviaCell.h"
 
 
 static int ddLogLevel = LOG_LEVEL_VERBOSE;
 
 @implementation TriviaViewController
 
-@synthesize questionLabel, tableView, trivia, possibleAnswers, successBlock, cancelBlock;
+@synthesize venueImage, titleLabel, addressLabel, phoneLabel, questionLabel, tableView, venue, trivia, possibleAnswers, successBlock, cancelBlock;
 
 - (void)cancelPressed
 {
     cancelBlock();
 }
 
-- (void)donePressed
+- (IBAction)donePressed:(id)sender
 {
     // TODO: perform validation logic
     Trivia* tTrivia = [possibleAnswers objectAtIndex:selectedIndex];
@@ -47,11 +48,14 @@ static int ddLogLevel = LOG_LEVEL_VERBOSE;
     [super viewDidLoad];
     
     selectedIndex = -1;
+    titleLabel.text = venue.name;
+    addressLabel.text = venue.address;
+    phoneLabel.text = venue.phone;
     questionLabel.text = trivia.question;
     
     self.navigationItem.title = @"Trivia Question";
     self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelPressed)] autorelease];
-    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(donePressed)] autorelease];
+//    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(donePressed)] autorelease];
 }
 
 - (void)viewDidUnload
@@ -83,18 +87,23 @@ static int ddLogLevel = LOG_LEVEL_VERBOSE;
 - (UITableViewCell*)tableView:(UITableView *)aTableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString* sCellIdentifier = @"TriviaCell";
-	UITableViewCell* tCell = [aTableView dequeueReusableCellWithIdentifier:sCellIdentifier];
+	TriviaCell* tCell = (TriviaCell*)[aTableView dequeueReusableCellWithIdentifier:sCellIdentifier];
 	if( tCell==nil ) {
-		tCell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:sCellIdentifier] autorelease];
+        NSArray* tCells = [[NSBundle mainBundle] loadNibNamed:sCellIdentifier owner:self options:nil];
+		tCell = [tCells objectAtIndex:0];
 	}
 	
     Trivia* tTrivia = [possibleAnswers objectAtIndex:indexPath.row];
-    tCell.textLabel.text = tTrivia.answer;
+    tCell.answerText.text = tTrivia.answer;
 	
     if( selectedIndex==indexPath.row ) {
-        tCell.accessoryType = UITableViewCellAccessoryCheckmark;
+        tCell.answerText.textColor = [UIColor blackColor];
+        tCell.optionImage.image = [UIImage imageNamed:@"icon-trivia-selected"];
+        tCell.backgroundImage.image = [UIImage imageNamed:@"trivia-cell-selected-bg"];
     }else{
-        tCell.accessoryType = UITableViewCellAccessoryNone;
+        tCell.answerText.textColor = [UIColor whiteColor];
+        tCell.optionImage.image = [UIImage imageNamed:@"icon-trivia-option"];
+        tCell.backgroundImage.image = [UIImage imageNamed:@"trivia-cell-bg"];
     }
     
     return tCell;
