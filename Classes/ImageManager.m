@@ -10,6 +10,8 @@
 #import "NSString+SHA1.h"
 
 
+static int ddLogLevel = LOG_LEVEL_VERBOSE;
+
 @implementation ImageManager
 
 + (ImageManager*)sharedManager
@@ -33,12 +35,14 @@
 - (void)loadImageNamed:(NSString *)aName successBlock:(UIImageBlock)success failureBlock:(dispatch_block_t)failure
 {
     if( aName==nil || [aName isEqual:[NSNull null]] ) {
+        failure();
         return;
     }
     NSString* tLocalFile = [NSString stringWithFormat:@"%@/%@.png",[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0],[aName hexdigest]];
     // first, try to load file from local cache
     UIImage* tImage = [UIImage imageWithData:[NSData dataWithContentsOfFile:tLocalFile]];
     if( tImage ) {
+        DDLogVerbose(@"loaded local from %@", tLocalFile);
         success(tImage);
         return;
     }
@@ -46,13 +50,13 @@
     // now, try loading remotely
     if( ![activeDownloads containsObject:aName] ) {
         [activeDownloads addObject:aName];
-        NSLog(@"loading %@",aName);
+        DDLogVerbose(@"loading %@",aName);
         [downloadQueue addOperationWithBlock:^{
             NSData* tRawImage = [NSData dataWithContentsOfURL:[NSURL URLWithString:aName]];
             if( [tRawImage writeToFile:tLocalFile atomically:YES] ) {
-                NSLog(@"stored as %@",tLocalFile);
+                DDLogVerbose(@"stored as %@",tLocalFile);
             }else{
-                NSLog(@"failed to store");
+                DDLogVerbose(@"failed to store");
             }
             [activeDownloads removeObject:aName];
             UIImage* tImage = [UIImage imageWithData:tRawImage];
