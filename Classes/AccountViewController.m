@@ -128,7 +128,7 @@ static int ddLogLevel = LOG_LEVEL_VERBOSE;
         User* tUser = (User*)object;
         self.user = tUser;
         
-        [[ImageManager sharedManager] loadImageNamed:[tUser.email gravatarUrl] 
+        [[ImageManager sharedManager] loadImageNamed:[tUser gravatarUrl]
                                         successBlock:^(UIImage* aImage) { 
                                             async_main(^{ avatarView.image = aImage; }); 
                                         }
