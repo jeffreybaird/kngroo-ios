@@ -190,7 +190,7 @@ static int ddLogLevel = LOG_LEVEL_VERBOSE;
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	Assignment* tAssignment = [hops objectAtIndex:indexPath.row];
-    AssignmentViewController* tHopView = [[[AssignmentViewController alloc] initWithNibName:@"HopView" bundle:[NSBundle mainBundle]] autorelease];
+    AssignmentViewController* tHopView = [[[AssignmentViewController alloc] initWithNibName:@"AssignmentView" bundle:[NSBundle mainBundle]] autorelease];
     tHopView.hop = tAssignment.hop;
     tHopView.assignment = tAssignment;
     
