@@ -10,6 +10,7 @@
 #import "User.h"
 #import "HopCell.h"
 #import "NSString+MD5.h"
+#import "ImageManager.h"
 
 
 static int ddLogLevel = LOG_LEVEL_VERBOSE;
@@ -128,17 +129,13 @@ static int ddLogLevel = LOG_LEVEL_VERBOSE;
     
     User* tUser = [users objectAtIndex:indexPath.row];
     cell.imageView.image = nil;
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
-        NSString* tPath = [NSString stringWithFormat:@"http://www.gravatar.com/avatar/%@",[tUser.email md5]];
-        DDLogVerbose(@"fetching %@",tPath);
-        NSData* tRawImage = [NSData dataWithContentsOfURL:[NSURL URLWithString:tPath]];
-        if( tRawImage ) {
-            UIImage* tImage = [[[UIImage alloc] initWithData:tRawImage] autorelease];
-            dispatch_async(dispatch_get_main_queue(), ^{
-                cell.imageView.image = tImage;
-            });
-        }
-    });
+    [[ImageManager sharedManager] loadImageNamed:[NSString stringWithFormat:@"http://www.gravatar.com/avatar/%@",[tUser.email md5]]
+                                    successBlock:^(UIImage* aImage) {
+                                        async_main(^{ cell.imageView.image = aImage; });
+                                    }
+                                    failureBlock:^{
+                                        async_main(^{ cell.imageView.image = [UIImage imageNamed:@"placeholder"]; });
+                                    }];
     cell.titleLabel.text = [NSString stringWithFormat:@"%@ %@",tUser.firstName,tUser.lastName];
     cell.countLabel.text = [NSString stringWithFormat:@"%d pts",[tUser.points intValue]];
     
