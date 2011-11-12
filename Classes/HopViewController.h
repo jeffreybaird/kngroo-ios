@@ -11,7 +11,7 @@
 #import "HudViewController.h"
 
 
-@interface HopViewController : HudViewController <UITableViewDataSource,UITabBarDelegate,RKObjectLoaderDelegate> {
+@interface HopViewController : HudViewController <UITableViewDataSource,UITabBarDelegate,RKObjectLoaderDelegate,CLLocationManagerDelegate> {
 
     IBOutlet UIImageView* imageView;
     IBOutlet UILabel* titleLabel;

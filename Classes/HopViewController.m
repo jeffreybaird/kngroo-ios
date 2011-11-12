@@ -13,6 +13,8 @@
 #import "Assignment.h"
 #import "MapViewController.h"
 #import "VenueCell.h"
+#import "BrandedNavigationController.h"
+#import "LocationManager.h"
 
 
 static int ddLogLevel = LOG_LEVEL_VERBOSE;
@@ -33,7 +35,7 @@ static int ddLogLevel = LOG_LEVEL_VERBOSE;
 {
     MapViewController* tMapView = [[[MapViewController alloc] init] autorelease];
     tMapView.hop = hop;
-    UINavigationController* tNav = [[[UINavigationController alloc] initWithRootViewController:tMapView] autorelease];
+    BrandedNavigationController* tNav = [[[BrandedNavigationController alloc] initWithRootViewController:tMapView] autorelease];
     [self.navigationController presentModalViewController:tNav animated:YES];
 }
 
@@ -65,6 +67,22 @@ static int ddLogLevel = LOG_LEVEL_VERBOSE;
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [LocationManager sharedManager].delegate = self;
+    [[LocationManager sharedManager] startUpdatingLocation];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    [LocationManager sharedManager].delegate = nil;
+    [[LocationManager sharedManager] stopUpdatingLocation];
+}
+
 #pragma mark -
 #pragma mark UITableView Datasource and Delegate
 
@@ -88,8 +106,12 @@ static int ddLogLevel = LOG_LEVEL_VERBOSE;
 	}
 	
 	Venue* tVenue = [hop.venues objectAtIndex:indexPath.row];
+    CLLocation* tVenueLocation = [[[CLLocation alloc] initWithLatitude:[tVenue.lat doubleValue] longitude:[tVenue.lng doubleValue]] autorelease];
+    CLLocationManager* tMgr = [LocationManager sharedManager];
+    float tDist = [tVenueLocation distanceFromLocation:tMgr.location];
 	
     tCell.titleLabel.text = tVenue.name;
+    tCell.distanceLabel.text = [NSString stringWithFormat:@"%3.2f mi",tDist*3.2808/5280.0];
 	
 	return tCell;
 }
@@ -128,6 +150,13 @@ static int ddLogLevel = LOG_LEVEL_VERBOSE;
 //    if( error.code==1004 ) {
 //        [[NSNotificationCenter defaultCenter] postNotificationName:@"SessionDestroyed" object:nil];
 //    }
+}
+
+#pragma mark - CLLocationManagerDelegate
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
+{
+    async_main(^{ [tableView reloadData]; });
 }
 
 @end
