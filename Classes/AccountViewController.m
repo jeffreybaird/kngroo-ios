@@ -10,6 +10,7 @@
 #import "Trophy.h"
 #import "Session.h"
 #import "NSString+MD5.h"
+#import "ImageManager.h"
 
 
 static int ddLogLevel = LOG_LEVEL_VERBOSE;
@@ -127,21 +128,15 @@ static int ddLogLevel = LOG_LEVEL_VERBOSE;
         User* tUser = (User*)object;
         self.user = tUser;
         
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
-            NSString* tPath = [NSString stringWithFormat:@"http://www.gravatar.com/avatar/%@",[tUser.email md5]];
-            DDLogVerbose(@"fetching %@",tPath);
-            NSData* tRawImage = [NSData dataWithContentsOfURL:[NSURL URLWithString:tPath]];
-            if( tRawImage ) {
-                UIImage* tImage = [[[UIImage alloc] initWithData:tRawImage] autorelease];
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    avatarView.image = tImage;
-                });
-            }
-        });
+        [[ImageManager sharedManager] loadImageNamed:[tUser.email gravatarUrl] 
+                                        successBlock:^(UIImage* aImage) { 
+                                            async_main(^{ avatarView.image = aImage; }); 
+                                        }
+                                        failureBlock:^{ 
+                                            async_main(^{ avatarView.image = [UIImage imageNamed:@"placeholder"]; });
+                                        }];
         
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self modeChanged];
-        });
+        async_main(^{ [self modeChanged]; });
     }else{
         [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"UserId"];
         [[NSUserDefaults standardUserDefaults] synchronize];
