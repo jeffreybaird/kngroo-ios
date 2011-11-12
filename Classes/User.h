@@ -34,4 +34,6 @@
 @property (retain) NSArray* trophies;
 @property (retain) NSString* apiToken;
 
+-(NSString*)gravatarUrl;
+
 @end

@@ -8,6 +8,7 @@
 
 #import "User.h"
 #import "Trophy.h"
+#import "NSString+MD5.h"
 
 
 @implementation User
@@ -52,6 +53,11 @@
     [[RKObjectManager sharedManager].router routeClass:[User class] toResourcePath:@"/users" forMethod:RKRequestMethodPOST];
     [[RKObjectManager sharedManager].router routeClass:[User class] toResourcePath:@"/user" forMethod:RKRequestMethodGET];
     [[RKObjectManager sharedManager].router routeClass:[User class] toResourcePath:@"/user" forMethod:RKRequestMethodPUT];
+}
+
+- (NSString*)gravatarUrl
+{
+    return [NSString stringWithFormat:@"http://www.gravatar.com/avatar/%@",[email md5]];
 }
 
 @end
