@@ -11,7 +11,7 @@
 #import "Assignment.h"
 
 
-@interface AssignmentViewController : HopViewController {
+@interface AssignmentViewController : HopViewController <CLLocationManagerDelegate> {
     
     Assignment* assignment;
     

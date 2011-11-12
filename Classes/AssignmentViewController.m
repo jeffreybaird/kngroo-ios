@@ -11,6 +11,7 @@
 #import "Checkin.h"
 #import "VenueViewController.h"
 #import "VenueCell.h"
+#import "LocationManager.h"
 
 
 @implementation AssignmentViewController
@@ -31,6 +32,8 @@
     
     progressView.hidden = NO;
     progressLabel.hidden = NO;
+    
+    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Map" style:UIBarButtonItemStyleDone target:self action:@selector(showMap:)] autorelease];
 }
 
 - (void)viewDidUnload
@@ -46,6 +49,22 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [LocationManager sharedManager].delegate = self;
+    [[LocationManager sharedManager] startUpdatingLocation];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    [[LocationManager sharedManager] stopUpdatingLocation];
+    [LocationManager sharedManager].delegate = nil;
+}
+
 #pragma mark -
 #pragma mark UITableView methods
 
@@ -59,9 +78,12 @@
 	}
 	
 	Venue* tVenue = [hop.venues objectAtIndex:indexPath.row];
+    CLLocation* tVenueLocation = [[[CLLocation alloc] initWithLatitude:[tVenue.lat doubleValue] longitude:[tVenue.lng doubleValue]] autorelease];
+    CLLocationManager* tMgr = [LocationManager sharedManager];
+    float tDist = [tVenueLocation distanceFromLocation:tMgr.location];
 	
     tCell.titleLabel.text = tVenue.name;
-    tCell.distanceLabel.text = @"-";
+    tCell.distanceLabel.text = [NSString stringWithFormat:@"%3.2f mi",tDist*3.2808/5280.0];
 	
     BOOL tVenueCheckedIn = NO;
     for (Checkin* checkin in assignment.checkins) {
@@ -69,11 +91,6 @@
             tVenueCheckedIn = YES;
             break;
         }
-    }
-    if( tVenueCheckedIn ) {
-        tCell.accessoryType = UITableViewCellAccessoryCheckmark;
-    }else{
-        tCell.accessoryType = UITableViewCellAccessoryNone;
     }
 
     return tCell;
@@ -94,6 +111,13 @@
     //    tHopView.hop = tHop;
     //    
     //    [self.navigationController pushViewController:tHopView animated:YES];
+}
+
+#pragma mark - CLLocationManagerDelegate
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
+{
+    async_main(^{ [tableView reloadData]; });
 }
 
 
