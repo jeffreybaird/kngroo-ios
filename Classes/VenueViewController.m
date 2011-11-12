@@ -11,6 +11,7 @@
 #import "TriviaViewController.h"
 #import "Attempt.h"
 #import "LocationManager.h"
+#import "BrandedNavigationController.h"
 
 
 @implementation VenueViewController
@@ -65,6 +66,7 @@
     phoneLabel.text = venue.phone;
     distanceLabel.text = @"-";
     descriptionLabel.text = venue.summary;
+    checkInButton.hidden = YES;
     
     [mapView setRegion:MKCoordinateRegionMake(CLLocationCoordinate2DMake([venue.lat doubleValue], [venue.lng doubleValue]), MKCoordinateSpanMake(0.1, 0.1))];
     mapView.userInteractionEnabled = NO;
@@ -143,6 +145,7 @@
         }
         dispatch_async(dispatch_get_main_queue(), ^{
             TriviaViewController* tTriviaView = [[[TriviaViewController alloc] initWithNibName:@"TriviaView" bundle:[NSBundle mainBundle]] autorelease];
+            tTriviaView.venue = self.venue;
             tTriviaView.trivia = tTrivia;
             tTriviaView.possibleAnswers = tAnswers;
             
@@ -161,7 +164,7 @@
                     [self.navigationController dismissModalViewControllerAnimated:YES];
                 });
             };
-            UINavigationController* tNav = [[[UINavigationController alloc] initWithRootViewController:tTriviaView] autorelease];
+            BrandedNavigationController* tNav = [[[BrandedNavigationController alloc] initWithRootViewController:tTriviaView] autorelease];
             [self.navigationController presentModalViewController:tNav animated:YES];
         });
     }
