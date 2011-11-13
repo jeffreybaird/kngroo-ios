@@ -31,6 +31,9 @@
 
 - (IBAction)signUp:(id)sender
 {
+    [email resignFirstResponder];
+    [password resignFirstResponder];
+    
     SignUpViewController* tSignUpView = [[[SignUpViewController alloc] init] autorelease];
     tSignUpView.email = email.text;
     tSignUpView.password = password.text;

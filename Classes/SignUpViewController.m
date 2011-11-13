@@ -61,6 +61,14 @@
     [firstName becomeFirstResponder];
 }
 
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    [firstName resignFirstResponder];
+    [lastName resignFirstResponder];
+}
+
 - (void)viewDidUnload
 {
     [super viewDidUnload];
