@@ -13,6 +13,26 @@
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765080DF74369002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765070DF74369002DB57D /* CoreGraphics.framework */; };
 		28AD73880D9D96C1002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD73870D9D96C1002E5188 /* MainWindow.xib */; };
+		7E0749A1146EF6A600AB3FE8 /* button-checkin.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E0749A0146EF6A600AB3FE8 /* button-checkin.png */; };
+		7E0749A3146EF76500AB3FE8 /* button-checkin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E0749A2146EF76500AB3FE8 /* button-checkin@2x.png */; };
+		7E0749A5146EF8AD00AB3FE8 /* chevron.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E0749A4146EF8AD00AB3FE8 /* chevron.png */; };
+		7E0749A7146EF90F00AB3FE8 /* chevron@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E0749A6146EF90F00AB3FE8 /* chevron@2x.png */; };
+		7E0749AA146F00F500AB3FE8 /* button-map@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E0749A8146F00F500AB3FE8 /* button-map@2x.png */; };
+		7E0749AB146F00F500AB3FE8 /* button-starthop@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E0749A9146F00F500AB3FE8 /* button-starthop@2x.png */; };
+		7E0749AE146F018E00AB3FE8 /* button-map.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E0749AC146F018E00AB3FE8 /* button-map.png */; };
+		7E0749AF146F018E00AB3FE8 /* button-starthop.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E0749AD146F018E00AB3FE8 /* button-starthop.png */; };
+		7E0749B2146F02F700AB3FE8 /* BrandedNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E0749B1146F02F700AB3FE8 /* BrandedNavigationController.m */; };
+		7E0749B6146F07CD00AB3FE8 /* HopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E0749B5146F07CD00AB3FE8 /* HopView.xib */; };
+		7E0749B8146F0A9700AB3FE8 /* TriviaCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E0749B7146F0A9700AB3FE8 /* TriviaCell.xib */; };
+		7E0749BB146F0ABC00AB3FE8 /* TriviaCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E0749BA146F0ABC00AB3FE8 /* TriviaCell.m */; };
+		7E0749BD146F0B5D00AB3FE8 /* trivia-cell-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E0749BC146F0B5D00AB3FE8 /* trivia-cell-bg.png */; };
+		7E0749BF146F0BB100AB3FE8 /* trivia-cell-bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E0749BE146F0BB100AB3FE8 /* trivia-cell-bg@2x.png */; };
+		7E0749C4146F0C4D00AB3FE8 /* icon-trivia-option.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E0749C0146F0C4D00AB3FE8 /* icon-trivia-option.png */; };
+		7E0749C5146F0C4D00AB3FE8 /* icon-trivia-option@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E0749C1146F0C4D00AB3FE8 /* icon-trivia-option@2x.png */; };
+		7E0749C6146F0C4D00AB3FE8 /* icon-trivia-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E0749C2146F0C4D00AB3FE8 /* icon-trivia-selected.png */; };
+		7E0749C7146F0C4D00AB3FE8 /* icon-trivia-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E0749C3146F0C4D00AB3FE8 /* icon-trivia-selected@2x.png */; };
+		7E0749CA146F0E2800AB3FE8 /* trivia-cell-selected-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E0749C8146F0E2800AB3FE8 /* trivia-cell-selected-bg.png */; };
+		7E0749CB146F0E2800AB3FE8 /* trivia-cell-selected-bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E0749C9146F0E2800AB3FE8 /* trivia-cell-selected-bg@2x.png */; };
 		7E21670D1460502E00D39D60 /* Session.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E21670C1460502E00D39D60 /* Session.m */; };
 		7E2167101460514500D39D60 /* SignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E21670F1460514500D39D60 /* SignInViewController.m */; };
 		7E2167121460534B00D39D60 /* SignInView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E2167111460534B00D39D60 /* SignInView.xib */; };
@@ -28,7 +48,7 @@
 		7E50B1CA144F8D4900A4FB36 /* LeadersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E50B1C9144F8D4900A4FB36 /* LeadersViewController.m */; };
 		7E50B1CC144F8E7100A4FB36 /* LeadersView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E50B1CB144F8E7100A4FB36 /* LeadersView.xib */; };
 		7E50B1CF144F944300A4FB36 /* HopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E50B1CE144F944300A4FB36 /* HopViewController.m */; };
-		7E50B1D1144F946D00A4FB36 /* HopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E50B1D0144F946D00A4FB36 /* HopView.xib */; };
+		7E50B1D1144F946D00A4FB36 /* AssignmentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E50B1D0144F946D00A4FB36 /* AssignmentView.xib */; };
 		7E50B1D3144F9EB800A4FB36 /* hop-image.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E50B1D2144F9EB700A4FB36 /* hop-image.png */; };
 		7E50B1D6144FE78400A4FB36 /* Checkin.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E50B1D5144FE78400A4FB36 /* Checkin.m */; };
 		7E5348D01454DA1E001A938B /* VenueView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E5348CF1454DA1E001A938B /* VenueView.xib */; };
@@ -41,7 +61,7 @@
 		7E676162146860BF00B2F11E /* tab-my-hops.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E676161146860BF00B2F11E /* tab-my-hops.png */; };
 		7E6761641468616100B2F11E /* tab-my-hops@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E6761631468616100B2F11E /* tab-my-hops@2x.png */; };
 		7E6761961468A1A400B2F11E /* AssignmentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E6761951468A1A400B2F11E /* AssignmentCell.m */; };
-		7E6761981468A1CE00B2F11E /* HopCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E6761971468A1CE00B2F11E /* HopCell.xib */; };
+		7E6761981468A1CE00B2F11E /* LeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E6761971468A1CE00B2F11E /* LeaderCell.xib */; };
 		7E67619A1468A3A300B2F11E /* assignment-cell-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E6761991468A3A300B2F11E /* assignment-cell-bg.png */; };
 		7E67619C1468AAC000B2F11E /* venue-details-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E67619B1468AAC000B2F11E /* venue-details-bg.png */; };
 		7E67619E1468AEE000B2F11E /* AssignmentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E67619D1468AEE000B2F11E /* AssignmentCell.xib */; };
@@ -68,6 +88,27 @@
 		7EB66A4D145E1371008B90E3 /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB66A4C145E1370008B90E3 /* LocationManager.m */; };
 		7EB66A7B145E254D008B90E3 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB66A67145E254D008B90E3 /* MBProgressHUD.m */; };
 		7EB66A82145E2634008B90E3 /* HudViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB66A81145E2634008B90E3 /* HudViewController.m */; };
+		7EBBB058146F3FA500F814E2 /* AQGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EBBAFD1146F3FA500F814E2 /* AQGridView.m */; };
+		7EBBB059146F3FA500F814E2 /* AQGridViewAnimatorItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EBBAFD3146F3FA500F814E2 /* AQGridViewAnimatorItem.m */; };
+		7EBBB05A146F3FA500F814E2 /* AQGridViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EBBAFD6146F3FA500F814E2 /* AQGridViewCell.m */; };
+		7EBBB05B146F3FA500F814E2 /* AQGridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EBBAFD8146F3FA500F814E2 /* AQGridViewController.m */; };
+		7EBBB05C146F3FA500F814E2 /* AQGridViewData.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EBBAFDA146F3FA500F814E2 /* AQGridViewData.m */; };
+		7EBBB05D146F3FA500F814E2 /* AQGridViewUpdateInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EBBAFDC146F3FA500F814E2 /* AQGridViewUpdateInfo.m */; };
+		7EBBB05E146F3FA500F814E2 /* AQGridViewUpdateItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EBBAFDE146F3FA500F814E2 /* AQGridViewUpdateItem.m */; };
+		7EBBB05F146F3FA500F814E2 /* NSIndexSet+AQIndexesOutsideSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EBBAFE0146F3FA500F814E2 /* NSIndexSet+AQIndexesOutsideSet.m */; };
+		7EBBB060146F3FA500F814E2 /* NSIndexSet+AQIsSetContiguous.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EBBAFE2146F3FA500F814E2 /* NSIndexSet+AQIsSetContiguous.m */; };
+		7EBBB061146F3FA500F814E2 /* UIColor+AQGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EBBAFE4146F3FA500F814E2 /* UIColor+AQGridView.m */; };
+		7EBBB0AC146F405600F814E2 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EBBB0AB146F405600F814E2 /* QuartzCore.framework */; };
+		7EBBB0AF146F43A000F814E2 /* StampCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EBBB0AE146F43A000F814E2 /* StampCell.m */; };
+		7EBBB0B1146F4DF600F814E2 /* stamp-joey.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EBBB0B0146F4DF600F814E2 /* stamp-joey.png */; };
+		7EBBB0B3146F4EF800F814E2 /* stamps-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EBBB0B2146F4EF800F814E2 /* stamps-bg.png */; };
+		7EBBB0B6146F5EFE00F814E2 /* LeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EBBB0B5146F5EFD00F814E2 /* LeaderCell.m */; };
+		7EBBB0B8146F5FDA00F814E2 /* HopCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EBBB0B7146F5FDA00F814E2 /* HopCell.xib */; };
+		7EBBB0BE146F619200F814E2 /* icon-rank01.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EBBB0B9146F619200F814E2 /* icon-rank01.png */; };
+		7EBBB0BF146F619200F814E2 /* icon-rank02.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EBBB0BA146F619200F814E2 /* icon-rank02.png */; };
+		7EBBB0C0146F619200F814E2 /* icon-rank03.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EBBB0BB146F619200F814E2 /* icon-rank03.png */; };
+		7EBBB0C1146F619200F814E2 /* icon-rank04.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EBBB0BC146F619200F814E2 /* icon-rank04.png */; };
+		7EBBB0C2146F619200F814E2 /* icon-rank05.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EBBB0BD146F619200F814E2 /* icon-rank05.png */; };
 		7ECDC969144DCD9900938D03 /* AssignmentListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7ECDC968144DCD9900938D03 /* AssignmentListView.xib */; };
 		7ECDC96E144DCDD700938D03 /* AssignmentListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECDC96D144DCDD700938D03 /* AssignmentListViewController.m */; };
 		7ECDC974144DCEF400938D03 /* Hop.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECDC973144DCEF400938D03 /* Hop.m */; };
@@ -190,6 +231,28 @@
 		28A0AB4B0D9B1048005BE974 /* Kngroo_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Kngroo_Prefix.pch; sourceTree = "<group>"; };
 		28AD73870D9D96C1002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		7E0749A0146EF6A600AB3FE8 /* button-checkin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-checkin.png"; sourceTree = "<group>"; };
+		7E0749A2146EF76500AB3FE8 /* button-checkin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-checkin@2x.png"; sourceTree = "<group>"; };
+		7E0749A4146EF8AD00AB3FE8 /* chevron.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chevron.png; sourceTree = "<group>"; };
+		7E0749A6146EF90F00AB3FE8 /* chevron@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chevron@2x.png"; sourceTree = "<group>"; };
+		7E0749A8146F00F500AB3FE8 /* button-map@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-map@2x.png"; sourceTree = "<group>"; };
+		7E0749A9146F00F500AB3FE8 /* button-starthop@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-starthop@2x.png"; sourceTree = "<group>"; };
+		7E0749AC146F018E00AB3FE8 /* button-map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-map.png"; sourceTree = "<group>"; };
+		7E0749AD146F018E00AB3FE8 /* button-starthop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-starthop.png"; sourceTree = "<group>"; };
+		7E0749B0146F02F700AB3FE8 /* BrandedNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrandedNavigationController.h; sourceTree = "<group>"; };
+		7E0749B1146F02F700AB3FE8 /* BrandedNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrandedNavigationController.m; sourceTree = "<group>"; };
+		7E0749B5146F07CD00AB3FE8 /* HopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HopView.xib; sourceTree = "<group>"; };
+		7E0749B7146F0A9700AB3FE8 /* TriviaCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TriviaCell.xib; sourceTree = "<group>"; };
+		7E0749B9146F0ABC00AB3FE8 /* TriviaCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TriviaCell.h; sourceTree = "<group>"; };
+		7E0749BA146F0ABC00AB3FE8 /* TriviaCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TriviaCell.m; sourceTree = "<group>"; };
+		7E0749BC146F0B5D00AB3FE8 /* trivia-cell-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "trivia-cell-bg.png"; sourceTree = "<group>"; };
+		7E0749BE146F0BB100AB3FE8 /* trivia-cell-bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "trivia-cell-bg@2x.png"; sourceTree = "<group>"; };
+		7E0749C0146F0C4D00AB3FE8 /* icon-trivia-option.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-trivia-option.png"; sourceTree = "<group>"; };
+		7E0749C1146F0C4D00AB3FE8 /* icon-trivia-option@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-trivia-option@2x.png"; sourceTree = "<group>"; };
+		7E0749C2146F0C4D00AB3FE8 /* icon-trivia-selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-trivia-selected.png"; sourceTree = "<group>"; };
+		7E0749C3146F0C4D00AB3FE8 /* icon-trivia-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-trivia-selected@2x.png"; sourceTree = "<group>"; };
+		7E0749C8146F0E2800AB3FE8 /* trivia-cell-selected-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "trivia-cell-selected-bg.png"; sourceTree = "<group>"; };
+		7E0749C9146F0E2800AB3FE8 /* trivia-cell-selected-bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "trivia-cell-selected-bg@2x.png"; sourceTree = "<group>"; };
 		7E21670B1460502E00D39D60 /* Session.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Session.h; sourceTree = "<group>"; };
 		7E21670C1460502E00D39D60 /* Session.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Session.m; sourceTree = "<group>"; };
 		7E21670E1460514500D39D60 /* SignInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignInViewController.h; sourceTree = "<group>"; };
@@ -214,7 +277,7 @@
 		7E50B1CB144F8E7100A4FB36 /* LeadersView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeadersView.xib; sourceTree = "<group>"; };
 		7E50B1CD144F944200A4FB36 /* HopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HopViewController.h; sourceTree = "<group>"; };
 		7E50B1CE144F944300A4FB36 /* HopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HopViewController.m; sourceTree = "<group>"; };
-		7E50B1D0144F946D00A4FB36 /* HopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HopView.xib; sourceTree = "<group>"; };
+		7E50B1D0144F946D00A4FB36 /* AssignmentView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AssignmentView.xib; sourceTree = "<group>"; };
 		7E50B1D2144F9EB700A4FB36 /* hop-image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hop-image.png"; sourceTree = "<group>"; };
 		7E50B1D4144FE78400A4FB36 /* Checkin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Checkin.h; sourceTree = "<group>"; };
 		7E50B1D5144FE78400A4FB36 /* Checkin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Checkin.m; sourceTree = "<group>"; };
@@ -233,7 +296,7 @@
 		7E6761631468616100B2F11E /* tab-my-hops@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab-my-hops@2x.png"; sourceTree = "<group>"; };
 		7E6761941468A1A400B2F11E /* AssignmentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssignmentCell.h; sourceTree = "<group>"; };
 		7E6761951468A1A400B2F11E /* AssignmentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssignmentCell.m; sourceTree = "<group>"; };
-		7E6761971468A1CE00B2F11E /* HopCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HopCell.xib; sourceTree = "<group>"; };
+		7E6761971468A1CE00B2F11E /* LeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeaderCell.xib; sourceTree = "<group>"; };
 		7E6761991468A3A300B2F11E /* assignment-cell-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "assignment-cell-bg.png"; sourceTree = "<group>"; };
 		7E67619B1468AAC000B2F11E /* venue-details-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "venue-details-bg.png"; sourceTree = "<group>"; };
 		7E67619D1468AEE000B2F11E /* AssignmentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AssignmentCell.xib; sourceTree = "<group>"; };
@@ -271,6 +334,42 @@
 		7EB66A67145E254D008B90E3 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		7EB66A80145E2633008B90E3 /* HudViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HudViewController.h; sourceTree = "<group>"; };
 		7EB66A81145E2634008B90E3 /* HudViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HudViewController.m; sourceTree = "<group>"; };
+		7EBBAFCE146F3FA500F814E2 /* AQGridView+CellLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AQGridView+CellLayout.h"; sourceTree = "<group>"; };
+		7EBBAFCF146F3FA500F814E2 /* AQGridView+CellLocationDelegation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AQGridView+CellLocationDelegation.h"; sourceTree = "<group>"; };
+		7EBBAFD0146F3FA500F814E2 /* AQGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AQGridView.h; sourceTree = "<group>"; };
+		7EBBAFD1146F3FA500F814E2 /* AQGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AQGridView.m; sourceTree = "<group>"; };
+		7EBBAFD2146F3FA500F814E2 /* AQGridViewAnimatorItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AQGridViewAnimatorItem.h; sourceTree = "<group>"; };
+		7EBBAFD3146F3FA500F814E2 /* AQGridViewAnimatorItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AQGridViewAnimatorItem.m; sourceTree = "<group>"; };
+		7EBBAFD4146F3FA500F814E2 /* AQGridViewCell+AQGridViewCellPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AQGridViewCell+AQGridViewCellPrivate.h"; sourceTree = "<group>"; };
+		7EBBAFD5146F3FA500F814E2 /* AQGridViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AQGridViewCell.h; sourceTree = "<group>"; };
+		7EBBAFD6146F3FA500F814E2 /* AQGridViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AQGridViewCell.m; sourceTree = "<group>"; };
+		7EBBAFD7146F3FA500F814E2 /* AQGridViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AQGridViewController.h; sourceTree = "<group>"; };
+		7EBBAFD8146F3FA500F814E2 /* AQGridViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AQGridViewController.m; sourceTree = "<group>"; };
+		7EBBAFD9146F3FA500F814E2 /* AQGridViewData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AQGridViewData.h; sourceTree = "<group>"; };
+		7EBBAFDA146F3FA500F814E2 /* AQGridViewData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AQGridViewData.m; sourceTree = "<group>"; };
+		7EBBAFDB146F3FA500F814E2 /* AQGridViewUpdateInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AQGridViewUpdateInfo.h; sourceTree = "<group>"; };
+		7EBBAFDC146F3FA500F814E2 /* AQGridViewUpdateInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AQGridViewUpdateInfo.m; sourceTree = "<group>"; };
+		7EBBAFDD146F3FA500F814E2 /* AQGridViewUpdateItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AQGridViewUpdateItem.h; sourceTree = "<group>"; };
+		7EBBAFDE146F3FA500F814E2 /* AQGridViewUpdateItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AQGridViewUpdateItem.m; sourceTree = "<group>"; };
+		7EBBAFDF146F3FA500F814E2 /* NSIndexSet+AQIndexesOutsideSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSIndexSet+AQIndexesOutsideSet.h"; sourceTree = "<group>"; };
+		7EBBAFE0146F3FA500F814E2 /* NSIndexSet+AQIndexesOutsideSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSIndexSet+AQIndexesOutsideSet.m"; sourceTree = "<group>"; };
+		7EBBAFE1146F3FA500F814E2 /* NSIndexSet+AQIsSetContiguous.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSIndexSet+AQIsSetContiguous.h"; sourceTree = "<group>"; };
+		7EBBAFE2146F3FA500F814E2 /* NSIndexSet+AQIsSetContiguous.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSIndexSet+AQIsSetContiguous.m"; sourceTree = "<group>"; };
+		7EBBAFE3146F3FA500F814E2 /* UIColor+AQGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+AQGridView.h"; sourceTree = "<group>"; };
+		7EBBAFE4146F3FA500F814E2 /* UIColor+AQGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+AQGridView.m"; sourceTree = "<group>"; };
+		7EBBB0AB146F405600F814E2 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		7EBBB0AD146F43A000F814E2 /* StampCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StampCell.h; sourceTree = "<group>"; };
+		7EBBB0AE146F43A000F814E2 /* StampCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StampCell.m; sourceTree = "<group>"; };
+		7EBBB0B0146F4DF600F814E2 /* stamp-joey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "stamp-joey.png"; sourceTree = "<group>"; };
+		7EBBB0B2146F4EF800F814E2 /* stamps-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "stamps-bg.png"; sourceTree = "<group>"; };
+		7EBBB0B4146F5EFD00F814E2 /* LeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeaderCell.h; sourceTree = "<group>"; };
+		7EBBB0B5146F5EFD00F814E2 /* LeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeaderCell.m; sourceTree = "<group>"; };
+		7EBBB0B7146F5FDA00F814E2 /* HopCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HopCell.xib; sourceTree = "<group>"; };
+		7EBBB0B9146F619200F814E2 /* icon-rank01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-rank01.png"; sourceTree = "<group>"; };
+		7EBBB0BA146F619200F814E2 /* icon-rank02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-rank02.png"; sourceTree = "<group>"; };
+		7EBBB0BB146F619200F814E2 /* icon-rank03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-rank03.png"; sourceTree = "<group>"; };
+		7EBBB0BC146F619200F814E2 /* icon-rank04.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-rank04.png"; sourceTree = "<group>"; };
+		7EBBB0BD146F619200F814E2 /* icon-rank05.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-rank05.png"; sourceTree = "<group>"; };
 		7ECDC968144DCD9900938D03 /* AssignmentListView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AssignmentListView.xib; sourceTree = "<group>"; };
 		7ECDC96C144DCDD700938D03 /* AssignmentListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssignmentListViewController.h; sourceTree = "<group>"; };
 		7ECDC96D144DCDD700938D03 /* AssignmentListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssignmentListViewController.m; sourceTree = "<group>"; };
@@ -325,6 +424,7 @@
 				7ECDC9BE144DD2B200938D03 /* SystemConfiguration.framework in Frameworks */,
 				7EB66A4A145E1196008B90E3 /* CoreLocation.framework in Frameworks */,
 				7E8A371114608A130066251F /* MapKit.framework in Frameworks */,
+				7EBBB0AC146F405600F814E2 /* QuartzCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -336,10 +436,18 @@
 			children = (
 				7EDF7C201458E9CD00726C1B /* AccountViewController.h */,
 				7EDF7C211458E9CD00726C1B /* AccountViewController.m */,
+				7E6761941468A1A400B2F11E /* AssignmentCell.h */,
+				7E6761951468A1A400B2F11E /* AssignmentCell.m */,
 				7ECDC96C144DCDD700938D03 /* AssignmentListViewController.h */,
 				7ECDC96D144DCDD700938D03 /* AssignmentListViewController.m */,
 				7E5348D91455CA52001A938B /* AssignmentViewController.h */,
 				7E5348DA1455CA52001A938B /* AssignmentViewController.m */,
+				7E67615B146836B000B2F11E /* BrandedNavigationBar.h */,
+				7E67615C146836B000B2F11E /* BrandedNavigationBar.m */,
+				7E0749B0146F02F700AB3FE8 /* BrandedNavigationController.h */,
+				7E0749B1146F02F700AB3FE8 /* BrandedNavigationController.m */,
+				7E6761A21468B2AA00B2F11E /* HopCell.h */,
+				7E6761A31468B2AA00B2F11E /* HopCell.m */,
 				7E50B1C3144F71AA00A4FB36 /* HopListViewController.h */,
 				7E50B1C4144F71AA00A4FB36 /* HopListViewController.m */,
 				7E50B1CD144F944200A4FB36 /* HopViewController.h */,
@@ -354,7 +462,13 @@
 				7E50B1C9144F8D4900A4FB36 /* LeadersViewController.m */,
 				7EB66A4B145E1370008B90E3 /* LocationManager.h */,
 				7EB66A4C145E1370008B90E3 /* LocationManager.m */,
+				7E8A371214608A780066251F /* MapViewController.h */,
+				7E8A371314608A780066251F /* MapViewController.m */,
+				7EBBB0AD146F43A000F814E2 /* StampCell.h */,
+				7EBBB0AE146F43A000F814E2 /* StampCell.m */,
 				7ECDC971144DCEE900938D03 /* Models */,
+				7E8A3717146093B50066251F /* NSString+MD5.h */,
+				7E8A3718146093B50066251F /* NSString+MD5.m */,
 				7E35B3401459CF41002073DB /* NSString+SHA1.h */,
 				7E35B3411459CF41002073DB /* NSString+SHA1.m */,
 				7E2167131460552B00D39D60 /* PublicViewController.h */,
@@ -363,22 +477,16 @@
 				7E21670F1460514500D39D60 /* SignInViewController.m */,
 				7E8A370B146069750066251F /* SignUpViewController.h */,
 				7E8A370C146069750066251F /* SignUpViewController.m */,
+				7E0749B9146F0ABC00AB3FE8 /* TriviaCell.h */,
+				7E0749BA146F0ABC00AB3FE8 /* TriviaCell.m */,
 				7EB66A3F145DDF4E008B90E3 /* TriviaViewController.h */,
 				7EB66A40145DDF4E008B90E3 /* TriviaViewController.m */,
-				7E5348D11454DADF001A938B /* VenueViewController.h */,
-				7E5348D21454DADF001A938B /* VenueViewController.m */,
-				7E8A371214608A780066251F /* MapViewController.h */,
-				7E8A371314608A780066251F /* MapViewController.m */,
-				7E8A3717146093B50066251F /* NSString+MD5.h */,
-				7E8A3718146093B50066251F /* NSString+MD5.m */,
-				7E67615B146836B000B2F11E /* BrandedNavigationBar.h */,
-				7E67615C146836B000B2F11E /* BrandedNavigationBar.m */,
-				7E6761941468A1A400B2F11E /* AssignmentCell.h */,
-				7E6761951468A1A400B2F11E /* AssignmentCell.m */,
 				7E67619F1468AF0500B2F11E /* VenueCell.h */,
 				7E6761A01468AF0600B2F11E /* VenueCell.m */,
-				7E6761A21468B2AA00B2F11E /* HopCell.h */,
-				7E6761A31468B2AA00B2F11E /* HopCell.m */,
+				7E5348D11454DADF001A938B /* VenueViewController.h */,
+				7E5348D21454DADF001A938B /* VenueViewController.m */,
+				7EBBB0B4146F5EFD00F814E2 /* LeaderCell.h */,
+				7EBBB0B5146F5EFD00F814E2 /* LeaderCell.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -394,6 +502,7 @@
 		29B97314FDCFA39411CA2CEA /* Kngroo */ = {
 			isa = PBXGroup;
 			children = (
+				7EBBAFC7146F3FA500F814E2 /* AQGridView */,
 				7EB66A4E145E254C008B90E3 /* MBProgressHUD */,
 				7EDF7C2614591D8C00726C1B /* V8HorizontalPickerView */,
 				7ECDCA16144DD7B500938D03 /* Lumberjack */,
@@ -419,13 +528,15 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				7E6761A51468B31800B2F11E /* VenueCell.xib */,
-				7E67619D1468AEE000B2F11E /* AssignmentCell.xib */,
+				7EBBB0B7146F5FDA00F814E2 /* HopCell.xib */,
+				7E0749B5146F07CD00AB3FE8 /* HopView.xib */,
 				7EDF7C1E1458E9AA00726C1B /* AccountView.xib */,
+				7E67619D1468AEE000B2F11E /* AssignmentCell.xib */,
 				7ECDC968144DCD9900938D03 /* AssignmentListView.xib */,
 				7E50B1D2144F9EB700A4FB36 /* hop-image.png */,
+				7E6761971468A1CE00B2F11E /* LeaderCell.xib */,
 				7E50B1C5144F71AA00A4FB36 /* HopListView.xib */,
-				7E50B1D0144F946D00A4FB36 /* HopView.xib */,
+				7E50B1D0144F946D00A4FB36 /* AssignmentView.xib */,
 				7E35B336145927DB002073DB /* indicator.png */,
 				7E35B337145927DB002073DB /* indicator@2x.png */,
 				8D1107310486CEB800E47090 /* Kngroo-Info.plist */,
@@ -439,9 +550,10 @@
 				7E8A370E14606A2E0066251F /* SignUpView.xib */,
 				7E67615E1468371300B2F11E /* Skin Assets */,
 				7EB66A42145DE105008B90E3 /* TriviaView.xib */,
+				7E0749B7146F0A9700AB3FE8 /* TriviaCell.xib */,
 				7E5348D41454DCA3001A938B /* venue-image.png */,
+				7E6761A51468B31800B2F11E /* VenueCell.xib */,
 				7E5348CF1454DA1E001A938B /* VenueView.xib */,
-				7E6761971468A1CE00B2F11E /* HopCell.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -449,6 +561,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7EBBB0AB146F405600F814E2 /* QuartzCore.framework */,
 				7E8A371014608A130066251F /* MapKit.framework */,
 				7EB66A49145E1196008B90E3 /* CoreLocation.framework */,
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
@@ -464,6 +577,29 @@
 		7E67615E1468371300B2F11E /* Skin Assets */ = {
 			isa = PBXGroup;
 			children = (
+				7EBBB0B9146F619200F814E2 /* icon-rank01.png */,
+				7EBBB0BA146F619200F814E2 /* icon-rank02.png */,
+				7EBBB0BB146F619200F814E2 /* icon-rank03.png */,
+				7EBBB0BC146F619200F814E2 /* icon-rank04.png */,
+				7EBBB0BD146F619200F814E2 /* icon-rank05.png */,
+				7EBBB0B2146F4EF800F814E2 /* stamps-bg.png */,
+				7EBBB0B0146F4DF600F814E2 /* stamp-joey.png */,
+				7E0749C8146F0E2800AB3FE8 /* trivia-cell-selected-bg.png */,
+				7E0749C9146F0E2800AB3FE8 /* trivia-cell-selected-bg@2x.png */,
+				7E0749C0146F0C4D00AB3FE8 /* icon-trivia-option.png */,
+				7E0749C1146F0C4D00AB3FE8 /* icon-trivia-option@2x.png */,
+				7E0749C2146F0C4D00AB3FE8 /* icon-trivia-selected.png */,
+				7E0749C3146F0C4D00AB3FE8 /* icon-trivia-selected@2x.png */,
+				7E0749BE146F0BB100AB3FE8 /* trivia-cell-bg@2x.png */,
+				7E0749BC146F0B5D00AB3FE8 /* trivia-cell-bg.png */,
+				7E0749AC146F018E00AB3FE8 /* button-map.png */,
+				7E0749AD146F018E00AB3FE8 /* button-starthop.png */,
+				7E0749A8146F00F500AB3FE8 /* button-map@2x.png */,
+				7E0749A9146F00F500AB3FE8 /* button-starthop@2x.png */,
+				7E0749A6146EF90F00AB3FE8 /* chevron@2x.png */,
+				7E0749A4146EF8AD00AB3FE8 /* chevron.png */,
+				7E0749A2146EF76500AB3FE8 /* button-checkin@2x.png */,
+				7E0749A0146EF6A600AB3FE8 /* button-checkin.png */,
 				7E6761AF1468B78700B2F11E /* tab-leaders.png */,
 				7E6761B01468B78700B2F11E /* tab-leaders@2x.png */,
 				7E6761AB1468B73400B2F11E /* tab-discover.png */,
@@ -486,6 +622,44 @@
 				7EB66A67145E254D008B90E3 /* MBProgressHUD.m */,
 			);
 			path = MBProgressHUD;
+			sourceTree = "<group>";
+		};
+		7EBBAFC7146F3FA500F814E2 /* AQGridView */ = {
+			isa = PBXGroup;
+			children = (
+				7EBBAFCD146F3FA500F814E2 /* Classes */,
+			);
+			path = AQGridView;
+			sourceTree = "<group>";
+		};
+		7EBBAFCD146F3FA500F814E2 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				7EBBAFCE146F3FA500F814E2 /* AQGridView+CellLayout.h */,
+				7EBBAFCF146F3FA500F814E2 /* AQGridView+CellLocationDelegation.h */,
+				7EBBAFD0146F3FA500F814E2 /* AQGridView.h */,
+				7EBBAFD1146F3FA500F814E2 /* AQGridView.m */,
+				7EBBAFD2146F3FA500F814E2 /* AQGridViewAnimatorItem.h */,
+				7EBBAFD3146F3FA500F814E2 /* AQGridViewAnimatorItem.m */,
+				7EBBAFD4146F3FA500F814E2 /* AQGridViewCell+AQGridViewCellPrivate.h */,
+				7EBBAFD5146F3FA500F814E2 /* AQGridViewCell.h */,
+				7EBBAFD6146F3FA500F814E2 /* AQGridViewCell.m */,
+				7EBBAFD7146F3FA500F814E2 /* AQGridViewController.h */,
+				7EBBAFD8146F3FA500F814E2 /* AQGridViewController.m */,
+				7EBBAFD9146F3FA500F814E2 /* AQGridViewData.h */,
+				7EBBAFDA146F3FA500F814E2 /* AQGridViewData.m */,
+				7EBBAFDB146F3FA500F814E2 /* AQGridViewUpdateInfo.h */,
+				7EBBAFDC146F3FA500F814E2 /* AQGridViewUpdateInfo.m */,
+				7EBBAFDD146F3FA500F814E2 /* AQGridViewUpdateItem.h */,
+				7EBBAFDE146F3FA500F814E2 /* AQGridViewUpdateItem.m */,
+				7EBBAFDF146F3FA500F814E2 /* NSIndexSet+AQIndexesOutsideSet.h */,
+				7EBBAFE0146F3FA500F814E2 /* NSIndexSet+AQIndexesOutsideSet.m */,
+				7EBBAFE1146F3FA500F814E2 /* NSIndexSet+AQIsSetContiguous.h */,
+				7EBBAFE2146F3FA500F814E2 /* NSIndexSet+AQIsSetContiguous.m */,
+				7EBBAFE3146F3FA500F814E2 /* UIColor+AQGridView.h */,
+				7EBBAFE4146F3FA500F814E2 /* UIColor+AQGridView.m */,
+			);
+			path = Classes;
 			sourceTree = "<group>";
 		};
 		7ECDC971144DCEE900938D03 /* Models */ = {
@@ -600,6 +774,7 @@
 				Japanese,
 				French,
 				German,
+				en,
 			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* Kngroo */;
 			projectDirPath = "";
@@ -707,7 +882,7 @@
 				7EF45098144E2A1700536B0E /* kngroo-logo-sq57.png in Resources */,
 				7E50B1C7144F71AA00A4FB36 /* HopListView.xib in Resources */,
 				7E50B1CC144F8E7100A4FB36 /* LeadersView.xib in Resources */,
-				7E50B1D1144F946D00A4FB36 /* HopView.xib in Resources */,
+				7E50B1D1144F946D00A4FB36 /* AssignmentView.xib in Resources */,
 				7E50B1D3144F9EB800A4FB36 /* hop-image.png in Resources */,
 				7E5348D01454DA1E001A938B /* VenueView.xib in Resources */,
 				7E5348D51454DCA3001A938B /* venue-image.png in Resources */,
@@ -722,7 +897,7 @@
 				7E6761601468371300B2F11E /* nav-bg.png in Resources */,
 				7E676162146860BF00B2F11E /* tab-my-hops.png in Resources */,
 				7E6761641468616100B2F11E /* tab-my-hops@2x.png in Resources */,
-				7E6761981468A1CE00B2F11E /* HopCell.xib in Resources */,
+				7E6761981468A1CE00B2F11E /* LeaderCell.xib in Resources */,
 				7E67619A1468A3A300B2F11E /* assignment-cell-bg.png in Resources */,
 				7E67619C1468AAC000B2F11E /* venue-details-bg.png in Resources */,
 				7E67619E1468AEE000B2F11E /* AssignmentCell.xib in Resources */,
@@ -733,6 +908,32 @@
 				7E6761AE1468B73400B2F11E /* tab-discover@2x.png in Resources */,
 				7E6761B11468B78700B2F11E /* tab-leaders.png in Resources */,
 				7E6761B21468B78700B2F11E /* tab-leaders@2x.png in Resources */,
+				7E0749A1146EF6A600AB3FE8 /* button-checkin.png in Resources */,
+				7E0749A3146EF76500AB3FE8 /* button-checkin@2x.png in Resources */,
+				7E0749A5146EF8AD00AB3FE8 /* chevron.png in Resources */,
+				7E0749A7146EF90F00AB3FE8 /* chevron@2x.png in Resources */,
+				7E0749AA146F00F500AB3FE8 /* button-map@2x.png in Resources */,
+				7E0749AB146F00F500AB3FE8 /* button-starthop@2x.png in Resources */,
+				7E0749AE146F018E00AB3FE8 /* button-map.png in Resources */,
+				7E0749AF146F018E00AB3FE8 /* button-starthop.png in Resources */,
+				7E0749B6146F07CD00AB3FE8 /* HopView.xib in Resources */,
+				7E0749B8146F0A9700AB3FE8 /* TriviaCell.xib in Resources */,
+				7E0749BD146F0B5D00AB3FE8 /* trivia-cell-bg.png in Resources */,
+				7E0749BF146F0BB100AB3FE8 /* trivia-cell-bg@2x.png in Resources */,
+				7E0749C4146F0C4D00AB3FE8 /* icon-trivia-option.png in Resources */,
+				7E0749C5146F0C4D00AB3FE8 /* icon-trivia-option@2x.png in Resources */,
+				7E0749C6146F0C4D00AB3FE8 /* icon-trivia-selected.png in Resources */,
+				7E0749C7146F0C4D00AB3FE8 /* icon-trivia-selected@2x.png in Resources */,
+				7E0749CA146F0E2800AB3FE8 /* trivia-cell-selected-bg.png in Resources */,
+				7E0749CB146F0E2800AB3FE8 /* trivia-cell-selected-bg@2x.png in Resources */,
+				7EBBB0B1146F4DF600F814E2 /* stamp-joey.png in Resources */,
+				7EBBB0B3146F4EF800F814E2 /* stamps-bg.png in Resources */,
+				7EBBB0B8146F5FDA00F814E2 /* HopCell.xib in Resources */,
+				7EBBB0BE146F619200F814E2 /* icon-rank01.png in Resources */,
+				7EBBB0BF146F619200F814E2 /* icon-rank02.png in Resources */,
+				7EBBB0C0146F619200F814E2 /* icon-rank03.png in Resources */,
+				7EBBB0C1146F619200F814E2 /* icon-rank04.png in Resources */,
+				7EBBB0C2146F619200F814E2 /* icon-rank05.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -783,6 +984,20 @@
 				7E6761961468A1A400B2F11E /* AssignmentCell.m in Sources */,
 				7E6761A11468AF0600B2F11E /* VenueCell.m in Sources */,
 				7E6761A41468B2AB00B2F11E /* HopCell.m in Sources */,
+				7E0749B2146F02F700AB3FE8 /* BrandedNavigationController.m in Sources */,
+				7E0749BB146F0ABC00AB3FE8 /* TriviaCell.m in Sources */,
+				7EBBB058146F3FA500F814E2 /* AQGridView.m in Sources */,
+				7EBBB059146F3FA500F814E2 /* AQGridViewAnimatorItem.m in Sources */,
+				7EBBB05A146F3FA500F814E2 /* AQGridViewCell.m in Sources */,
+				7EBBB05B146F3FA500F814E2 /* AQGridViewController.m in Sources */,
+				7EBBB05C146F3FA500F814E2 /* AQGridViewData.m in Sources */,
+				7EBBB05D146F3FA500F814E2 /* AQGridViewUpdateInfo.m in Sources */,
+				7EBBB05E146F3FA500F814E2 /* AQGridViewUpdateItem.m in Sources */,
+				7EBBB05F146F3FA500F814E2 /* NSIndexSet+AQIndexesOutsideSet.m in Sources */,
+				7EBBB060146F3FA500F814E2 /* NSIndexSet+AQIsSetContiguous.m in Sources */,
+				7EBBB061146F3FA500F814E2 /* UIColor+AQGridView.m in Sources */,
+				7EBBB0AF146F43A000F814E2 /* StampCell.m in Sources */,
+				7EBBB0B6146F5EFE00F814E2 /* LeaderCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
