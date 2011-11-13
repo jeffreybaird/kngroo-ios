@@ -11,13 +11,14 @@
 #import "Session.h"
 #import "NSString+MD5.h"
 #import "ImageManager.h"
+#import "StampCell.h"
 
 
 static int ddLogLevel = LOG_LEVEL_VERBOSE;
 
 @implementation AccountViewController
 
-@synthesize modeSelect, personalView, tableView, user;
+@synthesize modeSelect, personalView, tableView, gridView, user;
 
 - (void)refreshUser
 {
@@ -47,6 +48,7 @@ static int ddLogLevel = LOG_LEVEL_VERBOSE;
         pointsLabel.text = [NSString stringWithFormat:@"%@",user.points];
         trophiesLabel.text = [NSString stringWithFormat:@"%d hops",user.trophies.count];
         [tableView reloadData];
+        [gridView reloadData];
     }
 }
 
@@ -88,6 +90,45 @@ static int ddLogLevel = LOG_LEVEL_VERBOSE;
 {
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+#pragma mark - AQGridView methods
+
+- (NSUInteger)numberOfItemsInGridView:(AQGridView *)gridView
+{
+    return user.trophies.count;
+}
+
+- (AQGridViewCell*)gridView:(AQGridView *)aGridView cellForItemAtIndex:(NSUInteger)index
+{
+    static NSString* sCellIdentifier = @"GridViewCell";
+    StampCell* tCell = (StampCell*)[aGridView dequeueReusableCellWithIdentifier:sCellIdentifier];
+	if( tCell==nil ) {
+		tCell = [[[StampCell alloc] initWithFrame:CGRectMake(0,0,80,100) reuseIdentifier:sCellIdentifier] autorelease];
+	}
+    
+    Trophy* tTrophy = [user.trophies objectAtIndex:index];
+    [[ImageManager sharedManager] loadImageNamed:tTrophy.hop.stampUrl 
+                                    successBlock:^(UIImage* aImage) {
+                                        async_main(^{ tCell.image = aImage; });
+                                    }
+                                    failureBlock:^{
+                                        async_main(^{ tCell.image = [UIImage imageNamed:@"stamp-joey"]; });
+                                    }];
+    
+    tCell.title = tTrophy.hop.stampName;
+
+    return tCell;
+}
+
+- (CGSize)portraitGridCellSizeForGridView:(AQGridView*)aGridView
+{
+    return ( CGSizeMake(100.0, 120.0) );
+}
+
+- (void)gridView:(AQGridView *)aGridView didSelectItemAtIndex:(NSUInteger)index
+{
+    [aGridView deselectItemAtIndex:index animated:YES];
 }
 
 #pragma mark -
