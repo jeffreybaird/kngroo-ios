@@ -9,6 +9,7 @@
 #import "SignInViewController.h"
 #import "Session.h"
 #import "SignUpViewController.h"
+#import "UITextField+PlaceholderColor.h"
 
 
 @implementation SignInViewController
@@ -31,6 +32,8 @@
 - (IBAction)signUp:(id)sender
 {
     SignUpViewController* tSignUpView = [[[SignUpViewController alloc] init] autorelease];
+    tSignUpView.email = email.text;
+    tSignUpView.password = password.text;
     UINavigationController* tNav = [[[UINavigationController alloc] initWithRootViewController:tSignUpView] autorelease];
     [self.navigationController presentModalViewController:tNav animated:YES];
 }
@@ -49,6 +52,11 @@
 {
     [super viewDidLoad];
     
+    email.textColor = [UIColor whiteColor];
+    password.textColor = [UIColor whiteColor];
+//    [email setValue:[UIColor whiteColor] forKey:@"_placeholderLabel.textColor"];
+//    [password setValue:[UIColor whiteColor] forKey:@"_placeholderLabel.textColor"];
+
 //    self.navigationItem.title = @"Sign In";
 //    self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelPressed)] autorelease];
 //    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(donePressed)] autorelease];
@@ -58,7 +66,8 @@
 {
     [super viewWillAppear:animated];
     
-//    [email becomeFirstResponder];
+//    email.text = nil;
+    password.text = nil;
 }
 
 //- (void)viewDidUnload

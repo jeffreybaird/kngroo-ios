@@ -8,11 +8,12 @@
 
 #import "SignUpViewController.h"
 #import "User.h"
+#import "UITextField+PlaceholderColor.h"
 
 
 @implementation SignUpViewController
 
-@synthesize email, password;
+@synthesize firstName, lastName, email, password;
 
 - (id)init
 {
@@ -29,8 +30,10 @@
 {
     [self showHud:@"Creating Account"];
     User* tUser = [[[User alloc] init] autorelease];
-    tUser.email = email.text;
-    tUser.password = password.text;
+    tUser.email = self.email;
+    tUser.password = self.password;
+    tUser.firstName = firstName.text;
+    tUser.lastName = lastName.text;
     [[RKObjectManager sharedManager] postObject:tUser delegate:self];
 }
 
@@ -39,6 +42,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    // here, there be hacks!
+    firstName.textColor = [UIColor whiteColor];
+    lastName.textColor = [UIColor whiteColor];
+//    [firstName setValue:[UIColor whiteColor] forKey:@"_placeholderLabel.textColor"];
+//    [lastName setValue:[UIColor whiteColor] forKey:@"_placeholderLabel.textColor"];
     
     self.navigationItem.title = @"Create Account";
     self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelPressed)] autorelease];
@@ -49,7 +58,7 @@
 {
     [super viewWillAppear:animated];
     
-    [email becomeFirstResponder];
+    [firstName becomeFirstResponder];
 }
 
 - (void)viewDidUnload
@@ -71,8 +80,8 @@
 {
     [self hideHud];
     if( [object isKindOfClass:[User class]] ) {
-        [email resignFirstResponder];
-        [password resignFirstResponder];
+        [firstName resignFirstResponder];
+        [lastName resignFirstResponder];
         
         User* tUser = (User*)object;
 

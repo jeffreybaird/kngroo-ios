@@ -117,6 +117,7 @@
 		7EBBB0D0147037B000F814E2 /* button-signin.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EBBB0CD147037B000F814E2 /* button-signin.png */; };
 		7EBBB0D1147037B000F814E2 /* button-signup.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EBBB0CE147037B000F814E2 /* button-signup.png */; };
 		7EBBB0D2147037B000F814E2 /* textfield-signin-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EBBB0CF147037B000F814E2 /* textfield-signin-bg.png */; };
+		7EBBB0D51470469200F814E2 /* UITextField+PlaceholderColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EBBB0D41470469100F814E2 /* UITextField+PlaceholderColor.m */; };
 		7ECDC969144DCD9900938D03 /* AssignmentListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7ECDC968144DCD9900938D03 /* AssignmentListView.xib */; };
 		7ECDC96E144DCDD700938D03 /* AssignmentListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECDC96D144DCDD700938D03 /* AssignmentListViewController.m */; };
 		7ECDC974144DCEF400938D03 /* Hop.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECDC973144DCEF400938D03 /* Hop.m */; };
@@ -386,6 +387,8 @@
 		7EBBB0CD147037B000F814E2 /* button-signin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-signin.png"; sourceTree = "<group>"; };
 		7EBBB0CE147037B000F814E2 /* button-signup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-signup.png"; sourceTree = "<group>"; };
 		7EBBB0CF147037B000F814E2 /* textfield-signin-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "textfield-signin-bg.png"; sourceTree = "<group>"; };
+		7EBBB0D31470469000F814E2 /* UITextField+PlaceholderColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+PlaceholderColor.h"; sourceTree = "<group>"; };
+		7EBBB0D41470469100F814E2 /* UITextField+PlaceholderColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+PlaceholderColor.m"; sourceTree = "<group>"; };
 		7ECDC968144DCD9900938D03 /* AssignmentListView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AssignmentListView.xib; sourceTree = "<group>"; };
 		7ECDC96C144DCDD700938D03 /* AssignmentListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssignmentListViewController.h; sourceTree = "<group>"; };
 		7ECDC96D144DCDD700938D03 /* AssignmentListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssignmentListViewController.m; sourceTree = "<group>"; };
@@ -503,6 +506,8 @@
 				7E5348D21454DADF001A938B /* VenueViewController.m */,
 				7EBBB0B4146F5EFD00F814E2 /* LeaderCell.h */,
 				7EBBB0B5146F5EFD00F814E2 /* LeaderCell.m */,
+				7EBBB0D31470469000F814E2 /* UITextField+PlaceholderColor.h */,
+				7EBBB0D41470469100F814E2 /* UITextField+PlaceholderColor.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -1030,6 +1035,7 @@
 				7EBBB061146F3FA500F814E2 /* UIColor+AQGridView.m in Sources */,
 				7EBBB0AF146F43A000F814E2 /* StampCell.m in Sources */,
 				7EBBB0B6146F5EFE00F814E2 /* LeaderCell.m in Sources */,
+				7EBBB0D51470469200F814E2 /* UITextField+PlaceholderColor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -12,12 +12,17 @@
 
 @interface SignUpViewController : HudViewController <RKObjectLoaderDelegate> {
     
-    IBOutlet UITextField* email;
-    IBOutlet UITextField* password;
+    IBOutlet UITextField* firstName;
+    IBOutlet UITextField* lastName;
 
+    NSString* email;
+    NSString* password;
+    
 }
 
-@property (retain) UITextField* email;
-@property (retain) UITextField* password;
+@property (retain) UITextField* firstName;
+@property (retain) UITextField* lastName;
+@property (retain) NSString* email;
+@property (retain) NSString* password;
 
 @end
