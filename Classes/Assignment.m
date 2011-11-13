@@ -27,6 +27,8 @@
 	[tHopMapping mapKeyPath:@"id" toAttribute:@"hopId"];
 	[tHopMapping mapKeyPath:@"title" toAttribute:@"title"];
     [tHopMapping mapKeyPath:@"points" toAttribute:@"points"];
+    [tHopMapping mapKeyPath:@"stamp_url" toAttribute:@"stampUrl"];
+    [tHopMapping mapKeyPath:@"image_url" toAttribute:@"imageUrl"];
     
     RKObjectMapping* tVenueMapping = [RKObjectMapping mappingForClass:[Venue class]];
 	[tVenueMapping mapKeyPath:@"id" toAttribute:@"venueId"];

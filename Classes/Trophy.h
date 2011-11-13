@@ -8,9 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import "Hop.h"
+#import "RKLoadable.h"
 
 
-@interface Trophy : NSObject {
+@interface Trophy : NSObject <RKLoadable> {
     
     NSNumber* trophyId;
     NSNumber* userId;

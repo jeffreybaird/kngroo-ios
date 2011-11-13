@@ -19,6 +19,7 @@
 #import "LocationManager.h"
 #import "PublicViewController.h"
 #import "Session.h"
+#import "Trophy.h"
 
 
 static int ddLogLevel = LOG_LEVEL_VERBOSE;
@@ -40,7 +41,7 @@ static int ddLogLevel = LOG_LEVEL_VERBOSE;
     [Trivia initObjectLoader];
     [Attempt initObjectLoader];
     [Session initObjectLoader];
-
+    [Trophy initObjectLoader];
 }
 
 - (void)sessionCreated:(NSNotification*)notif

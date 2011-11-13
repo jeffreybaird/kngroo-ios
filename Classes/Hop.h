@@ -19,6 +19,9 @@
 	NSNumber* points;
     NSNumber* featured;
     NSString* summary;
+    NSString* stampUrl;
+    NSString* stampName;
+    NSString* imageUrl;
 	
 }
 
@@ -29,5 +32,9 @@
 @property (retain) NSNumber* points;
 @property (retain) NSNumber* featured;
 @property (retain) NSString* summary;
+@property (retain) NSString* stampUrl;
+@property (retain) NSString* stampName;
+@property (retain) NSString* imageUrl;
+
 
 @end
