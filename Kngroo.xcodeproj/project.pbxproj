@@ -109,6 +109,8 @@
 		7EBBB0C0146F619200F814E2 /* icon-rank03.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EBBB0BB146F619200F814E2 /* icon-rank03.png */; };
 		7EBBB0C1146F619200F814E2 /* icon-rank04.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EBBB0BC146F619200F814E2 /* icon-rank04.png */; };
 		7EBBB0C2146F619200F814E2 /* icon-rank05.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EBBB0BD146F619200F814E2 /* icon-rank05.png */; };
+		7EBBB0C51470333000F814E2 /* default.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EBBB0C31470333000F814E2 /* default.png */; };
+		7EBBB0C61470333000F814E2 /* default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EBBB0C41470333000F814E2 /* default@2x.png */; };
 		7ECDC969144DCD9900938D03 /* AssignmentListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7ECDC968144DCD9900938D03 /* AssignmentListView.xib */; };
 		7ECDC96E144DCDD700938D03 /* AssignmentListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECDC96D144DCDD700938D03 /* AssignmentListViewController.m */; };
 		7ECDC974144DCEF400938D03 /* Hop.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECDC973144DCEF400938D03 /* Hop.m */; };
@@ -370,6 +372,8 @@
 		7EBBB0BB146F619200F814E2 /* icon-rank03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-rank03.png"; sourceTree = "<group>"; };
 		7EBBB0BC146F619200F814E2 /* icon-rank04.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-rank04.png"; sourceTree = "<group>"; };
 		7EBBB0BD146F619200F814E2 /* icon-rank05.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-rank05.png"; sourceTree = "<group>"; };
+		7EBBB0C31470333000F814E2 /* default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = default.png; sourceTree = "<group>"; };
+		7EBBB0C41470333000F814E2 /* default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "default@2x.png"; sourceTree = "<group>"; };
 		7ECDC968144DCD9900938D03 /* AssignmentListView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AssignmentListView.xib; sourceTree = "<group>"; };
 		7ECDC96C144DCDD700938D03 /* AssignmentListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssignmentListViewController.h; sourceTree = "<group>"; };
 		7ECDC96D144DCDD700938D03 /* AssignmentListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssignmentListViewController.m; sourceTree = "<group>"; };
@@ -528,6 +532,8 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				7EBBB0C31470333000F814E2 /* default.png */,
+				7EBBB0C41470333000F814E2 /* default@2x.png */,
 				7EBBB0B7146F5FDA00F814E2 /* HopCell.xib */,
 				7E0749B5146F07CD00AB3FE8 /* HopView.xib */,
 				7EDF7C1E1458E9AA00726C1B /* AccountView.xib */,
@@ -934,6 +940,8 @@
 				7EBBB0C0146F619200F814E2 /* icon-rank03.png in Resources */,
 				7EBBB0C1146F619200F814E2 /* icon-rank04.png in Resources */,
 				7EBBB0C2146F619200F814E2 /* icon-rank05.png in Resources */,
+				7EBBB0C51470333000F814E2 /* default.png in Resources */,
+				7EBBB0C61470333000F814E2 /* default@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
