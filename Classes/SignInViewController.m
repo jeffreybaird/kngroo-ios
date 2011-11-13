@@ -8,6 +8,7 @@
 
 #import "SignInViewController.h"
 #import "Session.h"
+#import "SignUpViewController.h"
 
 
 @implementation SignInViewController
@@ -17,7 +18,7 @@
     [self.navigationController dismissModalViewControllerAnimated:YES];
 }
 
-- (void)donePressed
+- (IBAction)signIn:(id)sender
 {
     [email resignFirstResponder];
     [password resignFirstResponder];
@@ -25,6 +26,13 @@
     [self showHud:@"Signing In"];
     Session* tSession = [Session sessionWithEmail:email.text password:password.text];
     [[RKObjectManager sharedManager] postObject:tSession delegate:self];
+}
+
+- (IBAction)signUp:(id)sender
+{
+    SignUpViewController* tSignUpView = [[[SignUpViewController alloc] init] autorelease];
+    UINavigationController* tNav = [[[UINavigationController alloc] initWithRootViewController:tSignUpView] autorelease];
+    [self.navigationController presentModalViewController:tNav animated:YES];
 }
 
 #pragma mark -
@@ -41,16 +49,16 @@
 {
     [super viewDidLoad];
     
-    self.navigationItem.title = @"Sign In";
-    self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelPressed)] autorelease];
-    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(donePressed)] autorelease];
+//    self.navigationItem.title = @"Sign In";
+//    self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelPressed)] autorelease];
+//    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(donePressed)] autorelease];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     
-    [email becomeFirstResponder];
+//    [email becomeFirstResponder];
 }
 
 //- (void)viewDidUnload

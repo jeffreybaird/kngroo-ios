@@ -17,7 +17,7 @@
 #import "Trivia.h"
 #import "Attempt.h"
 #import "LocationManager.h"
-#import "PublicViewController.h"
+#import "SignInViewController.h"
 #import "Session.h"
 #import "Trophy.h"
 
@@ -102,8 +102,9 @@ static int ddLogLevel = LOG_LEVEL_VERBOSE;
 	
 	[self initObjectLoader];
     
-    PublicViewController* tPublicView = [[[PublicViewController alloc] init] autorelease];
+    SignInViewController* tPublicView = [[[SignInViewController alloc] init] autorelease];
     UINavigationController* tNav = [[[UINavigationController alloc] initWithRootViewController:tPublicView] autorelease];
+    tNav.navigationBarHidden = YES;
     self.navController = tNav;
 
     if( tApiToken ) {
