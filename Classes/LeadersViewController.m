@@ -135,7 +135,7 @@ static int ddLogLevel = LOG_LEVEL_VERBOSE;
                                     failureBlock:^{
                                         async_main(^{ cell.imageView.image = [UIImage imageNamed:@"placeholder"]; });
                                     }];
-    cell.nameLabel.text = [NSString stringWithFormat:@"%@ %@",tUser.firstName,tUser.lastName];
+    cell.nameLabel.text = [NSString stringWithFormat:@"%@ %@.",tUser.firstName,[tUser.lastName substringToIndex:1]];
     cell.pointsLabel.text = [NSString stringWithFormat:@"%d points",[tUser.points intValue]];
     if( indexPath.row<5 ) {
         NSString* tFileName = [NSString stringWithFormat:@"icon-rank%02d",indexPath.row+1];
