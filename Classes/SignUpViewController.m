@@ -85,7 +85,7 @@
         tMgr.client.password = @"x";
         tMgr.client.authenticationType = RKRequestAuthenticationTypeHTTPBasic;
 
-        dispatch_async(dispatch_get_main_queue(), ^{
+        async_main(^{
             Alert(@"Account Created", @"You're ready to go.");
             [self.navigationController dismissModalViewControllerAnimated:YES];
         });

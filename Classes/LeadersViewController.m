@@ -82,9 +82,7 @@ static int ddLogLevel = LOG_LEVEL_VERBOSE;
 //    BOOL tComplete = [modeSelect selectedSegmentIndex]==1;
 //    [self showHops:tComplete];
     
-	dispatch_async(dispatch_get_main_queue(), ^{ 
-		[tableView reloadData];
-	});
+	async_main(^{ [tableView reloadData]; });
 }
 
 - (void)objectLoader:(RKObjectLoader *)objectLoader didLoadObject:(id)object

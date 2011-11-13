@@ -96,7 +96,7 @@ static int ddLogLevel = LOG_LEVEL_VERBOSE;
 
 - (void)assignmentCreated:(NSNotification*)notif
 {
-    dispatch_async(dispatch_get_main_queue(), ^{
+    async_main(^{
         [self.navigationController popToRootViewControllerAnimated:YES];
         [self refreshHops];
     });
@@ -267,12 +267,10 @@ static int ddLogLevel = LOG_LEVEL_VERBOSE;
 
             [self modeChanged];
             
-            dispatch_async(dispatch_get_main_queue(), ^{ 
-                [self.tableView reloadData];
-            });
+            async_main(^{ [self.tableView reloadData]; });
         }else if( [[objects lastObject] isKindOfClass:[Category class]] ) {
             self.categories = objects;
-            dispatch_async(dispatch_get_main_queue(), ^{ 
+            async_main(^{ 
                 [categoryPicker reloadData];
                 [categoryPicker scrollToElement:0 animated:YES];
             });

@@ -84,9 +84,7 @@
         tMgr.client.authenticationType = RKRequestAuthenticationTypeHTTPBasic;
 
         [[NSNotificationCenter defaultCenter] postNotificationName:@"SessionCreated" object:nil];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.navigationController dismissModalViewControllerAnimated:YES];
-        });
+        async_main(^{ [self.navigationController dismissModalViewControllerAnimated:YES]; });
     }
 }
 

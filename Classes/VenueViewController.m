@@ -45,14 +45,15 @@
 {
     CLLocation* tVenueLocation = [[[CLLocation alloc] initWithLatitude:[venue.lat doubleValue] longitude:[venue.lng doubleValue]] autorelease];
     float tDist = [tVenueLocation distanceFromLocation:aLocation];
-    dispatch_async(dispatch_get_main_queue(), ^{
+    dispatch_block_t tBlock = ^{
         if( tDist<kCheckinRadius ) {
             checkInButton.hidden = NO;
         }else{
             checkInButton.hidden = YES;
             distanceLabel.text = [NSString stringWithFormat:@"%3.1f miles",tDist*3.2808/5280.0];
-        }
-    });
+        }        
+    };
+    async_main(tBlock);
 }
 
 #pragma mark - View lifecycle
@@ -143,16 +144,14 @@
         for (int k=0,K=tAnswers.count;k<K;k++) {
             [tAnswers exchangeObjectAtIndex:k withObjectAtIndex:random() % (k + 1)];
         }
-        dispatch_async(dispatch_get_main_queue(), ^{
+        async_main(^{
             TriviaViewController* tTriviaView = [[[TriviaViewController alloc] initWithNibName:@"TriviaView" bundle:[NSBundle mainBundle]] autorelease];
             tTriviaView.venue = self.venue;
             tTriviaView.trivia = tTrivia;
             tTriviaView.possibleAnswers = tAnswers;
             
             tTriviaView.cancelBlock = ^{ 
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [self.navigationController dismissModalViewControllerAnimated:YES];
-                });
+                async_main(^{ [self.navigationController dismissModalViewControllerAnimated:YES]; });
             };
             tTriviaView.successBlock = ^(Trivia* aTrivia, BOOL aCorrectAnswer) {
                 [self showHud:@"Saving"];
@@ -160,9 +159,7 @@
                 tAttempt.triviaId = aTrivia.triviaId;
                 tAttempt.correctAnswer = [NSNumber numberWithBool:aCorrectAnswer];
                 [[RKObjectManager sharedManager] postObject:tAttempt delegate:self];
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [self.navigationController dismissModalViewControllerAnimated:YES];
-                });
+                async_main(^{ [self.navigationController dismissModalViewControllerAnimated:YES]; });
             };
             BrandedNavigationController* tNav = [[[BrandedNavigationController alloc] initWithRootViewController:tTriviaView] autorelease];
             [self.navigationController presentModalViewController:tNav animated:YES];

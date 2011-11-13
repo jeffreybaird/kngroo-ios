@@ -58,26 +58,18 @@ static int ddLogLevel = LOG_LEVEL_VERBOSE;
 
 - (void)checkinSuccessful:(NSNotification*)notif
 {
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self.navigationController popToRootViewControllerAnimated:YES]; 
-    });
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        [self refreshHops];
-    });
+    async_main(^{ [self.navigationController popToRootViewControllerAnimated:YES]; });
+    async_global(^{ [self refreshHops]; });
 }
 
 - (void)trophyAwarded:(NSNotification*)notif
 {
-    dispatch_async(dispatch_get_main_queue(), ^{
-        Alert(@"TODO", @"trophy awarded");
-    });
+    async_main(^{ Alert(@"TODO", @"trophy awarded"); });
 }
 
 - (void)assignmentDeleted:(NSNotification*)notif
 {
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        [self refreshHops];
-    });
+    async_global(^{ [self refreshHops]; });
 }
 
 #pragma mark -
@@ -219,9 +211,7 @@ static int ddLogLevel = LOG_LEVEL_VERBOSE;
         BOOL tComplete = [modeSelect selectedSegmentIndex]==1;
         [self showHops:tComplete];
         
-        dispatch_async(dispatch_get_main_queue(), ^{ 
-            [tableView reloadData];
-        });
+        async_main(^{ [tableView reloadData]; });
     }
 }
 
