@@ -8,7 +8,7 @@
 
 #import "LeadersViewController.h"
 #import "User.h"
-#import "HopCell.h"
+#import "LeaderCell.h"
 #import "NSString+MD5.h"
 #import "ImageManager.h"
 
@@ -119,25 +119,30 @@ static int ddLogLevel = LOG_LEVEL_VERBOSE;
 
 - (UITableViewCell *)tableView:(UITableView *)aTableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"HopCell";
+    static NSString *CellIdentifier = @"LeaderCell";
     
-    HopCell *cell = (HopCell*)[aTableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    LeaderCell *cell = (LeaderCell*)[aTableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        NSArray* tCells = [[NSBundle mainBundle] loadNibNamed:@"HopCell" owner:self options:nil];
+        NSArray* tCells = [[NSBundle mainBundle] loadNibNamed:@"LeaderCell" owner:self options:nil];
 		cell = [tCells objectAtIndex:0];
     }
     
     User* tUser = [users objectAtIndex:indexPath.row];
-    cell.imageView.image = nil;
-    [[ImageManager sharedManager] loadImageNamed:[NSString stringWithFormat:@"http://www.gravatar.com/avatar/%@",[tUser.email md5]]
+    [[ImageManager sharedManager] loadImageNamed:[tUser gravatarUrl]
                                     successBlock:^(UIImage* aImage) {
                                         async_main(^{ cell.imageView.image = aImage; });
                                     }
                                     failureBlock:^{
                                         async_main(^{ cell.imageView.image = [UIImage imageNamed:@"placeholder"]; });
                                     }];
-    cell.titleLabel.text = [NSString stringWithFormat:@"%@ %@",tUser.firstName,tUser.lastName];
-    cell.countLabel.text = [NSString stringWithFormat:@"%d pts",[tUser.points intValue]];
+    cell.nameLabel.text = [NSString stringWithFormat:@"%@ %@",tUser.firstName,tUser.lastName];
+    cell.pointsLabel.text = [NSString stringWithFormat:@"%d points",[tUser.points intValue]];
+    if( indexPath.row<5 ) {
+        NSString* tFileName = [NSString stringWithFormat:@"icon-rank%02d",indexPath.row+1];
+        cell.rankImage.image = [UIImage imageNamed:tFileName];
+    }else{
+        cell.rankImage.image = nil;
+    }
     
     return cell;
 }
