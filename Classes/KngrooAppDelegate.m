@@ -48,6 +48,7 @@ static int ddLogLevel = LOG_LEVEL_VERBOSE;
 {
     NSDictionary* tUserInfo = notif.userInfo;
     DDLogVerbose(@"%@",tUserInfo);
+    [tabBarController setSelectedIndex:1];
     [window addSubview:tabBarController.view];
     [navController.view removeFromSuperview];
 }
