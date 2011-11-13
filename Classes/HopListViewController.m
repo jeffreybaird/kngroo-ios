@@ -184,6 +184,13 @@ static int ddLogLevel = LOG_LEVEL_VERBOSE;
 	}
 	
 	Hop* tHop = [hops objectAtIndex:indexPath.row];
+    [[ImageManager sharedManager] loadImageNamed:tHop.imageUrl
+                                    successBlock:^(UIImage* aImage) {
+                                        async_main(^{ tCell.imageView.image = aImage; });
+                                    }
+                                    failureBlock:^{
+                                        async_main(^{ tCell.imageView.image = [UIImage imageNamed:@"hop-image"]; });
+                                    }];
 	tCell.titleLabel.text = tHop.title;
 	tCell.countLabel.text = [NSString stringWithFormat:@"%d Locations",tHop.venues.count];
 	

@@ -12,6 +12,7 @@
 #import "AssignmentViewController.h"
 #import "Assignment.h"
 #import "AssignmentCell.h"
+#import "ImageManager.h"
 
 
 static int ddLogLevel = LOG_LEVEL_VERBOSE;
@@ -166,6 +167,13 @@ static int ddLogLevel = LOG_LEVEL_VERBOSE;
 	
 	Assignment* tAssignment = [hops objectAtIndex:indexPath.row];
     Hop* tHop = tAssignment.hop;
+    [[ImageManager sharedManager] loadImageNamed:tHop.imageUrl
+                                    successBlock:^(UIImage* aImage) {
+                                        async_main(^{ tCell.imageView.image = aImage; });
+                                    }
+                                    failureBlock:^{
+                                        async_main(^{ tCell.imageView.image = [UIImage imageNamed:@"hop-image"]; });
+                                    }];
 	tCell.titleLabel.text = tHop.title;
     tCell.progressView.progress = (float)tAssignment.checkins.count / (float)tAssignment.hop.venues.count;
     tCell.progressLabel.text = [NSString stringWithFormat:@"%d / %d",tAssignment.checkins.count,tAssignment.hop.venues.count];
