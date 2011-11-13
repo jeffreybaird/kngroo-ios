@@ -15,6 +15,7 @@
 #import "VenueCell.h"
 #import "BrandedNavigationController.h"
 #import "LocationManager.h"
+#import "ImageManager.h"
 
 
 static int ddLogLevel = LOG_LEVEL_VERBOSE;
@@ -52,6 +53,14 @@ static int ddLogLevel = LOG_LEVEL_VERBOSE;
     titleLabel.text = hop.title;
     progressView.hidden = YES;
     progressLabel.hidden = YES;
+    
+    [[ImageManager sharedManager] loadImageNamed:hop.imageUrl 
+                                    successBlock:^(UIImage* aImage) {
+                                        async_main(^{ imageView.image = aImage; });
+                                    }
+                                    failureBlock:^{
+                                        async_main(^{ imageView.image = [UIImage imageNamed:@"hop-image"]; });
+                                    }];
 }
 
 - (void)viewDidUnload
