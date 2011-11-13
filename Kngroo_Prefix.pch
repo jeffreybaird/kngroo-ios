@@ -14,4 +14,4 @@
 #define Alert(tTitle,tMsg) [[[[UIAlertView alloc] initWithTitle:tTitle message:tMsg delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil] autorelease] show];
 
 #define async_main(aBlock) dispatch_async(dispatch_get_main_queue(), aBlock);
-#define async_global(aBlock) dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_BACKGROUND, 0), aBlock);
+#define async_global(aBlock) dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), aBlock);
