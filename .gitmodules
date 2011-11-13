@@ -10,3 +10,6 @@
 [submodule "MBProgressHUD"]
 	path = MBProgressHUD
 	url = git://github.com/jdg/MBProgressHUD.git
+[submodule "AQGridView"]
+	path = AQGridView
+	url = git://github.com/AlanQuatermain/AQGridView.git
